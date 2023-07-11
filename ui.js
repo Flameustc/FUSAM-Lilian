@@ -131,10 +131,14 @@ async function drawAddonManager() {
 					<span class="bcam-addon-entry-author">by ${entry.author}</span>
 					<div class="bcam-addon-entry-description">
 						<span>${entry.description}</span>
-						${entry.website ? `&bullet; <a href="${entry.website}">website</a>` : ""}
+						${
+							entry.website
+								? `&bullet; <a rel="external" target="_blank" href="${entry.website}">website</a>`
+								: ""
+						}
 						${
 							entry.repository
-								? `&bullet; <a href="${entry.repository}">repository</a>`
+								? `&bullet; <a rel="external" target="_blank" href="${entry.repository}">repository</a>`
 								: ""
 						}
 					</div>
