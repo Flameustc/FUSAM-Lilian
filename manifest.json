@@ -1,0 +1,21 @@
+{
+	"version": 1,
+	"addons": [
+		{
+			"id": "FBC",
+			"name": "For Better Club",
+			"description": "A collection of quality of life improvements",
+			"author": "Sidiousious",
+			"repository": "https://gitlab.com/Sidiousious/bce",
+			"tags": ["quality of life", "cheats", "enhancements", "automation"],
+			"type": "eval",
+			"website": "https://sidiousious.gitlab.io/bce/",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://sidiousious.gitlab.io/bce/bce.user.js"
+				}
+			]
+		}
+	]
+}
