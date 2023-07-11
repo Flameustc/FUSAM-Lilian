@@ -111,6 +111,15 @@ async function drawAddonManager() {
 					Addon Manager and settings menus before refreshing to allow
 					changes to be saved.
 				</p>
+				${
+					GameVersion.toLowerCase().includes("beta")
+						? `<p class="warn">
+							Beta versions of the club are generally not supported
+							by addons and may cause unexpected behavior, including
+							data loss. Use at your own risk.
+						</p>`
+						: ""
+				}
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
 					.join("&bullet; &bullet; &bullet;")}

@@ -129,3 +129,10 @@ select:disabled:hover {
 .bcam-addon-entry-buttons > * {
 	margin-right: 1em;
 }
+
+.warn {
+	color: yellow;
+}
+.warn:before {
+	content: "⚠ ";
+}
