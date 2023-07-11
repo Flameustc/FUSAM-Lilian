@@ -95,7 +95,7 @@ async function drawAddonManager() {
 					device/browser and are available as soon as the game is loaded.
 					<em>Account</em> addons have their state stored on the server
 					and are available after logging in (as long as the manager is
-					loaded). You can enable both <em>Device<em> and <em>Account</em>
+					loaded). You can enable both <em>Device</em> and <em>Account</em>
 					addons at the same time, but the <em>Device</em> addon
 					configuration will take priority if both are enabled. You need 
 					to be logged in to change <em>Account</em> options.
