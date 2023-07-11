@@ -110,7 +110,9 @@ async function drawAddonManager() {
 					Addon Manager and settings menus before refreshing to allow
 					changes to be saved.
 				</p>
-				${s.manifest.addons.map((entry) => drawEntry(entry))}
+				${s.manifest.addons
+					.map((entry) => drawEntry(entry))
+					.join("&bullet; &bullet; &bullet;")}
 			</div>
 		`
 	}

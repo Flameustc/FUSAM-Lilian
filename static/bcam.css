@@ -60,7 +60,7 @@ select:disabled:hover {
 
 #bcam-addon-manager-container {
 	position: absolute;
-	height: 96%;
+	height: 92vh;
 	width: 96%;
 	background-color: rgba(0, 0, 0, 0.9);
 	backdrop-filter: blur(20px);
@@ -108,7 +108,7 @@ select:disabled:hover {
 	font-style: italic;
 	font-size: 0.8em;
 	opacity: 0.8;
-	margin-left: 1em;
+	margin-left: 0.5em;
 }
 
 .bcam-addon-entry-description {
@@ -123,5 +123,5 @@ select:disabled:hover {
 }
 
 .bcam-addon-entry-buttons > * {
-	margin-left: 2em;
+	margin-right: 1em;
 }

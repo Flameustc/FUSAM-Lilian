@@ -17,7 +17,7 @@
  */
 
 /**
- * @typedef {'quality of life' | 'cheats' | 'enhancements' | 'expansion' | 'automation'} Tag
+ * @typedef {'cheats' | 'enhancements' | 'expansion' | 'automation'} Tag
  */
 
 /**
