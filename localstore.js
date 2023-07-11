@@ -20,7 +20,7 @@ const storageKey = "bcam.settings"
 
 export function get() {
 	return /** @type {Record<string, string>} */ (
-		JSON.parse(window.localStorage.getItem(storageKey))
+		JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {}
 	)
 }
 
@@ -28,7 +28,7 @@ function set(value) {
 	window.localStorage.setItem(storageKey, JSON.stringify(value))
 }
 
-const settings = get() || {}
+const settings = get()
 
 export function enableMod(id, distribution) {
 	settings[id] = distribution
