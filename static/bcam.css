@@ -99,6 +99,10 @@ select:disabled:hover {
 	grid-template-columns: 1fr 1fr;
 }
 
+.bcam-addon-entry:nth-child(odd) {
+	color: #8fe5ff;
+}
+
 .bcam-addon-entry h2 {
 	margin-bottom: 0;
 	padding-bottom: 0;
