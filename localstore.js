@@ -1,5 +1,5 @@
 /**
- *     BCAM Loader
+ *     BCAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -45,5 +45,6 @@ export function distribution(id) {
 }
 
 function save() {
+	console.debug("Saving local settings", settings)
 	set(settings)
 }

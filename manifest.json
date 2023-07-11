@@ -1,11 +1,11 @@
 {
-	"version": 1,
+	"version": "1",
 	"addons": [
 		{
 			"id": "FBC",
 			"name": "For Better Club",
-			"description": "A collection of quality of life improvements",
-			"author": "Sidiousious",
+			"description": "Smarter, extensible facial animation and posing engine and a collection of quality of life improvements",
+			"author": "the authors of the Addon Manager",
 			"repository": "https://gitlab.com/Sidiousious/bce",
 			"tags": ["quality of life", "cheats", "enhancements", "automation"],
 			"type": "eval",

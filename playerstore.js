@@ -1,5 +1,5 @@
 /**
- *     BCAM Loader
+ *     BCAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,8 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { waitFor } from "./delay.js"
+
 let loaded = false
 let settings = {}
 
@@ -24,6 +26,9 @@ export function playerSettingsLoaded() {
 }
 
 export function get() {
+	if (!Player?.OnlineSettings?.BCAMSettings) {
+		return {}
+	}
 	return /** @type {Record<string, string>} */ (
 		JSON.parse(
 			LZString.decompressFromBase64(Player.OnlineSettings?.BCAMSettings)
@@ -35,6 +40,7 @@ function set(value) {
 	Player.OnlineSettings.BCAMSettings = LZString.compressToBase64(
 		JSON.stringify(value)
 	)
+	// TODO: save to server, rate limiting
 }
 
 export function enableMod(id, distribution) {
@@ -52,5 +58,13 @@ export function distribution(id) {
 }
 
 function save() {
+	console.debug("Saving account settings", settings)
 	set(settings)
 }
+
+;(async function () {
+	await waitFor(() => !!Player?.OnlineSettings)
+	settings = get()
+	loaded = true
+	console.debug("Loaded account settings", settings)
+})()

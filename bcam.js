@@ -1,5 +1,5 @@
 /**
- *     BCAM Loader
+ *     BCAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,11 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { updateManifest } from "./manifest"
-import { hookUI } from "./ui"
-import "./vendor/bcmodsdk"
+import { loadAddons } from "./loader.js"
+import { updateManifest } from "./manifest.js"
+import { hookUI } from "./ui.js"
+import "./vendor/bcmodsdk.js"
 
 hookUI()
 await updateManifest()
+loadAddons()

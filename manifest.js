@@ -1,5 +1,5 @@
 /**
- *     BCAM Loader
+ *     BCAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -32,9 +32,10 @@
  * @property {string} name - Full name of the addon
  * @property {string} description - Short description of the addon
  * @property {string} author - Name of the addon author
- * @property {string} repository - URL of the addon repository
+ * @property {string} [repository] - URL of the addon repository
  * @property {Tag[]} tags - Tags of the addon
  * @property {'eval' | 'module' | 'script'} type - Type of the addon
+ * @property {string} [website] - URL of the addon website
  * @property {ManifestVersion[]} versions - Version of the addon
  */
 
@@ -46,17 +47,29 @@
 
 /** @type Manifest */
 let manifest = {
-	version: "0.0.0",
+	version: "",
 	addons: [],
 }
 
 export async function updateManifest() {
 	const response = await fetch(
-		"https://sidisousious.gitlab.io/bc-addon-loader/manifest.json"
+		// "https://sidiousious.gitlab.io/bc-addon-loader/manifest.json?v=" +
+		"http://localhost:3001/manifest.json?v=" + Date.now()
 	)
 	manifest = /** @type {Manifest} */ (await response.json())
 }
 
-export function getManifest() {
+export async function getManifest() {
+	if (manifest.version === "") await updateManifest()
 	return manifest
+}
+
+export function getAddon(id) {
+	return manifest.addons.find((addon) => addon.id === id)
+}
+
+export function getAddonVersion(id, distribution) {
+	const addon = getAddon(id)
+	if (!addon) return null
+	return addon.versions.find((version) => version.distribution === distribution)
 }

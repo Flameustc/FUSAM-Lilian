@@ -1,5 +1,5 @@
 /**
- *     BCAM Loader
+ *     BCAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,15 +16,15 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { get as getLocal } from "./localstore"
-import { get as getOnline, playerSettingsLoaded } from "./playerstore"
+import { get as getLocal } from "./localstore.js"
+import { get as getOnline, playerSettingsLoaded } from "./playerstore.js"
 
 export function get() {
 	const local = getLocal()
 	if (playerSettingsLoaded()) {
 		return {
-			...local,
 			...getOnline(),
+			...local,
 		}
 	}
 	return local

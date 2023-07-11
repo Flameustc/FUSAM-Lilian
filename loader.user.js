@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Bondage Club Addon Manager Loader
 // @namespace https://www.bondageprojects.com/
-// @version 1.00
+// @version 1.0
 // @description A loader for the BCAM
 // @author Sidious
 // @match https://bondageprojects.elementfx.com/*
