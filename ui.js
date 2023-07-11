@@ -221,7 +221,10 @@ function hideAddonManager() {
 function loadCSS() {
 	const stylesheet = document.createElement("link")
 	stylesheet.setAttribute("rel", "stylesheet")
-	stylesheet.setAttribute("href", "http://localhost:3001/static/bcam.css")
+	stylesheet.setAttribute(
+		"href",
+		"https://sidiousious.gitlab.io/bc-addon-loader/static/bcam.css"
+	)
 	document.head.appendChild(stylesheet)
 }
 

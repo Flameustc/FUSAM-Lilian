@@ -53,8 +53,8 @@ let manifest = {
 
 export async function updateManifest() {
 	const response = await fetch(
-		// "https://sidiousious.gitlab.io/bc-addon-loader/manifest.json?v=" +
-		"http://localhost:3001/manifest.json?v=" + Date.now()
+		"https://sidiousious.gitlab.io/bc-addon-loader/manifest.json?v=" +
+			Date.now()
 	)
 	manifest = /** @type {Manifest} */ (await response.json())
 }
