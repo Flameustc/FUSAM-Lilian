@@ -96,7 +96,7 @@ select:disabled:hover {
 .bcam-addon-entry {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr auto;
 }
 
 .bcam-addon-entry:nth-child(odd) {
