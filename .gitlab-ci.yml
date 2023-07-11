@@ -6,9 +6,9 @@ pages:
     - cp -r *.js *.html static manifest.json vendor public/
     - bash -c "for f in *.js; do sed -i 's#\"./\\([^/]*.js\\)\"#\"./$CI_COMMIT_SHA.\\1\"#g' \$f; done"
     - 'ls && ls static'
-    - bash -c 'for f in *.js; do cp \$f \"$CI_COMMIT_SHA.\$f\"; done"
+    - bash -c "for f in *.js; do cp \$f \"$CI_COMMIT_SHA.\$f\"; done"
     - 'ls && ls static'
-    - bash -c 'cd static; for f in *; do cp \$f \"$CI_COMMIT_SHA.\$f\"; done"
+    - bash -c "cd static; for f in *; do cp \$f \"$CI_COMMIT_SHA.\$f\"; done"
     - 'ls && ls static'
   artifacts:
     paths:
