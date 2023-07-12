@@ -39,18 +39,24 @@ async function load(settings) {
 		}
 		console.debug(`Loading addon ${id} from ${distribution}`)
 		try {
+			const onload = () => {
+				window.BCAM.addons[id].status = "loaded"
+			}
+			const onerror = () => {
+				window.BCAM.addons[id].status = "error"
+			}
 			switch (addon.type) {
 				case "eval":
 					await evalAddon(version.source)
+					window.BCAM.addons[id].status = "loaded"
 					break
 				case "module":
-					scriptAddon(version.source, "module")
+					scriptAddon(version.source, "module", onload, onerror)
 					break
 				case "script":
-					scriptAddon(version.source, "text/javascript")
+					scriptAddon(version.source, "text/javascript", onload, onerror)
 					break
 			}
-			window.BCAM.addons[id].status = "loaded"
 		} catch (e) {
 			console.error(`Failed to load addon ${id}`, e)
 			window.BCAM.addons[id].status = "error"
@@ -59,10 +65,18 @@ async function load(settings) {
 	}
 }
 
-function scriptAddon(source, type) {
+/**
+ * @param {string} source URL of the script
+ * @param {'module' | 'text/javascript'} type Type of the script
+ * @param {() => void} [onload] Callback when the script is loaded
+ * @param {() => void} [onerror] Callback when the script fails to load
+ */
+function scriptAddon(source, type, onload, onerror) {
 	const script = document.createElement("script")
 	script.type = type
 	script.src = `${source}?v=${Date.now()}`
+	script.onload = onload
+	script.onerror = onerror
 	document.head.appendChild(script)
 }
 
