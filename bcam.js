@@ -21,6 +21,11 @@ import { updateManifest } from "./manifest.js"
 import { hookUI } from "./ui.js"
 import "./vendor/bcmodsdk.js"
 
+window.BCAM = {
+	present: true,
+	addons: {},
+}
+
 hookUI()
 await updateManifest()
 loadAddons()

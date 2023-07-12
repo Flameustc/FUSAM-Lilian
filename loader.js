@@ -9,11 +9,13 @@ export async function loadAddons() {
 
 	// Skip loading device addons if the player is already logged in
 	if (!playerSettingsLoaded()) {
-		load(getLocal())
+		const addons = getLocal()
+		await load(addons)
 	}
 
 	await waitFor(() => playerSettingsLoaded())
-	load(get())
+	const addons = get()
+	await load(addons)
 }
 
 /**
@@ -21,23 +23,38 @@ export async function loadAddons() {
  */
 async function load(settings) {
 	for (const [id, distribution] of Object.entries(settings)) {
+		if (id in window.BCAM.addons) continue
+
+		window.BCAM.addons[id] = {
+			distribution,
+			status: "loading",
+		}
+
 		const addon = getAddon(id)
 		const version = getAddonVersion(id, distribution)
 		if (!version) {
 			console.warn(`Addon ${id} or its distribution ${distribution} not found`)
+			window.BCAM.addons[id].status = "error"
 			continue
 		}
 		console.debug(`Loading addon ${id} from ${distribution}`)
-		switch (addon.type) {
-			case "eval":
-				await evalAddon(version.source)
-				break
-			case "module":
-				scriptAddon(version.source, "module")
-				break
-			case "script":
-				scriptAddon(version.source, "text/javascript")
-				break
+		try {
+			switch (addon.type) {
+				case "eval":
+					await evalAddon(version.source)
+					break
+				case "module":
+					scriptAddon(version.source, "module")
+					break
+				case "script":
+					scriptAddon(version.source, "text/javascript")
+					break
+			}
+			window.BCAM.addons[id].status = "loaded"
+		} catch (e) {
+			console.error(`Failed to load addon ${id}`, e)
+			window.BCAM.addons[id].status = "error"
+			continue
 		}
 	}
 }
