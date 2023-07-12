@@ -1,0 +1,9 @@
+textarea {
+	width: 70em;
+	max-width: 90%;
+	height: 3em;
+}
+
+body {
+	font-family: sans-serif;
+}

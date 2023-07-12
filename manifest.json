@@ -8,7 +8,7 @@
 			"author": "the authors of the Addon Manager",
 			"repository": "https://gitlab.com/Sidiousious/bce",
 			"tags": ["cheats", "enhancements", "automation"],
-			"type": "eval",
+			"type": "script",
 			"website": "https://sidiousious.gitlab.io/bce/",
 			"versions": [
 				{
