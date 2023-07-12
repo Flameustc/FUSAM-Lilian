@@ -48,7 +48,7 @@ function showButton(args, next) {
 }
 
 function hideButton(args, next) {
-	document.getElementById(showButtonId).remove()
+	document.getElementById(showButtonId)?.remove()
 	return next(args)
 }
 
@@ -68,7 +68,7 @@ async function showAddonManager() {
 }
 
 function drawHideButton() {
-	return `<button id="${addonManagerCloseButtonId}" class="button">X</button>`
+	return `<button id="${addonManagerCloseButtonId}" class="button">SAVE</button>`
 }
 
 async function drawAddonManager() {
@@ -230,6 +230,11 @@ function registerEventListeners() {
 
 function hideAddonManager() {
 	document.getElementById(addonManagerId).remove()
+	if (playerSettingsLoaded()) {
+		ServerAccountUpdate.QueueData({
+			OnlineSettings: Player.OnlineSettings,
+		})
+	}
 }
 
 function loadCSS() {
@@ -248,6 +253,7 @@ export function hookUI() {
 	SDK.hookFunction("LoginLoad", HOOK_PRIORITY.ADD_BEHAVIOR, showButton)
 	SDK.hookFunction("PreferenceLoad", HOOK_PRIORITY.ADD_BEHAVIOR, showButton)
 	SDK.hookFunction("LoginDoLogin", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
+	SDK.hookFunction("LoginResponse", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("PreferenceExit", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 
 	if (CurrentScreen === "Preference" || CurrentScreen === "Login") {
