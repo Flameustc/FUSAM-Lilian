@@ -132,10 +132,6 @@
 			"type": "eval",
 			"versions": [
 				{
-					"distribution": "stable",
-					"source": "https://code.fleshless.org/mute/MBCHC/raw/branch/master/mbchc.user.js"
-				},
-				{
 					"distribution": "dev",
 					"source": "https://code.fleshless.org/mute/MBCHC/raw/branch/master/mbchc-dev.user.js"
 				}
