@@ -36,13 +36,8 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-;(function () {
-	"use strict"
-
-	const script = document.createElement("script")
-	script.src = `https://sidiousious.gitlab.io/bc-addon-loader/fusam.js?v=${(
+import(
+	`https://sidiousious.gitlab.io/bc-addon-loader/fusam.js?v=${(
 		Date.now() / 10000
 	).toFixed(0)}`
-	script.type = "module"
-	document.head.appendChild(script)
-})()
+)
