@@ -10,12 +10,12 @@ export async function loadAddons() {
 	// Skip loading device addons if the player is already logged in
 	if (!playerSettingsLoaded()) {
 		const addons = getLocal()
-		await load(addons)
+		await load(addons.enabledDistributions)
 	}
 
 	await waitFor(() => playerSettingsLoaded())
 	const addons = get()
-	await load(addons)
+	await load(addons.enabledDistributions)
 }
 
 /**

@@ -15,3 +15,7 @@ type BCAMAddonState = {
 	distribution: string
 	status: "loading" | "loaded" | "error"
 }
+
+export type BCAMSettings = {
+	enabledDistributions: Record<string, string>
+}

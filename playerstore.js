@@ -17,9 +17,13 @@
  */
 
 import { waitFor } from "./delay.js"
+import { isSettingsV1 } from "./typeasserts.js"
 
 let loaded = false
-let settings = {}
+/** @type {import("./types/bcam").BCAMSettings} */
+let settings = {
+	enabledDistributions: {},
+}
 
 export function playerSettingsLoaded() {
 	return loaded
@@ -27,34 +31,43 @@ export function playerSettingsLoaded() {
 
 export function get() {
 	if (!Player?.OnlineSettings?.BCAMSettings) {
-		return {}
+		return {
+			enabledDistributions: {},
+		}
 	}
-	return /** @type {Record<string, string>} */ (
-		JSON.parse(
-			LZString.decompressFromBase64(Player.OnlineSettings?.BCAMSettings)
+	const s =
+		/** @type {import("./types/bcam").BCAMSettings | Record<string, string>} */ (
+			JSON.parse(
+				LZString.decompressFromBase64(Player.OnlineSettings?.BCAMSettings)
+			)
 		)
-	)
+	// Migration from initial version
+	if (isSettingsV1(s)) {
+		return s
+	}
+	return {
+		enabledDistributions: s || {},
+	}
 }
 
 function set(value) {
 	Player.OnlineSettings.BCAMSettings = LZString.compressToBase64(
 		JSON.stringify(value)
 	)
-	// TODO: save to server, rate limiting
 }
 
 export function enableMod(id, distribution) {
-	settings[id] = distribution
+	settings.enabledDistributions[id] = distribution
 	save()
 }
 
 export function disableMod(id) {
-	delete settings[id]
+	delete settings.enabledDistributions[id]
 	save()
 }
 
 export function distribution(id) {
-	return settings[id]
+	return settings.enabledDistributions[id]
 }
 
 function save() {

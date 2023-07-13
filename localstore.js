@@ -16,12 +16,22 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { isSettingsV1 } from "./typeasserts"
+
 const storageKey = "bcam.settings"
 
 export function get() {
-	return /** @type {Record<string, string>} */ (
-		JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {}
-	)
+	const s =
+		/** @type {import("./types/bcam").BCAMSettings | Record<string, string>} */ (
+			JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {}
+		)
+	// Migration from initial version
+	if (isSettingsV1(s)) {
+		return s
+	}
+	return {
+		enabledDistributions: s || {},
+	}
 }
 
 function set(value) {
@@ -31,17 +41,17 @@ function set(value) {
 const settings = get()
 
 export function enableMod(id, distribution) {
-	settings[id] = distribution
+	settings.enabledDistributions[id] = distribution
 	save()
 }
 
 export function disableMod(id) {
-	delete settings[id]
+	delete settings.enabledDistributions[id]
 	save()
 }
 
 export function distribution(id) {
-	return settings[id]
+	return settings.enabledDistributions[id]
 }
 
 function save() {
