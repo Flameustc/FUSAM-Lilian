@@ -23,8 +23,10 @@ export function get() {
 	const local = getLocal()
 	if (playerSettingsLoaded()) {
 		return {
-			...getOnline(),
-			...local,
+			enabledDistributions: {
+				...getOnline().enabledDistributions,
+				...local.enabledDistributions,
+			},
 		}
 	}
 	return local
