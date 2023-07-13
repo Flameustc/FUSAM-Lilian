@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Original instructions from BCX https://github.com/jomshir98/bondage-club-extended - names, links, and scripts changed to refer to BCAM, data collection and browser support matrix removed -->
+<!-- Original instructions from BCX https://github.com/jomshir98/bondage-club-extended - names, links, and scripts changed to refer to FUSAM, data collection and browser support matrix removed -->
 <head>
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="no-cache" />
@@ -13,9 +13,9 @@
 </head>
 <body class="stable">
 	<h1>Instructions how to run BC Addon Manager</h1>
-	To run BCAM, <strong>choose ONE</strong> of the mentioned methods.<br />
-	All of them will always start the latest BCAM version without any need to change something on your side.<br />
-	BCAM is <a href="https://gitlab.com/sidiousious/bc-addon-loader">open source</a>.
+	To run FUSAM, <strong>choose ONE</strong> of the mentioned methods.<br />
+	All of them will always start the latest FUSAM version without any need to change something on your side.<br />
+	FUSAM is <a href="https://gitlab.com/sidiousious/bc-addon-loader">open source</a>.
 	<h2>(A) Automatic TamperMonkey loader:</h2>
 	<p>
 		1) Install Tampermonkey (store links:
@@ -63,7 +63,7 @@
 	<script>
 "use strict";
 const bookmark = 
-'javascript:(function(){if(window.BCAM===undefined){let n=document.createElement("script");n.type="module";n.setAttribute("src","https://sidiousious.gitlab.io/bc-addon-loader/bcam.js?_="+Date.now());document.head.appendChild(n);}})();'
+'javascript:(function(){if(window.FUSAM===undefined){let n=document.createElement("script");n.type="module";n.setAttribute("src","https://sidiousious.gitlab.io/bc-addon-loader/fusam.js?_="+Date.now());document.head.appendChild(n);}})();'
 for (const e of document.getElementsByClassName("bookmarklink")) {
 	if (e instanceof HTMLAnchorElement) {
 		e.href = bookmark;

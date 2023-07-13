@@ -23,9 +23,9 @@ export async function loadAddons() {
  */
 async function load(settings) {
 	for (const [id, distribution] of Object.entries(settings)) {
-		if (id in window.BCAM.addons) continue
+		if (id in window.FUSAM.addons) continue
 
-		window.BCAM.addons[id] = {
+		window.FUSAM.addons[id] = {
 			distribution,
 			status: "loading",
 		}
@@ -34,21 +34,21 @@ async function load(settings) {
 		const version = getAddonVersion(id, distribution)
 		if (!version) {
 			console.warn(`Addon ${id} or its distribution ${distribution} not found`)
-			window.BCAM.addons[id].status = "error"
+			window.FUSAM.addons[id].status = "error"
 			continue
 		}
 		console.debug(`Loading addon ${id} from ${distribution}`)
 		try {
 			const onload = () => {
-				window.BCAM.addons[id].status = "loaded"
+				window.FUSAM.addons[id].status = "loaded"
 			}
 			const onerror = () => {
-				window.BCAM.addons[id].status = "error"
+				window.FUSAM.addons[id].status = "error"
 			}
 			switch (addon.type) {
 				case "eval":
 					await evalAddon(version.source)
-					window.BCAM.addons[id].status = "loaded"
+					window.FUSAM.addons[id].status = "loaded"
 					break
 				case "module":
 					scriptAddon(version.source, "module", onload, onerror)
@@ -59,7 +59,7 @@ async function load(settings) {
 			}
 		} catch (e) {
 			console.error(`Failed to load addon ${id}`, e)
-			window.BCAM.addons[id].status = "error"
+			window.FUSAM.addons[id].status = "error"
 			continue
 		}
 	}

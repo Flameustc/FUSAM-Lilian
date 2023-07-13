@@ -2,20 +2,20 @@ export {}
 
 declare global {
 	interface Window {
-		BCAM?: BCAMPublicAPI
+		FUSAM?: FUSAMPublicAPI
 	}
 }
 
-type BCAMPublicAPI = {
+type FUSAMPublicAPI = {
 	present: true
-	addons: Record<string, BCAMAddonState>
+	addons: Record<string, FUSAMAddonState>
 }
 
-type BCAMAddonState = {
+type FUSAMAddonState = {
 	distribution: string
 	status: "loading" | "loaded" | "error"
 }
 
-export type BCAMSettings = {
+export type FUSAMSettings = {
 	enabledDistributions: Record<string, string>
 }

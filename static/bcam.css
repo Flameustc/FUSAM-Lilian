@@ -1,5 +1,5 @@
 /**
- *     BCAM
+ *     FUSAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#bcam-show-button {
+#fusam-show-button {
 	position: absolute;
 	top: 0;
 	right: 50%;
@@ -58,7 +58,7 @@ select:disabled:hover {
 	background-color: white;
 }
 
-#bcam-addon-manager-container {
+#fusam-addon-manager-container {
 	position: absolute;
 	height: 92vh;
 	width: 96%;
@@ -71,7 +71,7 @@ select:disabled:hover {
 	font-family: "Roboto", sans-serif;
 }
 
-#bcam-addon-manager-header {
+#fusam-addon-manager-header {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -79,7 +79,7 @@ select:disabled:hover {
 	flex-direction: row;
 }
 
-#bcam-addon-manager-body {
+#fusam-addon-manager-body {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -87,46 +87,46 @@ select:disabled:hover {
 	overflow-y: auto;
 }
 
-#bcam-addon-manager-body > p {
+#fusam-addon-manager-body > p {
 	width: 50em;
 	margin-top: 0;
 	margin-bottom: 0.5em;
 }
 
-.bcam-addon-entry {
+.fusam-addon-entry {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr auto;
 }
 
-.bcam-addon-entry:nth-child(odd) {
+.fusam-addon-entry:nth-child(odd) {
 	color: #8fe5ff;
 }
 
-.bcam-addon-entry h2 {
+.fusam-addon-entry h2 {
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
 
-.bcam-addon-entry-author {
+.fusam-addon-entry-author {
 	font-style: italic;
 	font-size: 0.8em;
 	opacity: 0.8;
 	margin-left: 0.5em;
 }
 
-.bcam-addon-entry-description {
+.fusam-addon-entry-description {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
 
-.bcam-addon-entry-buttons {
+.fusam-addon-entry-buttons {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
 }
 
-.bcam-addon-entry-buttons > * {
+.fusam-addon-entry-buttons > * {
 	margin-right: 1em;
 }
 

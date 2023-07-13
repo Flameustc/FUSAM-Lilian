@@ -1,5 +1,5 @@
 /**
- *     BCAM
+ *     FUSAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -32,9 +32,9 @@ import {
 import { HOOK_PRIORITY, SDK } from "./vendor/bcmodsdk.js"
 import { component, store } from "./vendor/reef.js"
 
-const showButtonId = "bcam-show-button"
-const addonManagerId = "bcam-addon-manager-container"
-const addonManagerCloseButtonId = "bcam-addon-manager-close"
+const showButtonId = "fusam-show-button"
+const addonManagerId = "fusam-addon-manager-container"
+const addonManagerCloseButtonId = "fusam-addon-manager-close"
 
 function showButton(args, next) {
 	const button = document.createElement("button")
@@ -84,12 +84,12 @@ async function drawAddonManager() {
 
 	function draw() {
 		return `
-			<div id="bcam-addon-manager-header">
+			<div id="fusam-addon-manager-header">
 				${drawHideButton()}
 				<h1>Addon Manager</h1>
 				<div>&nbsp;</div>
 			</div>
-			<div id="bcam-addon-manager-body">
+			<div id="fusam-addon-manager-body">
 				<p>
 					<em>Device</em> addons have their state stored locally on your
 					device/browser and are available as soon as the game is loaded.
@@ -135,11 +135,11 @@ async function drawAddonManager() {
 		const online = onlineDistribution(entry.id)
 
 		return `
-			<div class="bcam-addon-entry">
+			<div class="fusam-addon-entry">
 				<div>
 					<h2>${entry.name}</h2>
-					<span class="bcam-addon-entry-author">by ${entry.author}</span>
-					<div class="bcam-addon-entry-description">
+					<span class="fusam-addon-entry-author">by ${entry.author}</span>
+					<div class="fusam-addon-entry-description">
 						<span>${entry.description}</span>
 						${
 							entry.website
@@ -153,8 +153,8 @@ async function drawAddonManager() {
 						}
 					</div>
 				</div>
-				<div class="bcam-addon-entry-buttons">
-					<div class="bcam-addon-entry-version-device">
+				<div class="fusam-addon-entry-buttons">
+					<div class="fusam-addon-entry-version-device">
 						<h3>Device</h3>
 						<select id="${entry.id}-device" data-addon="${entry.id}">
 							<option value="none">None</option>
@@ -163,7 +163,7 @@ async function drawAddonManager() {
 							)}
 						</select>
 					</div>
-					<div class="bcam-addon-entry-version-account">
+					<div class="fusam-addon-entry-version-account">
 						<h3>Account</h3>
 						<select id="${entry.id}-account" data-addon="${entry.id}" ${
 			!playerSettingsLoaded() ? "disabled" : ""
@@ -193,7 +193,7 @@ async function drawAddonManager() {
 }
 
 function registerEventListeners() {
-	document.querySelectorAll(".bcam-addon-entry-version-device select").forEach(
+	document.querySelectorAll(".fusam-addon-entry-version-device select").forEach(
 		/**
 		 * @param {HTMLSelectElement} select
 		 */
@@ -210,22 +210,24 @@ function registerEventListeners() {
 		}
 	)
 
-	document.querySelectorAll(".bcam-addon-entry-version-account select").forEach(
-		/**
-		 * @param {HTMLSelectElement} select
-		 */
-		(select) => {
-			const addon = select.getAttribute("data-addon")
-			select.onchange = () => {
-				const distribution = select.value
-				if (distribution === "none") {
-					disableOnline(addon)
-				} else {
-					enableOnline(addon, distribution)
+	document
+		.querySelectorAll(".fusam-addon-entry-version-account select")
+		.forEach(
+			/**
+			 * @param {HTMLSelectElement} select
+			 */
+			(select) => {
+				const addon = select.getAttribute("data-addon")
+				select.onchange = () => {
+					const distribution = select.value
+					if (distribution === "none") {
+						disableOnline(addon)
+					} else {
+						enableOnline(addon, distribution)
+					}
 				}
 			}
-		}
-	)
+		)
 }
 
 function hideAddonManager() {
@@ -242,7 +244,7 @@ function loadCSS() {
 	stylesheet.setAttribute("rel", "stylesheet")
 	stylesheet.setAttribute(
 		"href",
-		"https://sidiousious.gitlab.io/bc-addon-loader/static/bcam.css"
+		"https://sidiousious.gitlab.io/bc-addon-loader/static/fusam.css"
 	)
 	document.head.appendChild(stylesheet)
 }

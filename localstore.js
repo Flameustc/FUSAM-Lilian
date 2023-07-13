@@ -1,5 +1,5 @@
 /**
- *     BCAM
+ *     FUSAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,11 +18,11 @@
 
 import { isSettingsV1 } from "./typeasserts.js"
 
-const storageKey = "bcam.settings"
+const storageKey = "fusam.settings"
 
 export function get() {
 	const s =
-		/** @type {import("./types/bcam").BCAMSettings | Record<string, string>} */ (
+		/** @type {import("./types/fusam.js").FUSAMSettings | Record<string, string>} */ (
 			JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {}
 		)
 	// Migration from initial version

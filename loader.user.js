@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name Bondage Club Addon Manager Loader
+// @name Fantastic Ultimate Solution to Addon Management Loader
 // @namespace https://www.bondageprojects.com/
 // @version 1.0
-// @description A loader for the BCAM
+// @description A loader for the FUSAM
 // @author Sidious
 // @match https://bondageprojects.elementfx.com/*
 // @match https://www.bondageprojects.elementfx.com/*
@@ -19,7 +19,7 @@
 /// <reference path="./node_modules/@total-typescript/ts-reset/dist/recommended.d.ts"/>
 
 /**
- *     BCAM Loader
+ *     FUSAM Loader
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -40,7 +40,7 @@
 	"use strict"
 
 	const script = document.createElement("script")
-	script.src = `https://sidiousious.gitlab.io/bc-addon-loader/bcam.js?v=${(
+	script.src = `https://sidiousious.gitlab.io/bc-addon-loader/fusam.js?v=${(
 		Date.now() / 10000
 	).toFixed(0)}`
 	script.type = "module"

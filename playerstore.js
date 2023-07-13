@@ -1,5 +1,5 @@
 /**
- *     BCAM
+ *     FUSAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@ import { waitFor } from "./delay.js"
 import { isSettingsV1 } from "./typeasserts.js"
 
 let loaded = false
-/** @type {import("./types/bcam").BCAMSettings} */
+/** @type {import("./types/fusam.js").FUSAMSettings} */
 let settings = {
 	enabledDistributions: {},
 }
@@ -30,15 +30,15 @@ export function playerSettingsLoaded() {
 }
 
 export function get() {
-	if (!Player?.OnlineSettings?.BCAMSettings) {
+	if (!Player?.OnlineSettings?.FUSAMSettings) {
 		return {
 			enabledDistributions: {},
 		}
 	}
 	const s =
-		/** @type {import("./types/bcam").BCAMSettings | Record<string, string>} */ (
+		/** @type {import("./types/fusam.js").FUSAMSettings | Record<string, string>} */ (
 			JSON.parse(
-				LZString.decompressFromBase64(Player.OnlineSettings?.BCAMSettings)
+				LZString.decompressFromBase64(Player.OnlineSettings?.FUSAMSettings)
 			)
 		)
 	// Migration from initial version
@@ -51,7 +51,7 @@ export function get() {
 }
 
 function set(value) {
-	Player.OnlineSettings.BCAMSettings = LZString.compressToBase64(
+	Player.OnlineSettings.FUSAMSettings = LZString.compressToBase64(
 		JSON.stringify(value)
 	)
 }

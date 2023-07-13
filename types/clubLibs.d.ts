@@ -8,8 +8,8 @@ declare global {
 		decompressFromUTF16: (data: string) => string
 	}
 
-	// Overrides the default typedef for the `PlayerOnlineSettings` interface to have type-safety for BCAMSettings
+	// Overrides the default typedef for the `PlayerOnlineSettings` interface to have type-safety for FUSAMSettings
 	interface PlayerOnlineSettings {
-		BCAMSettings: string
+		FUSAMSettings: string
 	}
 }

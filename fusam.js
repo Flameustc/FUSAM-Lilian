@@ -1,5 +1,5 @@
 /**
- *     BCAM
+ *     FUSAM
  *  Copyright (C) 2023  Sid
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@ import { updateManifest } from "./manifest.js"
 import { hookUI } from "./ui.js"
 import "./vendor/bcmodsdk.js"
 
-window.BCAM = {
+window.FUSAM = {
 	present: true,
 	addons: {},
 }
