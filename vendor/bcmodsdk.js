@@ -13,7 +13,7 @@ export const SDK = bcModSdk.registerMod({
 	name: "FUSAM",
 	fullName: "Fantastic Ultimate Solution to Addon Management",
 	version: "1.0.0",
-	repository: "",
+	repository: "https://gitlab.com/Sidiousious/bc-addon-loader",
 })
 
 export const HOOK_PRIORITY = /** @type {const} */ ({
