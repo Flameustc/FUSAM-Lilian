@@ -16,7 +16,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { isSettingsV1 } from "./typeasserts"
+import { isSettingsV1 } from "./typeasserts.js"
 
 const storageKey = "bcam.settings"
 
