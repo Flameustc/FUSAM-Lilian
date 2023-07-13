@@ -51,7 +51,8 @@ async function load(settings) {
 					window.FUSAM.addons[id].status = "loaded"
 					break
 				case "module":
-					scriptAddon(version.source, "module", onload, onerror)
+					await import(`${version.source}?v=${Date.now()}`)
+					window.FUSAM.addons[id].status = "loaded"
 					break
 				case "script":
 					scriptAddon(version.source, "text/javascript", onload, onerror)
