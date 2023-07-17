@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <!-- Original instructions from BCX https://github.com/jomshir98/bondage-club-extended - names, links, and scripts changed to refer to FUSAM, data collection and browser support matrix removed -->
+<!--
+/**
+ *     FUSAM
+ *  Copyright (C) 2023  Sid
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+-->
+
 <head>
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="no-cache" />
@@ -11,6 +31,7 @@
 	<title>Bondage Club Addon Loader</title>
 	<link rel="stylesheet" href="./static/index.css" />
 </head>
+
 <body class="stable">
 	<h1>Instructions how to run Fantastic Ultimate Solution to Addon Management</h1>
 	To run FUSAM, <strong>choose ONE</strong> of the mentioned methods.<br />
@@ -19,9 +40,11 @@
 	<h2>(A) Automatic TamperMonkey loader:</h2>
 	<p>
 		1) Install Tampermonkey (store links:
-		<a href='https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo' target="_blank">Chrome</a>, 
+		<a href='https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo'
+			target="_blank">Chrome</a>,
 		<a href='https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/' target="_blank">Firefox</a>,
-		<a href='https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd' target="_blank">Microsoft Edge</a>
+		<a href='https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd'
+			target="_blank">Microsoft Edge</a>
 		)<br />
 		2) Open following page and confirm script installation:
 		<a href='https://sidiousious.gitlab.io/bc-addon-loader/loader.user.js' target="_blank">link</a>
@@ -46,32 +69,32 @@
 		*) <strong>Do not try selecting the bookmark from list of bookmarks, it won't work!</strong>
 	</p>
 	<p>
-		<h2>(B) Manual bookmark loader (Mobile: iOS):</h2>
-		1) Copy everything from the following text field: <br />
-		<textarea readonly class="bookmarklink"></textarea><br />
-		2) Press "Share" -> "Add Bookmark" and Save <br />
-		3) Open Bookmarks list -> press "Edit" (on the bottom of the screen in the popup)<br />
-		4) Select the bookmark you just saved <br />
-		5) [if applicable] Select "More" -> "Edit bookmark" <br />
-		6) Hit "x" next to the URL to clear it and paste the copied URL <br />
-		7) Leave the bookmark menu using "Done" in the top right corner
-		To activate: <br />
-		1) Enter Club <br />
-		2) Open Bookmarks list <br />
-		3) Tap the bookmark you saved <br />
+	<h2>(B) Manual bookmark loader (Mobile: iOS):</h2>
+	1) Copy everything from the following text field: <br />
+	<textarea readonly class="bookmarklink"></textarea><br />
+	2) Press "Share" -> "Add Bookmark" and Save <br />
+	3) Open Bookmarks list -> press "Edit" (on the bottom of the screen in the popup)<br />
+	4) Select the bookmark you just saved <br />
+	5) [if applicable] Select "More" -> "Edit bookmark" <br />
+	6) Hit "x" next to the URL to clear it and paste the copied URL <br />
+	7) Leave the bookmark menu using "Done" in the top right corner
+	To activate: <br />
+	1) Enter Club <br />
+	2) Open Bookmarks list <br />
+	3) Tap the bookmark you saved <br />
 	</p>
 	<script>
-"use strict";
-const bookmark = 
-'javascript:(function(){if(window.FUSAM===undefined){let n=document.createElement("script");n.type="module";n.setAttribute("src","https://sidiousious.gitlab.io/bc-addon-loader/fusam.js?_="+Date.now());document.head.appendChild(n);}})();'
-for (const e of document.getElementsByClassName("bookmarklink")) {
-	if (e instanceof HTMLAnchorElement) {
-		e.href = bookmark;
-	} else if (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement) {
-		e.value = bookmark;
-	} else {
-		console.error("Bad element", e);
-	}
-}
+		"use strict";
+		const bookmark =
+			'javascript:(function(){if(window.FUSAM===undefined){let n=document.createElement("script");n.type="module";n.setAttribute("src","https://sidiousious.gitlab.io/bc-addon-loader/fusam.js?_="+Date.now());document.head.appendChild(n);}})();'
+		for (const e of document.getElementsByClassName("bookmarklink")) {
+			if (e instanceof HTMLAnchorElement) {
+				e.href = bookmark;
+			} else if (e instanceof HTMLInputElement || e instanceof HTMLTextAreaElement) {
+				e.value = bookmark;
+			} else {
+				console.error("Bad element", e);
+			}
+		}
 	</script>
 </body>
