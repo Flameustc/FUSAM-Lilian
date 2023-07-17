@@ -18,6 +18,21 @@
 			]
 		},
 		{
+			"id": "UniRemote",
+			"name": "Universal Remote",
+			"description": "This remote works across chat rooms, but requires both players to have it. /ur or friends list to use.",
+			"author": "the authors of the Addon Manager",
+			"repository": "https://gitlab.com/Sidiousious/uniremote",
+			"tags": ["enhancements"],
+			"type": "module",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://sidiousious.gitlab.io/universal-remote/main.js"
+				}
+			]
+		},
+		{
 			"id": "BCX",
 			"name": "Bondage Club Extended",
 			"description": "Adds rules, curses, and more to enhance D/s play alongside a handful of quality of life improvements",
