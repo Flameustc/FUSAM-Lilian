@@ -16,6 +16,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { BaseURL } from "./config.js"
 import { waitFor } from "./delay.js"
 import {
 	disableMod as disableLocal,
@@ -242,10 +243,7 @@ function hideAddonManager() {
 function loadCSS() {
 	const stylesheet = document.createElement("link")
 	stylesheet.setAttribute("rel", "stylesheet")
-	stylesheet.setAttribute(
-		"href",
-		"https://sidiousious.gitlab.io/bc-addon-loader/static/fusam.css"
-	)
+	stylesheet.setAttribute("href", BaseURL + "static/fusam.css")
 	document.head.appendChild(stylesheet)
 }
 

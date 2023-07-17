@@ -16,6 +16,8 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { BaseURL } from "./config.js"
+
 /**
  * @typedef {'cheats' | 'enhancements' | 'expansion' | 'automation'} Tag
  */
@@ -52,10 +54,7 @@ let manifest = {
 }
 
 export async function updateManifest() {
-	const response = await fetch(
-		"https://sidiousious.gitlab.io/bc-addon-loader/manifest.json?v=" +
-			Date.now()
-	)
+	const response = await fetch(BaseURL + "manifest.json?v=" + Date.now())
 	manifest = /** @type {Manifest} */ (await response.json())
 }
 
