@@ -56,6 +56,42 @@ let manifest = {
 export async function updateManifest() {
 	const response = await fetch(BaseURL + "manifest.json?v=" + Date.now())
 	manifest = /** @type {Manifest} */ (await response.json())
+	try {
+		const url = new URL(window.location.href)
+		const fusamParam = url.searchParams.get("fusam")
+		if (fusamParam && /^https?:\/\/localhost[:/]/.test(fusamParam)) {
+			manifest.addons.unshift({
+				id: "localdev",
+				name: "Local Development",
+				description: "Local development addon",
+				author: "You",
+				tags: [],
+				type: getType(url.searchParams),
+				versions: [
+					{
+						distribution: "dev",
+						source: fusamParam,
+					},
+				],
+			})
+		}
+	} catch (e) {
+		// ignore
+	}
+}
+
+/**
+ * @param {URLSearchParams} searchParams
+ */
+function getType(searchParams) {
+	switch (searchParams.get("fusamType")) {
+		case "eval":
+			return "eval"
+		case "script":
+			return "script"
+		default:
+			return "module"
+	}
 }
 
 export async function getManifest() {

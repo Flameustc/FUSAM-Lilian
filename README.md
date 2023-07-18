@@ -22,6 +22,10 @@ You may optionally also provide:
 - link to a website for more information
 - additional distributions (beta/dev versions)
 
+### Developing an Addon for FUSAM
+
+You need a [local HTTP server](https://gist.github.com/willurd/5720255) that serves your js file. Open the club and add `?fusam=http://localhost:<your_port>/<your_file>.js&fusamType=<module/script/eval>` replacing the `<placeholders>`, and you will be able to load your development addon as "Local Development by You" inside FUSAM.
+
 ### Contributing
 
 If you'd like to see improvements in the loader itself, you can create an issue or discuss in the Discord linked above.
