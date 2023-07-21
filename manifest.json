@@ -168,6 +168,22 @@
 			]
 		},
 		{
+			"id": "Responsive",
+			"name": "Responsive",
+			"description": "Automatically sends messages when the user reaches a certain state (slapped, orgasm, etc).",
+			"author": "SaotomeToyStore",
+			"repository": "https://gitlab.com/dynilath/BCResponsive",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/Responsive/",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/Responsive/main.js"
+				}
+			]
+		},
+		{
 			"id": "ULTRAbc",
 			"name": "ULTRAbc",
 			"description": "A large collection of cheats, quality of life improvements, and a moaner script",
@@ -194,21 +210,6 @@
 				{
 					"distribution": "stable",
 					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/ADCS/main.js"
-				}
-			]
-		},
-		{
-			"id": "Responsive",
-			"name": "Responsive",
-			"description": "Automatically sends messages when the user reaches a certain state (slapped, orgasm, etc). (Note: source code unavailable)",
-			"author": "SaotomeToyStore",
-			"tags": ["expansion"],
-			"type": "script",
-			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/Responsive/",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/Responsive/main.js"
 				}
 			]
 		},
