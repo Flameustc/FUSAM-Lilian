@@ -171,15 +171,14 @@
 			"id": "Responsive",
 			"name": "Responsive",
 			"description": "Automatically sends messages when the user reaches a certain state (slapped, orgasm, etc).",
-			"author": "SaotomeToyStore",
-			"repository": "https://gitlab.com/dynilath/BCResponsive",
+			"author": "SaotomeToyStore, patched by dDeepLb",
+			"repository": "https://github.com/dDeepLb/BC-Responsive",
 			"tags": ["expansion"],
-			"type": "script",
-			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/Responsive/",
+			"type": "eval",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/Responsive/main.js"
+					"source": "https://raw.githubusercontent.com/dDeepLb/BC-Responsive/main/user.js"
 				}
 			]
 		},
