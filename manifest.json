@@ -22,7 +22,7 @@
 			"name": "Universal Remote",
 			"description": "This remote works across chat rooms, but requires both players to have it. /ur or friends list to use.",
 			"author": "the authors of the Addon Manager",
-			"repository": "https://gitlab.com/Sidiousious/uniremote",
+			"repository": "https://gitlab.com/Sidiousious/universal-remote",
 			"tags": ["enhancements"],
 			"type": "module",
 			"versions": [
