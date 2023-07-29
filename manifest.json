@@ -3,8 +3,8 @@
 	"addons": [
 		{
 			"id": "FBC",
-			"name": "For Better Club",
-			"description": "Smarter, extensible facial animation and posing engine and a collection of quality of life improvements",
+			"name": "For Better Club (FBC)",
+			"description": "Smarter, extensible facial animation and posing engine, instant messaging, appearance layering and a collection of quality of life improvements.",
 			"author": "the authors of the Addon Manager",
 			"repository": "https://gitlab.com/Sidiousious/bce",
 			"tags": ["cheats", "enhancements", "automation"],
@@ -34,7 +34,7 @@
 		},
 		{
 			"id": "BCX",
-			"name": "Bondage Club Extended",
+			"name": "Bondage Club Extended (BCX)",
 			"description": "Adds rules, curses, and more to enhance D/s play alongside a handful of quality of life improvements",
 			"author": "Jomshir98 & Claudia",
 			"repository": "https://github.com/Jomshir98/bondage-club-extended",
@@ -54,7 +54,7 @@
 		},
 		{
 			"id": "BCAR",
-			"name": "Bondage Club Auto React",
+			"name": "Bondage Club Auto React (BCAR)",
 			"description": "Automatically reacts to messages in the Bondage Club",
 			"author": "Dr Branestawm",
 			"repository": "https://github.com/drbranestawm/bcar",
@@ -74,7 +74,7 @@
 		},
 		{
 			"id": "BCH",
-			"name": "Bondage Club Helper",
+			"name": "Bondage Club Helper (BCH)",
 			"description": "A small collection of cheats and quality of life commands",
 			"author": "Wozzey",
 			"repository": "https://github.com/Wozzey/BC",
@@ -89,7 +89,7 @@
 		},
 		{
 			"id": "BCT",
-			"name": "BCTweaks",
+			"name": "BCTweaks (BCT)",
 			"description": "Split arousal and orgasm bars, tail wagging, and Best Friends",
 			"author": "agicitag",
 			"repository": "https://github.com/agicitag/BCTweaks",
@@ -108,7 +108,7 @@
 		},
 		{
 			"id": "EBCH",
-			"name": "Eli's Bondage Club Helper",
+			"name": "Eli's Bondage Club Helper (EBCH)",
 			"description": "Ungarble, custom notifications, altering other player's poses",
 			"author": "Elicia",
 			"repository": "https://e2466.gitlab.io/ebch/master/EBCH.js",
@@ -123,7 +123,7 @@
 		},
 		{
 			"id": "LSCG",
-			"name": "Little Sera's Club Games",
+			"name": "Little Sera's Club Games (LSCG)",
 			"description": "Adds large gamified systems for hypnotism and breathplay",
 			"author": "Little Sera",
 			"repository": "https://github.com/littlesera/LSCG",
@@ -139,7 +139,7 @@
 		},
 		{
 			"id": "MBCHC",
-			"name": "Mute's Bondage Club Hacks Collection",
+			"name": "Mute's Bondage Club Hacks Collection (MBCHC)",
 			"description": "Autohack, disappear, timezone display in rooms, and more",
 			"author": "Mute",
 			"repository": "https://code.fleshless.org/mute/MBCHC/",
@@ -154,8 +154,8 @@
 		},
 		{
 			"id": "MBS",
-			"name": "Maid's Bondage Scripts",
-			"description": "  Additional crafting slots, additional options in wheel of fortune, and custom outfits in wheel of fortune",
+			"name": "Maid's Bondage Scripts (MBS)",
+			"description": "Additional crafting slots, additional options in wheel of fortune, and custom outfits in wheel of fortune",
 			"author": "Rama",
 			"repository": "https://github.com/bananarama92/MBS",
 			"tags": ["enhancements"],
@@ -199,7 +199,7 @@
 		},
 		{
 			"id": "ADCS",
-			"name": "Advanced Drone Control System",
+			"name": "Advanced Drone Control System (ADCS)",
 			"description": "Expansion of Drone gameplay. (Note: source code unavailable)",
 			"author": "SaotomeToyStore",
 			"tags": ["expansion"],
