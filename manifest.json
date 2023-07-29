@@ -174,7 +174,7 @@
 			"author": "SaotomeToyStore, patched by dDeepLb",
 			"repository": "https://github.com/dDeepLb/BC-Responsive",
 			"tags": ["expansion"],
-			"type": "eval",
+			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
