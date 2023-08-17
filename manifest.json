@@ -89,6 +89,21 @@
 			]
 		},
 		{
+			"id": "BC-CT",
+			"name": "Bondage Club Character Talk (BC-CT)",
+			"description": "Animates mouth movement when typing",
+			"author": "dDeepLb",
+			"repository": "https://github.com/dDeepLb/BC-CharacterTalk/",
+			"tags": ["enhancements"],
+			"type": "eval",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://raw.githubusercontent.com/dDeepLb/BC-CharacterTalk/main/user.js"
+				}
+			]
+		},
+		{
 			"id": "BCH",
 			"name": "Bondage Club Helper (BCH)",
 			"description": "A small collection of cheats and quality of life commands",
