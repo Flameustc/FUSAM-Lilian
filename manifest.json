@@ -53,6 +53,22 @@
 			]
 		},
 		{
+			"id": "ADCS",
+			"name": "Advanced Drone Control System (ADCS)",
+			"description": "Expansion of Drone gameplay",
+			"author": "SaotomeToyStore",
+			"repository": "https://gitlab.com/dynilath/BCADCS",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/ADCS/",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/ADCS/main.js"
+				}
+			]
+		},
+		{
 			"id": "BCAR",
 			"name": "Bondage Club Auto React (BCAR)",
 			"description": "Automatically reacts to messages in the Bondage Club",
@@ -195,21 +211,6 @@
 				{
 					"distribution": "stable",
 					"source": "https://tetris245.github.io/ultrabc.github.io/ULTRAbc.js"
-				}
-			]
-		},
-		{
-			"id": "ADCS",
-			"name": "Advanced Drone Control System (ADCS)",
-			"description": "Expansion of Drone gameplay. (Note: source code unavailable)",
-			"author": "SaotomeToyStore",
-			"tags": ["expansion"],
-			"type": "script",
-			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/ADCS/",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/ADCS/main.js"
 				}
 			]
 		},
