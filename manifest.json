@@ -165,7 +165,11 @@
 				{
 					"distribution": "stable",
 					"source": "https://littlesera.github.io/LSCG/bundle.js"
+				}, {
+					"distribution": "beta",
+					"source": "https://littlesera.github.io/LSCG/dev/bundle.js"
 				}
+
 			]
 		},
 		{
