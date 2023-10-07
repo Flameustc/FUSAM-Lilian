@@ -89,32 +89,18 @@
 			]
 		},
 		{
-			"id": "BC-CT",
-			"name": "Bondage Club Character Talk (BC-CT)",
-			"description": "Animates mouth movement when typing",
-			"author": "dDeepLb",
-			"repository": "https://github.com/dDeepLb/BC-CharacterTalk/",
-			"tags": ["enhancements"],
-			"type": "eval",
+			"id": "BC-XToys",
+			"name": "Bondage Club X-Toys Integration",
+			"description": "Sync club interactions and toys with IRL remote-controlled toys, recommended use with https://github.com/itsFro/BCBridge",
+			"author": "ItsNorin",
+			"repository": "https://github.com/ItsNorin/Bondage-Club-XToys-Integration",
+			"tags": ["automation", "expansion"],
+			"type": "script",
+			"website": "https://github.com/ItsNorin/Bondage-Club-XToys-Integration#readme",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/dDeepLb/BC-CharacterTalk/main/user.js"
-				}
-			]
-		},
-		{
-			"id": "BCH",
-			"name": "Bondage Club Helper (BCH)",
-			"description": "A small collection of cheats and quality of life commands",
-			"author": "Wozzey",
-			"repository": "https://github.com/Wozzey/BC",
-			"tags": ["cheats"],
-			"type": "eval",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/Wozzey/BC/master/BCH.user.js"
+					"source": "https://itsnorin.github.io/Bondage-Club-XToys-Integration/BC-XToys.user.js"
 				}
 			]
 		},
@@ -165,11 +151,11 @@
 				{
 					"distribution": "stable",
 					"source": "https://littlesera.github.io/LSCG/bundle.js"
-				}, {
+				},
+				{
 					"distribution": "beta",
 					"source": "https://littlesera.github.io/LSCG/dev/bundle.js"
 				}
-
 			]
 		},
 		{
