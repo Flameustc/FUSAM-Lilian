@@ -69,6 +69,21 @@
 			]
 		},
 		{
+			"id": "BRBD",
+			"name": "BCX Reset Button Disabler",
+			"description": "A very simple addon that disables the Module and Reset Buttons from BCX. That means you can have a new layer of helplessness.",
+			"author": "Ciber",
+			"tags": [],
+			"type": "eval",
+			"website": "https://github.com/ciberweaboo/brbd",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://raw.githubusercontent.com/ciberweaboo/brbd/main/brbd.js"
+				}
+			]
+		},
+		{
 			"id": "BCAR",
 			"name": "Bondage Club Auto React (BCAR)",
 			"description": "Automatically reacts to messages in the Bondage Club",
