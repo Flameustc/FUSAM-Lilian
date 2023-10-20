@@ -248,6 +248,25 @@
 					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/NotifyPlus/main.js"
 				}
 			]
+		},
+		{
+			"id": "TTS",
+			"name": "TTS and Morse",
+			"description": "Text-to-speech reading for chat messages, and some buttplug.io + morse functionalities.",
+			"author": "KatKammand",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://gitlab.com/KatKammand/tts",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM.min.js"
+				},
+				{
+					"distribution": "stable",
+					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM-dev.min.js"
+				}
+			]
 		}
 	]
 }
