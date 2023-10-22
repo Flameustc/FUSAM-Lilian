@@ -263,7 +263,7 @@
 					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM.min.js"
 				},
 				{
-					"distribution": "stable",
+					"distribution": "dev",
 					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM-dev.min.js"
 				}
 			]
