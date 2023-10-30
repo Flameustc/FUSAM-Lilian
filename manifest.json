@@ -69,6 +69,21 @@
 			]
 		},
 		{
+			"id": "BRBD",
+			"name": "BCX Reset Button Disabler",
+			"description": "A very simple addon that disables the Module and Reset Buttons from BCX. That means you can have a new layer of helplessness.",
+			"author": "Ciber",
+			"tags": [],
+			"type": "eval",
+			"website": "https://github.com/ciberweaboo/brbd",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://raw.githubusercontent.com/ciberweaboo/brbd/main/brbd.js"
+				}
+			]
+		},
+		{
 			"id": "BCAR",
 			"name": "Bondage Club Auto React (BCAR)",
 			"description": "Automatically reacts to messages in the Bondage Club",
@@ -89,32 +104,18 @@
 			]
 		},
 		{
-			"id": "BC-CT",
-			"name": "Bondage Club Character Talk (BC-CT)",
-			"description": "Animates mouth movement when typing",
-			"author": "dDeepLb",
-			"repository": "https://github.com/dDeepLb/BC-CharacterTalk/",
-			"tags": ["enhancements"],
-			"type": "eval",
+			"id": "BC-XToys",
+			"name": "Bondage Club X-Toys Integration",
+			"description": "Sync club interactions and toys with IRL remote-controlled toys, recommended use with https://github.com/itsFro/BCBridge",
+			"author": "ItsNorin",
+			"repository": "https://github.com/ItsNorin/Bondage-Club-XToys-Integration",
+			"tags": ["automation", "expansion"],
+			"type": "script",
+			"website": "https://github.com/ItsNorin/Bondage-Club-XToys-Integration#readme",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/dDeepLb/BC-CharacterTalk/main/user.js"
-				}
-			]
-		},
-		{
-			"id": "BCH",
-			"name": "Bondage Club Helper (BCH)",
-			"description": "A small collection of cheats and quality of life commands",
-			"author": "Wozzey",
-			"repository": "https://github.com/Wozzey/BC",
-			"tags": ["cheats"],
-			"type": "eval",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/Wozzey/BC/master/BCH.user.js"
+					"source": "https://itsnorin.github.io/Bondage-Club-XToys-Integration/BC-XToys.user.js"
 				}
 			]
 		},
@@ -165,6 +166,10 @@
 				{
 					"distribution": "stable",
 					"source": "https://littlesera.github.io/LSCG/bundle.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://littlesera.github.io/LSCG/dev/bundle.js"
 				}
 			]
 		},
@@ -241,6 +246,25 @@
 				{
 					"distribution": "stable",
 					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/NotifyPlus/main.js"
+				}
+			]
+		},
+		{
+			"id": "TTS",
+			"name": "TTS and Morse",
+			"description": "Text-to-speech reading for chat messages, and some buttplug.io + morse functionalities.",
+			"author": "KatKammand",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://gitlab.com/KatKammand/tts",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM.min.js"
+				},
+				{
+					"distribution": "stable",
+					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM-dev.min.js"
 				}
 			]
 		}
