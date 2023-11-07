@@ -267,6 +267,22 @@
 					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM-dev.min.js"
 				}
 			]
+		},
+		{
+			"id": "CATS",
+			"name": "Chat Auto Translator Script",
+			"description": "Addon that auto-translates the chat to the language you want. 130+ Languages available. Commands: /ttoggle to toggle the translator on and off. And /tlang <lang_code>, to change the language used.",
+			"author": "Ciber, dDeepLb and KatKammand",
+			"repository": "https://github.com/ciberweaboo/cats",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"website": "https://github.com/ciberweaboo/cats",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://github.com/ciberweaboo/cats/raw/main/cats.user.js"
+				}
+			]
 		}
 	]
 }
