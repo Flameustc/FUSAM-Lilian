@@ -160,7 +160,7 @@
 			"author": "Little Sera",
 			"repository": "https://github.com/littlesera/LSCG",
 			"tags": ["expansion"],
-			"type": "module",
+			"type": "script",
 			"website": "https://github.com/littlesera/LSCG/wiki",
 			"versions": [
 				{
