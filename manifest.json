@@ -275,12 +275,12 @@
 			"author": "Ciber, dDeepLb and KatKammand",
 			"repository": "https://github.com/ciberweaboo/cats",
 			"tags": ["enhancements", "expansion"],
-			"type": "script",
+			"type": "eval",
 			"website": "https://github.com/ciberweaboo/cats",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://github.com/ciberweaboo/cats/raw/main/cats.user.js"
+					"source": "https://raw.githubusercontent.com/ciberweaboo/cats/main/cats.user.js"
 				}
 			]
 		}
