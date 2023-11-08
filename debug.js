@@ -1,3 +1,5 @@
+import { bcModSdk } from "./vendor/bcmodsdk"
+
 /**
  * @type {Map<string, () => string | Promise<string>>}
  */
@@ -63,9 +65,13 @@ export function registerFUSAMDebugMethod() {
 			isLocalStorageAvailable() ? "available" : "unavailable"
 		}\n`
 		d += `Domain used: ${window.location.host}\n`
-		d += `Enabled addons:\n - ${Object.entries(window.FUSAM.addons)
+		d += `FUSAM-enabled addons:\n - ${Object.entries(window.FUSAM.addons)
 			.map(([addon, ver]) => `${addon}:${JSON.stringify(ver)}`)
 			.join("\n - ")}\n`
+		d += `SDK-enabled addons:\n - ${bcModSdk
+			.getModsInfo()
+			.map((m) => `${m.name} @ ${m.version}`)
+			.join("\n- ")}`
 		return d
 	})
 }
