@@ -1,4 +1,4 @@
-import { bcModSdk } from "./vendor/bcmodsdk"
+import { bcModSdk } from "./vendor/bcmodsdk.js"
 
 /**
  * @type {Map<string, () => string | Promise<string>>}
