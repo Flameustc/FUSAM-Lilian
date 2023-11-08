@@ -17,7 +17,9 @@
  */
 
 import { BaseURL } from "./config.js"
+import { canDebug, generateDebugReport } from "./debug.js"
 import { waitFor } from "./delay.js"
+import { loadAddons } from "./loader.js"
 import {
 	disableMod as disableLocal,
 	enableMod as enableLocal,
@@ -31,7 +33,7 @@ import {
 	playerSettingsLoaded,
 } from "./playerstore.js"
 import { HOOK_PRIORITY, SDK } from "./vendor/bcmodsdk.js"
-import { component, store } from "./vendor/reef.js"
+import { render, signal } from "./vendor/reef.js"
 
 const showButtonId = "fusam-show-button"
 const addonManagerId = "fusam-addon-manager-container"
@@ -72,16 +74,26 @@ function drawHideButton() {
 	return `<button id="${addonManagerCloseButtonId}" class="button">SAVE</button>`
 }
 
+/**
+ * @param {MouseEvent} e
+ */
+function debugReport(e) {
+	e?.preventDefault()
+	const addon = this.getAttribute("data-addon")
+	console.debug("Generating debug report for", addon)
+	generateDebugReport(addon)
+}
+
 async function drawAddonManager() {
 	const manifest = await getManifest()
 
 	const s = /** @type {{ manifest: import("./manifest").Manifest }} */ (
-		store({
+		signal({
 			manifest,
 		})
 	)
 
-	component(`#${addonManagerId}`, draw)
+	render(`#${addonManagerId}`, draw(), { debugReport })
 
 	function draw() {
 		return `
@@ -92,25 +104,9 @@ async function drawAddonManager() {
 			</div>
 			<div id="fusam-addon-manager-body">
 				<p>
-					<em>Device</em> addons have their state stored locally on your
-					device/browser and are available as soon as the game is loaded.
-					<em>Account</em> addons have their state stored on the server
-					and are available after logging in (as long as the manager is
-					loaded). You can enable both <em>Device</em> and <em>Account</em>
-					addons at the same time, but the <em>Device</em> addon
-					configuration will take priority if both are enabled. You need 
-					to be logged in to change <em>Account</em> options.
-				</p>
-				<p>
 					A note on security: while addons that are found to be malicious
 					will be removed from the Addon Manager, it is still possible for
 					some to slip through the cracks.
-				</p>
-				<p>
-					Changes made to your addons will not take effect until you
-					restart the game by refreshing the page. Please close the
-					Addon Manager and settings menus before refreshing to allow
-					changes to be saved.
 				</p>
 				${
 					GameVersion.toLowerCase().includes("beta")
@@ -121,6 +117,7 @@ async function drawAddonManager() {
 						</p>`
 						: ""
 				}
+				<button onclick="debugReport()">Download Debug Reports</button>
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
 					.join("&bullet; &bullet; &bullet;")}
@@ -134,6 +131,7 @@ async function drawAddonManager() {
 	function drawEntry(entry) {
 		const local = localDistribution(entry.id)
 		const online = onlineDistribution(entry.id)
+		const debuggable = canDebug(entry.id)
 
 		return `
 			<div class="fusam-addon-entry">
@@ -150,6 +148,11 @@ async function drawAddonManager() {
 						${
 							entry.repository
 								? `&bullet; <a rel="external" target="_blank" href="${entry.repository}">repository</a>`
+								: ""
+						}
+						${
+							debuggable
+								? `&bullet; <a href="#" onclick="debugReport()" data-addon="${entry.id}">download debug report</a>`
 								: ""
 						}
 					</div>
@@ -238,6 +241,7 @@ function hideAddonManager() {
 			OnlineSettings: Player.OnlineSettings,
 		})
 	}
+	loadAddons()
 }
 
 function loadCSS() {

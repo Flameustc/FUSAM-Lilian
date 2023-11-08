@@ -22,6 +22,7 @@ pages:
   script:
     - mkdir public
     - bash -c "sed -i 's#1.0.0#$CI_COMMIT_SHORT_SHA#' vendor/bcmodsdk.js"
+    - bash -c "sed -i 's#LOCAL_FUSAM#$CI_COMMIT_SHORT_SHA#' vendor/bcmodsdk.js"
     - bash -c "sed -i 's#http://localhost:3001#https://sidiousious.gitlab.io/bc-addon-loader#' config.js"
     - bash -c "for f in *.js; do sed -i 's#\"./\\([^/]*.js\\)\"#\"./$CI_COMMIT_SHA.\\1\"#g' \$f; done"
     - 'ls && ls static'

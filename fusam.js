@@ -16,6 +16,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { registerDebugMethod, registerFUSAMDebugMethod } from "./debug.js"
 import { loadAddons } from "./loader.js"
 import { updateManifest } from "./manifest.js"
 import { hookUI } from "./ui.js"
@@ -24,8 +25,10 @@ import "./vendor/bcmodsdk.js"
 window.FUSAM = {
 	present: true,
 	addons: {},
+	registerDebugMethod: registerDebugMethod,
 }
 
 hookUI()
 await updateManifest()
 loadAddons()
+registerFUSAMDebugMethod()
