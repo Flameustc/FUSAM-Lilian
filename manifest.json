@@ -121,9 +121,9 @@
 		},
 		{
 			"id": "BCT",
-			"name": "BCTweaks (BCT)",
+			"name": "BCTweaks",
 			"description": "Split arousal and orgasm bars, tail wagging, and Best Friends",
-			"author": "agicitag",
+			"author": "Crimsonfox & agicitag",
 			"repository": "https://github.com/agicitag/BCTweaks",
 			"tags": ["enhancements", "automation"],
 			"type": "script",
