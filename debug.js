@@ -20,7 +20,7 @@ export async function generateDebugReport(addon) {
 	const now = Date.now()
 	if (addon) {
 		if (debugMethods.has(addon)) {
-			const debugBlob = await getValue(debugMethods.get(addon)())
+			const debugBlob = await debugMethods.get(addon)()
 			saveBlobAsFile(new Blob([debugBlob]), filename(addon, now))
 			return
 		}
@@ -29,7 +29,7 @@ export async function generateDebugReport(addon) {
 	}
 
 	for (const [name, method] of debugMethods) {
-		const value = await getValue(method())
+		const value = await method()
 		saveBlobAsFile(new Blob([value]), filename(name, now))
 	}
 }
@@ -39,13 +39,6 @@ export async function generateDebugReport(addon) {
  */
 export function canDebug(addon) {
 	return debugMethods.has(addon)
-}
-
-async function getValue(value) {
-	if (value instanceof Promise) {
-		return await value
-	}
-	return value
 }
 
 function saveBlobAsFile(blob, filename) {
