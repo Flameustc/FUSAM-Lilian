@@ -1,3 +1,4 @@
+import { downloadZip } from "https://unpkg.com/client-zip@2.4.4/index.js"
 import { bcModSdk } from "./vendor/bcmodsdk.js"
 
 /**
@@ -28,10 +29,18 @@ export async function generateDebugReport(addon) {
 		return
 	}
 
+	const blobs = []
 	for (const [name, method] of debugMethods) {
 		const value = await method()
-		saveBlobAsFile(new Blob([value]), filename(name, now))
+		// saveBlobAsFile(new Blob([value]), filename(name, now))
+		blobs.push({
+			name: filename(name, now),
+			lastModified: new Date(now),
+			input: value,
+		})
 	}
+	const blob = await downloadZip(blobs).blob()
+	saveBlobAsFile(blob, `FUSAM-debug-${now}.zip`)
 }
 
 /**
@@ -41,6 +50,10 @@ export function canDebug(addon) {
 	return debugMethods.has(addon)
 }
 
+/**
+ * @param {Blob} blob
+ * @param {string} filename
+ */
 function saveBlobAsFile(blob, filename) {
 	const url = URL.createObjectURL(blob)
 	const a = document.createElement("a")
@@ -86,5 +99,5 @@ function isLocalStorageAvailable() {
  * @param {number} now
  */
 function filename(addon, now) {
-	return `FUSAM-debug-${addon}-${now}.txt`
+	return `${addon}-${now}.txt`
 }

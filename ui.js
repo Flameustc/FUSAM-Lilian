@@ -100,7 +100,7 @@ async function drawAddonManager() {
 			<div id="fusam-addon-manager-header">
 				${drawHideButton()}
 				<h1>Addon Manager</h1>
-				<div>&nbsp;</div>
+				<button onclick="debugReport()" class="button">Debug</button>
 			</div>
 			<div id="fusam-addon-manager-body">
 				<p>
@@ -117,7 +117,6 @@ async function drawAddonManager() {
 						</p>`
 						: ""
 				}
-				<button onclick="debugReport()">Download Debug Reports</button>
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
 					.join("&bullet; &bullet; &bullet;")}
