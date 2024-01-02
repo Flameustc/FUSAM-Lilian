@@ -176,15 +176,15 @@
 		{
 			"id": "MBCHC",
 			"name": "Mute's Bondage Club Hacks Collection (MBCHC)",
-			"description": "Autohack, disappear, timezone display in rooms, and more",
+			"description": "Autohack, local time, some keyboard goodies etc.",
 			"author": "Mute",
 			"repository": "https://code.fleshless.org/mute/MBCHC/",
 			"tags": ["enhancements", "automation"],
-			"type": "eval",
+			"type": "module",
 			"versions": [
 				{
 					"distribution": "dev",
-					"source": "https://code.fleshless.org/mute/MBCHC/raw/branch/master/mbchc-dev.user.js"
+					"source": "https://code.fleshless.org/mute/MBCHC/raw/branch/master/mbchc.mjs"
 				}
 			]
 		},
