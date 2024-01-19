@@ -27,6 +27,10 @@ declare global {
 type FUSAMPublicAPI = {
 	present: true
 	addons: Record<string, FUSAMAddonState>
+	registerDebugMethod: (
+		name: string,
+		method: () => string | Promise<string>
+	) => void
 }
 
 type FUSAMAddonState = {

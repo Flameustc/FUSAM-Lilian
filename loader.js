@@ -75,6 +75,7 @@ async function load(settings) {
 function scriptAddon(source, type, onload, onerror) {
 	const script = document.createElement("script")
 	script.type = type
+	script.crossOrigin = "anonymous"
 	script.src = `${source}?v=${Date.now()}`
 	script.onload = onload
 	script.onerror = onerror

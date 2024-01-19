@@ -84,6 +84,21 @@
 			]
 		},
 		{
+			"id": "BRBD",
+			"name": "BCX Reset Button Disabler",
+			"description": "A very simple addon that disables the Module and Reset Buttons from BCX. That means you can have a new layer of helplessness.",
+			"author": "Ciber",
+			"tags": [],
+			"type": "eval",
+			"website": "https://github.com/ciberweaboo/brbd",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://raw.githubusercontent.com/ciberweaboo/brbd/main/brbd.js"
+				}
+			]
+		},
+		{
 			"id": "BCAR",
 			"name": "Bondage Club Auto React (BCAR)",
 			"description": "Automatically reacts to messages in the Bondage Club",
@@ -104,40 +119,26 @@
 			]
 		},
 		{
-			"id": "BC-CT",
-			"name": "Bondage Club Character Talk (BC-CT)",
-			"description": "Animates mouth movement when typing",
-			"author": "dDeepLb",
-			"repository": "https://github.com/dDeepLb/BC-CharacterTalk/",
-			"tags": ["enhancements"],
-			"type": "eval",
+			"id": "BC-XToys",
+			"name": "Bondage Club X-Toys Integration",
+			"description": "Sync club interactions and toys with IRL remote-controlled toys, recommended use with https://github.com/itsFro/BCBridge",
+			"author": "ItsNorin",
+			"repository": "https://github.com/ItsNorin/Bondage-Club-XToys-Integration",
+			"tags": ["automation", "expansion"],
+			"type": "script",
+			"website": "https://github.com/ItsNorin/Bondage-Club-XToys-Integration#readme",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/dDeepLb/BC-CharacterTalk/main/user.js"
-				}
-			]
-		},
-		{
-			"id": "BCH",
-			"name": "Bondage Club Helper (BCH)",
-			"description": "A small collection of cheats and quality of life commands",
-			"author": "Wozzey",
-			"repository": "https://github.com/Wozzey/BC",
-			"tags": ["cheats"],
-			"type": "eval",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/Wozzey/BC/master/BCH.user.js"
+					"source": "https://itsnorin.github.io/Bondage-Club-XToys-Integration/BC-XToys.user.js"
 				}
 			]
 		},
 		{
 			"id": "BCT",
-			"name": "BCTweaks (BCT)",
+			"name": "BCTweaks",
 			"description": "Split arousal and orgasm bars, tail wagging, and Best Friends",
-			"author": "agicitag",
+			"author": "Crimsonfox & agicitag",
 			"repository": "https://github.com/agicitag/BCTweaks",
 			"tags": ["enhancements", "automation"],
 			"type": "script",
@@ -174,31 +175,31 @@
 			"author": "Little Sera",
 			"repository": "https://github.com/littlesera/LSCG",
 			"tags": ["expansion"],
-			"type": "module",
+			"type": "script",
 			"website": "https://github.com/littlesera/LSCG/wiki",
 			"versions": [
 				{
 					"distribution": "stable",
 					"source": "https://littlesera.github.io/LSCG/bundle.js"
-				}, {
+				},
+				{
 					"distribution": "beta",
 					"source": "https://littlesera.github.io/LSCG/dev/bundle.js"
 				}
-
 			]
 		},
 		{
 			"id": "MBCHC",
 			"name": "Mute's Bondage Club Hacks Collection (MBCHC)",
-			"description": "Autohack, disappear, timezone display in rooms, and more",
+			"description": "Autohack, local time, some keyboard goodies etc.",
 			"author": "Mute",
 			"repository": "https://code.fleshless.org/mute/MBCHC/",
 			"tags": ["enhancements", "automation"],
-			"type": "eval",
+			"type": "module",
 			"versions": [
 				{
 					"distribution": "dev",
-					"source": "https://code.fleshless.org/mute/MBCHC/raw/branch/master/mbchc-dev.user.js"
+					"source": "https://code.fleshless.org/mute/MBCHC/raw/branch/master/mbchc.mjs"
 				}
 			]
 		},
@@ -260,6 +261,41 @@
 				{
 					"distribution": "stable",
 					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/NotifyPlus/main.js"
+				}
+			]
+		},
+		{
+			"id": "TTS",
+			"name": "TTS and Morse",
+			"description": "Text-to-speech reading for chat messages, and some buttplug.io + morse functionalities.",
+			"author": "KatKammand",
+			"tags": ["expansion"],
+			"type": "module",
+			"website": "https://gitlab.com/KatKammand/tts",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM.min.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://katkammand.gitlab.io/tts/ttsFUSAM-dev.min.js"
+				}
+			]
+		},
+		{
+			"id": "CATS",
+			"name": "Chat Auto Translator Script",
+			"description": "Addon that auto-translates the chat to the language you want. 130+ Languages available. Commands: /ttoggle to toggle the translator on and off. And /tlang <lang_code>, to change the language used.",
+			"author": "Ciber, dDeepLb and KatKammand",
+			"repository": "https://github.com/ciberweaboo/cats",
+			"tags": ["enhancements", "expansion"],
+			"type": "eval",
+			"website": "https://github.com/ciberweaboo/cats",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://raw.githubusercontent.com/ciberweaboo/cats/main/cats.user.js"
 				}
 			]
 		}

@@ -71,6 +71,14 @@ select:disabled:hover {
 	font-family: "Roboto", sans-serif;
 }
 
+#fusam-addon-manager-container a {
+	color: #66b2ff;
+}
+
+#fusam-addon-manager-container a:visited {
+	color: #6e66ff;
+}
+
 #fusam-addon-manager-header {
 	width: 100%;
 	display: flex;
