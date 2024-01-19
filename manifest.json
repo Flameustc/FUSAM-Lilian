@@ -53,6 +53,21 @@
 			]
 		},
 		{
+			"id": "Themed",
+			"name": "Themed",
+			"description": "Adds custom themes to BC along with other features",
+			"author": "dDeepLb",
+			"repository": "https://github.com/dDeepLb/Themed-BC",
+			"tags": ["enhancements"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://ddeeplb.github.io/Themed-BC/themed.js"
+				}
+			]
+		},
+		{
 			"id": "ADCS",
 			"name": "Advanced Drone Control System (ADCS)",
 			"description": "Expansion of Drone gameplay",
