@@ -1,4 +1,5 @@
 import { downloadZip } from "https://unpkg.com/client-zip@2.4.4/index.js"
+import { getLastError } from "./loader.js"
 import { bcModSdk } from "./vendor/bcmodsdk.js"
 
 /**
@@ -71,6 +72,7 @@ export function registerFUSAMDebugMethod() {
 			isLocalStorageAvailable() ? "available" : "unavailable"
 		}\n`
 		d += `Domain used: ${window.location.host}\n`
+		d += `Last error: ${getLastError()}\n`
 		d += `FUSAM-enabled addons:\n - ${Object.entries(window.FUSAM.addons)
 			.map(([addon, ver]) => `${addon}:${JSON.stringify(ver)}`)
 			.join("\n - ")}\n`

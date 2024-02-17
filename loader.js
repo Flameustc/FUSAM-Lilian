@@ -34,6 +34,10 @@ function setLastError(error) {
 	setLastSessionStatus("error")
 }
 
+export function getLastError() {
+	return localStorage?.getItem?.(lastErrorKey)
+}
+
 export async function loadAddons() {
 	if (skipLoading) return
 	if (lastSessionHadError && firstLoad) {
