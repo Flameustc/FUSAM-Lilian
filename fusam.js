@@ -19,13 +19,17 @@
 import { registerDebugMethod, registerFUSAMDebugMethod } from "./debug.js"
 import { loadAddons } from "./loader.js"
 import { updateManifest } from "./manifest.js"
-import { hookUI } from "./ui.js"
+import { hookUI, showAsyncModal, showModal } from "./ui.js"
 import "./vendor/bcmodsdk.js"
 
 window.FUSAM = {
 	present: true,
 	addons: {},
 	registerDebugMethod: registerDebugMethod,
+	modals: {
+		open: showModal,
+		openAsync: showAsyncModal,
+	},
 }
 
 hookUI()

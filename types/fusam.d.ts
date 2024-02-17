@@ -31,6 +31,12 @@ type FUSAMPublicAPI = {
 		name: string,
 		method: () => string | Promise<string>
 	) => void
+	modals: {
+		open: (options: ModalOptions) => void
+		openAsync: (
+			options: Omit<ModalOptions, "callback">
+		) => Promise<[string, string | null]>
+	}
 }
 
 type FUSAMAddonState = {
@@ -40,4 +46,11 @@ type FUSAMAddonState = {
 
 export type FUSAMSettings = {
 	enabledDistributions: Record<string, string>
+}
+
+export type ModalOptions = {
+	prompt: string | Node
+	input?: { initial: string; readonly: boolean; type: "input" | "textarea" }
+	callback: (action: string, inputValue?: string) => void
+	buttons?: { submit: string } & Record<string, string>
 }

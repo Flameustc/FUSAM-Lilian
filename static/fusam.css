@@ -23,7 +23,8 @@
 	transform: translateX(50%);
 }
 
-.button {
+.fusam.button,
+.fusam .button {
 	padding: 0.5em 1em;
 	border-radius: 0;
 	border: 2px solid black;
@@ -33,15 +34,17 @@
 	font-size: 2vmin;
 }
 
-.button:hover,
-.button:focus,
-select:hover,
-select:focus {
+.fusam.button:hover,
+.fusam.button:focus,
+.fusam .button:hover,
+.fusam .button:focus,
+.fusam select:hover,
+.fusam select:focus {
 	background-color: #00ffff;
 }
 
-select,
-option {
+.fusam select,
+.fusam option {
 	padding: 0.5em 1em;
 	border-radius: 0;
 	border: 2px solid black;
@@ -50,11 +53,11 @@ option {
 	font-size: 1.5em;
 }
 
-select:disabled {
+.fusam select:disabled {
 	opacity: 0.2;
 	cursor: not-allowed;
 }
-select:disabled:hover {
+.fusam select:disabled:hover {
 	background-color: white;
 }
 
@@ -138,9 +141,9 @@ select:disabled:hover {
 	margin-right: 1em;
 }
 
-.warn {
+.fusam .warn {
 	color: yellow;
 }
-.warn:before {
+.fusam .warn:before {
 	content: "⚠ ";
 }

@@ -42,7 +42,7 @@ const addonManagerCloseButtonId = "fusam-addon-manager-close"
 function showButton(args, next) {
 	const button = document.createElement("button")
 	button.id = showButtonId
-	button.className = "button"
+	button.classList.add("button", "fusam")
 	button.innerText = "Addon Manager"
 	button.onclick = showAddonManager
 	button.style.position = "absolute"
@@ -58,6 +58,7 @@ function hideButton(args, next) {
 async function showAddonManager() {
 	const manager = document.createElement("div")
 	manager.id = addonManagerId
+	manager.classList.add("fusam")
 	document.body.appendChild(manager)
 
 	manager.textContent = "Loading..."
@@ -262,4 +263,167 @@ export function hookUI() {
 	if (CurrentScreen === "Preference" || CurrentScreen === "Login") {
 		showButton(null, () => void 0)
 	}
+}
+
+let disabledUntil = 0
+
+/**
+ * @param {import("./types/fusam.js").ModalOptions} opts
+ */
+export function showModal(opts) {
+	disabledUntil = Date.now() + 500
+	const modal = document.createElement("dialog")
+	modal.style.zIndex = "1001"
+	modal.style.display = "flex"
+	modal.style.flexDirection = "column"
+	modal.style.width = "50em"
+	modal.style.fontFamily = "Arial, Helvetica, sans-serif"
+	modal.open = true
+
+	const prompt = document.createElement("div")
+	if (typeof opts.prompt === "string") {
+		prompt.textContent = opts.prompt
+	} else {
+		prompt.append(opts.prompt)
+	}
+	modal.append(prompt)
+	document.body.append(modal)
+
+	let inputValue = ""
+
+	if (opts.input) {
+		const input = document.createElement(opts.input.type)
+		switch (opts.input.type) {
+			case "input":
+				{
+					const el = /** @type {HTMLInputElement} */ (input)
+					el.type = "text"
+				}
+				break
+			case "textarea":
+				{
+					const el = /** @type {HTMLTextAreaElement} */ (input)
+					el.rows = 10
+				}
+				break
+			default:
+				// This should never happen
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				throw new Error(`invalid input type ${opts.input.type}`)
+		}
+		input.style.width = "100%"
+		input.readOnly = opts.input.readonly
+		input.addEventListener("mouseover", () => {
+			input.select()
+		})
+		input.addEventListener("focus", () => {
+			input.select()
+		})
+		input.addEventListener("change", () => {
+			inputValue = input.value
+		})
+
+		input.addEventListener("keydown", (e) => {
+			// MBCHC compatibility: prevent chatroom keydown events from triggering at document level
+			e.stopPropagation()
+		})
+
+		input.value = opts.input.initial
+		modal.append(input)
+	}
+
+	const buttonContainer = document.createElement("div")
+	buttonContainer.style.display = "flex"
+	buttonContainer.style.flexDirection = "row"
+	buttonContainer.style.justifyContent = "space-between"
+	buttonContainer.style.marginTop = "1em"
+	buttonContainer.style.width = "100%"
+	modal.append(buttonContainer)
+
+	const submit = document.createElement("button")
+	submit.textContent = opts.buttons?.submit || "Submit"
+	submit.addEventListener("click", () => {
+		close("submit")
+	})
+
+	const buttons = [submit]
+	for (const [k, v] of Object.entries(opts.buttons ?? {})) {
+		if (k !== "submit") {
+			const button = document.createElement("button")
+			button.textContent = v
+			button.addEventListener("click", () => {
+				close(k)
+			})
+			buttons.push(button)
+		}
+	}
+
+	for (const button of buttons) {
+		button.style.padding = "0.5em"
+		button.style.flexGrow = "1"
+	}
+
+	buttonContainer.append(...buttons)
+
+	modal.addEventListener("click", (e) => {
+		e.stopPropagation()
+	})
+	/**
+	 * @param {KeyboardEvent} e
+	 */
+	const keyClick = (e) => {
+		e.stopPropagation()
+		if (e.key === "Escape") {
+			close()
+		}
+	}
+	document.addEventListener("keydown", keyClick)
+
+	// Click-blocker
+	const blocker = document.createElement("div")
+	blocker.style.position = "fixed"
+	blocker.style.top = "0"
+	blocker.style.left = "0"
+	blocker.style.width = "100vw"
+	blocker.style.height = "100vh"
+	blocker.style.zIndex = "1000"
+	blocker.style.backgroundColor = "rgba(0, 0, 0, 0.9)"
+	blocker.title = "Click to close the modal"
+	blocker.addEventListener("click", () => {
+		close()
+	})
+	blocker.addEventListener("focus", () => {
+		close()
+	})
+	document.body.append(blocker)
+
+	/**
+	 * @param {string} action
+	 */
+	function close(action = "close") {
+		if (Date.now() < disabledUntil) {
+			return
+		}
+		disabledUntil = Date.now() + 500
+		modal.close()
+		modal.remove()
+		blocker.remove()
+		document.removeEventListener("keydown", keyClick)
+		opts.callback(action, inputValue)
+	}
+}
+
+/**
+ * @param {Omit<import("./types/fusam.js").ModalOptions, "callback">} opts
+ * @returns {Promise<[string, string | null]>}
+ */
+export function showAsyncModal(opts) {
+	return new Promise((resolve) => {
+		showModal({
+			...opts,
+			callback: (action, inputValue) => {
+				resolve([action, inputValue ?? null])
+			},
+		})
+	})
 }
