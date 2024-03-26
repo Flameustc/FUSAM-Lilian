@@ -32,6 +32,9 @@ export async function waitFor(predicate, cancelPredicate = () => false) {
 	return true
 }
 
+/**
+ * @param {number} ms
+ */
 export function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms))
 }
