@@ -298,6 +298,55 @@
 					"source": "https://raw.githubusercontent.com/ciberweaboo/cats/main/cats.user.js"
 				}
 			]
+		},
+		{
+			"id": "echocloth",
+			"name": "服装拓展",
+			"description": "Expansion on clothing options",
+			"author": "Echo",
+			"repository": "https://github.com/emdsa2/-mod",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://emdsa2.github.io/-mod/mod.js"
+				}
+			]
+		},
+		{
+			"id": "echomove",
+			"name": "动作拓展",
+			"description": "Expansion on activity options",
+			"author": "Echo",
+			"repository": "https://github.com/emdsa2/-mod",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://emdsa2.github.io/-mod/mod2.js"
+				}
+			]
+		},
+		{
+			"id": "XiaoSuActivity",
+			"name": "动作拓展以及其他易用性功能",
+			"description": "Expansion on activity options",
+			"author": "XiaoSu",
+			"repository": "https://github.com/iceriny/XiaoSuActivity",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://iceriny.github.io/XiaoSuActivity/main/XSActivity.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://iceriny.github.io/XiaoSuActivity/dev/XSActivity_dev.js"
+				}
+			]
 		}
 	]
 }
