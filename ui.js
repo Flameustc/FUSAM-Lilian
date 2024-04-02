@@ -259,6 +259,7 @@ export function hookUI() {
 	SDK.hookFunction("LoginDoLogin", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("LoginResponse", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("PreferenceExit", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
+	SDK.hookFunction("DisclaimerLoad", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 
 	if (CurrentScreen === "Preference" || CurrentScreen === "Login") {
 		showButton(null, () => void 0)
