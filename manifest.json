@@ -60,7 +60,7 @@
 			"repository": "https://gitlab.com/dynilath/BCADCS",
 			"tags": ["expansion"],
 			"type": "script",
-			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/ADCS/",
+			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/ADCS",
 			"versions": [
 				{
 					"distribution": "stable",
@@ -237,11 +237,12 @@
 		{
 			"id": "NotifyPlus",
 			"name": "NotifyPlus",
-			"description": "Improve the Name Mentioned notification in the original BC. Use keywords for mentioning names according to different roles. (Note: source code unavailable)",
+			"description": "Improve the Name Mentioned notification in the original BC. Use keywords for mentioning names according to different roles.",
 			"author": "SaotomeToyStore",
+			"repository": "https://github.com/dynilath/BCNotifyPlus",
 			"tags": ["expansion"],
 			"type": "script",
-			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/NotifyPlus/",
+			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/NotifyPlus",
 			"versions": [
 				{
 					"distribution": "stable",
