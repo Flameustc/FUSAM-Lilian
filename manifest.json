@@ -18,6 +18,26 @@
 			]
 		},
 		{
+			"id": "WCE",
+			"name": "Wholesome Club Extensions (WCE)",
+			"description": "enhancements for the bondage club - fork of FBC 5.8",
+			"author": "Sidious & Stella",
+			"repository": "https://github.com/KittenApps/WCE",
+			"tags": ["cheats", "enhancements", "automation"],
+			"type": "module",
+			"website": "https://github.com/KittenApps/WCE?tab=readme-ov-file#wholesome-club-extensions-wce",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://wce.netlify.app/wce.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://beta--wce.netlify.app/wce.js"
+				}
+			]
+		},
+		{
 			"id": "BCX",
 			"name": "Bondage Club Extended (BCX)",
 			"description": "Adds rules, curses, and more to enhance D/s play alongside a handful of quality of life improvements",
