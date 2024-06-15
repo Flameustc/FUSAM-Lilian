@@ -16,4 +16,4 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export const BaseURL = "http://localhost:3001/"
+export const BaseURL = "https://flameustc.github.io/FUSAM-Lilian/"
