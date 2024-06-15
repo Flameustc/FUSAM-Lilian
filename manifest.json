@@ -58,6 +58,26 @@
 			]
 		},
 		{
+			"id": "BCX_Lilian",
+			"name": "Bondage Club Extended (BCX) - Lilian version",
+			"description": "Adds rules, curses, and more to enhance D/s play alongside a handful of quality of life improvements",
+			"author": "Lilian",
+			"repository": "https://github.com/Jomshir98/bondage-club-extended",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"website": "https://jomshir98.github.io/bondage-club-extended/",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://flameustc.github.io/BCX-Lilian/bcx.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://flameustc.github.io/BCX-Lilian/bcx.js"
+				}
+			]
+		},
+		{
 			"id": "Themed",
 			"name": "Themed",
 			"description": "Adds custom themes to BC along with other features",
