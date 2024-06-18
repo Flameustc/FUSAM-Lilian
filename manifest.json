@@ -25,7 +25,8 @@
 			"repository": "https://github.com/KittenApps/WCE",
 			"tags": ["cheats", "enhancements", "automation"],
 			"type": "module",
-			"website": "https://github.com/KittenApps/WCE?tab=readme-ov-file#wholesome-club-extensions-wce",
+			"noCacheBusting": true,
+			"website": "https://wce-docs.vercel.app",
 			"versions": [
 				{
 					"distribution": "stable",
