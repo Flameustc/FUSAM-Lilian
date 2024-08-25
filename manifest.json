@@ -307,6 +307,25 @@
 			]
 		},
 		{
+			"id": "MBCFS",
+			"name": "Maple's BC FetishShare",
+			"description": "Displays user Fetish and Arousal preferences in Bios, and calculates compatibility between players.",
+			"author": "maple",
+			"tags": ["enhancements"],
+			"type": "script",
+			"website": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/plugins/fetish-share/",
+			"versions": [
+			  {
+				"distribution": "stable",
+				"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/stable/fetish-share/main.js"
+			  },
+			  {
+				"distribution": "dev",
+				"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/dev/fetish-share/main.js"
+			  }
+			]
+		},
+		{
 			"id": "echocloth",
 			"name": "服装拓展",
 			"description": "Expansion on clothing options",
