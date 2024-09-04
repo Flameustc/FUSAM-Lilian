@@ -373,6 +373,25 @@
 					"source": "https://iceriny.github.io/XiaoSuActivity/dev/XSActivity_dev.js"
 				}
 			]
+		},
+		{
+			"id": "MoonCEBC",
+			"name": "Moon Cards Editor BC",
+			"description": "Adds the ability to view and edit your cards decks from online room",
+			"author": "Lunar Kitsunify",
+			"repository": "https://github.com/LunarKitsunify/MoonCEBC",
+			"tags": ["enhancements","expansion"],
+            "type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://lunarkitsunify.github.io/MoonCEBC/MoonCEBC.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://lunarkitsunify.github.io/MoonCEBC/MoonCEBCBeta.js"
+				}
+			]
 		}
 	]
 }
