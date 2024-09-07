@@ -381,7 +381,7 @@
 			"author": "Lunar Kitsunify",
 			"repository": "https://github.com/LunarKitsunify/MoonCEBC",
 			"tags": ["enhancements","expansion"],
-            "type": "script",
+			"type": "module",
 			"versions": [
 				{
 					"distribution": "stable",
