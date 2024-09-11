@@ -292,7 +292,7 @@
 		},
 		{
 			"id": "CATS",
-			"name": "Chat Auto Translator Script",
+			"name": "CATS (Chat Auto Translator Script)",
 			"description": "Addon that auto-translates the chat to the language you want. 130+ Languages available. Commands: /ttoggle to toggle the translator on and off. And /tlang <lang_code>, to change the language used.",
 			"author": "Ciber, dDeepLb and KatKammand",
 			"repository": "https://github.com/ciberweaboo/cats",
