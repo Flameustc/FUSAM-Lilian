@@ -4,6 +4,7 @@
 // @version 1.0.1
 // @description A loader for the FUSAM
 // @author Sidious
+// @downloadURL https://sidiousious.gitlab.io/bc-addon-loader/loader.user.js
 // @match https://bondageprojects.elementfx.com/*
 // @match https://www.bondageprojects.elementfx.com/*
 // @match https://bondage-europe.com/*
