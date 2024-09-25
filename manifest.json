@@ -307,6 +307,21 @@
 			]
 		},
 		{
+			"id": "DOGS",
+			"name": "DOGS (Devious Obligate Great Stuff)",
+			"description": "Adds devious stuff, which will increase your helplessness.... or dominance",
+			"author": "Zoi",
+			"repository": "https://github.com/FurryZoi/Devious-Obligate-Great-Stuff.git",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://furryzoi.github.io/Devious-Obligate-Great-Stuff/bundle.js"
+				}
+			]
+		},
+		{
 			"id": "MBCFS",
 			"name": "Maple's BC FetishShare",
 			"description": "Displays user Fetish and Arousal preferences in Bios, and calculates compatibility between players.",
