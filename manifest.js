@@ -37,6 +37,7 @@ import { BaseURL } from "./config.js"
  * @property {string} [repository] - URL of the addon repository
  * @property {Tag[]} tags - Tags of the addon
  * @property {'eval' | 'module' | 'script'} type - Type of the addon
+ * @property {boolean} [noCacheBusting] - disables cache busting
  * @property {string} [website] - URL of the addon website
  * @property {ManifestVersion[]} versions - Version of the addon
  */

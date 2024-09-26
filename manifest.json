@@ -25,7 +25,8 @@
 			"repository": "https://github.com/KittenApps/WCE",
 			"tags": ["cheats", "enhancements", "automation"],
 			"type": "module",
-			"website": "https://github.com/KittenApps/WCE?tab=readme-ov-file#wholesome-club-extensions-wce",
+			"noCacheBusting": true,
+			"website": "https://wce-docs.vercel.app",
 			"versions": [
 				{
 					"distribution": "stable",
@@ -311,7 +312,7 @@
 		},
 		{
 			"id": "CATS",
-			"name": "Chat Auto Translator Script",
+			"name": "CATS (Chat Auto Translator Script)",
 			"description": "Addon that auto-translates the chat to the language you want. 130+ Languages available. Commands: /ttoggle to toggle the translator on and off. And /tlang <lang_code>, to change the language used.",
 			"author": "Ciber, dDeepLb and KatKammand",
 			"repository": "https://github.com/ciberweaboo/cats",
@@ -323,6 +324,40 @@
 					"distribution": "stable",
 					"source": "https://raw.githubusercontent.com/ciberweaboo/cats/main/cats.user.js"
 				}
+			]
+		},
+		{
+			"id": "DOGS",
+			"name": "DOGS (Devious Obligate Great Stuff)",
+			"description": "Adds devious stuff, which will increase your helplessness.... or dominance",
+			"author": "Zoi",
+			"repository": "https://github.com/FurryZoi/Devious-Obligate-Great-Stuff.git",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://furryzoi.github.io/Devious-Obligate-Great-Stuff/bundle.js"
+				}
+			]
+		},
+		{
+			"id": "MBCFS",
+			"name": "Maple's BC FetishShare",
+			"description": "Displays user Fetish and Arousal preferences in Bios, and calculates compatibility between players.",
+			"author": "maple",
+			"tags": ["enhancements"],
+			"type": "script",
+			"website": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/plugins/fetish-share/",
+			"versions": [
+			  {
+				"distribution": "stable",
+				"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/stable/fetish-share/main.js"
+			  },
+			  {
+				"distribution": "dev",
+				"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/dev/fetish-share/main.js"
+			  }
 			]
 		},
 		{
@@ -371,6 +406,25 @@
 				{
 					"distribution": "beta",
 					"source": "https://iceriny.github.io/XiaoSuActivity/dev/XSActivity_dev.js"
+				}
+			]
+		},
+		{
+			"id": "MoonCEBC",
+			"name": "Moon Cards Editor BC",
+			"description": "Adds the ability to view and edit your cards decks from online room",
+			"author": "Lunar Kitsunify",
+			"repository": "https://github.com/LunarKitsunify/MoonCEBC",
+			"tags": ["enhancements","expansion"],
+			"type": "module",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://lunarkitsunify.github.io/MoonCEBC/MoonCEBC.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://lunarkitsunify.github.io/MoonCEBC/MoonCEBCBeta.js"
 				}
 			]
 		}

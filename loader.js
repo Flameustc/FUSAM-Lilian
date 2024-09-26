@@ -99,17 +99,18 @@ async function load(settings) {
 				window.FUSAM.addons[id].status = "error"
 				setLastError(`Failed to load addon ${id}`)
 			}
+			const URL = version.source + (addon.noCacheBusting ? '' : `?v=${Date.now()}`);
 			switch (addon.type) {
 				case "eval":
-					await evalAddon(version.source)
+					await evalAddon(URL, version.source)
 					window.FUSAM.addons[id].status = "loaded"
 					break
 				case "module":
-					await import(`${version.source}?v=${Date.now()}`)
+					await import(URL)
 					window.FUSAM.addons[id].status = "loaded"
 					break
 				case "script":
-					scriptAddon(version.source, "text/javascript", onload, onerror)
+					scriptAddon(URL, "text/javascript", onload, onerror)
 					break
 			}
 		} catch (e) {
@@ -122,24 +123,23 @@ async function load(settings) {
 }
 
 /**
- * @param {string} source URL of the script
+ * @param {string} url URL of the script
  * @param {'module' | 'text/javascript'} type Type of the script
  * @param {() => void} [onload] Callback when the script is loaded
  * @param {() => void} [onerror] Callback when the script fails to load
  */
-function scriptAddon(source, type, onload, onerror) {
+function scriptAddon(url, type, onload, onerror) {
 	const script = document.createElement("script")
 	script.type = type
 	script.crossOrigin = "anonymous"
-	script.src = `${source}?v=${Date.now()}`
+	script.src = url
 	script.onload = onload
 	script.onerror = onerror
 	document.head.appendChild(script)
 }
 
-async function evalAddon(source) {
-	const sourceRequestUrl = `${source}?v=${Date.now()}`
-	await fetch(sourceRequestUrl)
+async function evalAddon(url, source) {
+	await fetch(url)
 		.then((resp) => resp.text())
 		.then((resp) => {
 			resp = resp.replace(

@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name Fantastic Ultimate Solution to Addon Management Loader
 // @namespace https://www.bondageprojects.com/
-// @version 1.0
+// @version 1.0.3
 // @description A loader for the FUSAM
 // @author Sidious
-// @match https://bondageprojects.elementfx.com/*
-// @match https://www.bondageprojects.elementfx.com/*
-// @match https://bondage-europe.com/*
-// @match https://www.bondage-europe.com/*
+// @downloadURL https://sidiousious.gitlab.io/bc-addon-loader/loader.user.js
+// @match https://*.bondageprojects.elementfx.com/R*/*
+// @match https://*.bondage-europe.com/R*/*
+// @match https://*.bondageprojects.com/R*/*
 // @match http://localhost:*/*
 // @icon data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant none
