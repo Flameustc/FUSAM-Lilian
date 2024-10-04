@@ -352,6 +352,10 @@
 				{
 					"distribution": "stable",
 					"source": "https://emdsa2.github.io/-mod/mod.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://emdsa2.github.io/-mod/mod-beta.js"
 				}
 			]
 		},
@@ -367,6 +371,10 @@
 				{
 					"distribution": "stable",
 					"source": "https://emdsa2.github.io/-mod/mod2.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://emdsa2.github.io/-mod/mod2-beta.js"
 				}
 			]
 		},
