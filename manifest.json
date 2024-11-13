@@ -2,25 +2,9 @@
 	"version": "1",
 	"addons": [
 		{
-			"id": "FBC",
-			"name": "For Better Club (FBC)",
-			"description": "A dwindling collection of improvements in day-to-day use of the club.",
-			"author": "the authors of the Addon Manager",
-			"repository": "https://gitlab.com/Sidiousious/bce",
-			"tags": ["cheats", "enhancements", "automation"],
-			"type": "script",
-			"website": "https://sidiousious.gitlab.io/bce/",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://sidiousious.gitlab.io/bce/bce.user.js"
-				}
-			]
-		},
-		{
 			"id": "WCE",
 			"name": "Wholesome Club Extensions (WCE)",
-			"description": "enhancements for the bondage club - fork of FBC 5.8",
+			"description": "Smarter, extensible facial animation and posing engine, instant messaging, appearance layering and a collection of quality of life improvements - A fork of FBC 5.8",
 			"author": "Sidious & Stella",
 			"repository": "https://github.com/KittenApps/WCE",
 			"tags": ["cheats", "enhancements", "automation"],
