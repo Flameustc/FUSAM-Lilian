@@ -45,6 +45,7 @@
 
 .fusam select,
 .fusam option {
+	min-width: 6em;
 	padding: 0.5em 1em;
 	border-radius: 0;
 	border: 2px solid black;
