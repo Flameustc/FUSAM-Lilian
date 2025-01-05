@@ -436,6 +436,22 @@
 					"source": "https://mayathefoxy.github.io/MPA/devBundle.js"
 				}
 			]
+		},
+		{
+			"id": "ResponsiveLegacy",
+			"name": "Responsive(Legacy)",
+			"description": "Easily managed conditions for automatic feedback in online chat.",
+			"author": "SaotomeToyStore",
+			"repository": "https://github.com/dynilath/BCResponsive",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/Responsive.html",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/Responsive/main.js"
+				}
+			]
 		}
 	]
 }
