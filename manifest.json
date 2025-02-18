@@ -414,6 +414,26 @@
 					"source": "https://sukiademon.github.io/reply-extension/bcr.js"
 				}
 			]
+		},
+		{
+			"id": "MPA",
+			"name": "Maya's Petplay Additions (MPA)",
+			"description": "Adds more petplay themed content",
+			"author": "MayaTheFoxy",
+			"repository": "https://github.com/MayaTheFoxy/MPA",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/MayaTheFoxy/MPA/wiki",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://mayathefoxy.github.io/MPA/stableBundle.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://mayathefoxy.github.io/MPA/devBundle.js"
+				}
+			]
 		}
 	]
 }
