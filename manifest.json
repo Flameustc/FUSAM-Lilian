@@ -331,6 +331,7 @@
 			"author": "Echo",
 			"repository": "https://github.com/SugarChain-Studio/echo-clothing-ext",
 			"tags": ["expansion"],
+			"website": "https://github.com/emdsa2/-mod/wiki",
 			"type": "script",
 			"versions": [
 				{
@@ -350,6 +351,7 @@
 			"author": "Echo",
 			"repository": "https://github.com/SugarChain-Studio/echo-activity-ext",
 			"tags": ["expansion"],
+			"website": "https://github.com/emdsa2/-mod/wiki",
 			"type": "script",
 			"versions": [
 				{
