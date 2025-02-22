@@ -329,17 +329,17 @@
 			"name": "服装拓展",
 			"description": "Expansion on clothing options",
 			"author": "Echo",
-			"repository": "https://github.com/emdsa2/-mod",
+			"repository": "https://github.com/SugarChain-Studio/echo-clothing-ext",
 			"tags": ["expansion"],
 			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://emdsa2.github.io/-mod/mod.js"
+					"source": "https://sugarchain-studio.github.io/echo-clothing-ext/bc-cloth.js"
 				},
 				{
 					"distribution": "beta",
-					"source": "https://emdsa2.github.io/-mod/mod-beta.js"
+					"source": "https://sugarchain-studio.github.io/echo-clothing-ext/bc-cloth-beta.js"
 				}
 			]
 		},
@@ -348,17 +348,17 @@
 			"name": "动作拓展",
 			"description": "Expansion on activity options",
 			"author": "Echo",
-			"repository": "https://github.com/emdsa2/-mod",
+			"repository": "https://github.com/SugarChain-Studio/echo-activity-ext",
 			"tags": ["expansion"],
 			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://emdsa2.github.io/-mod/mod2.js"
+					"source": "https://sugarchain-studio.github.io/echo-activity-ext/bc-activity.js"
 				},
 				{
 					"distribution": "beta",
-					"source": "https://emdsa2.github.io/-mod/mod2-beta.js"
+					"source": "https://sugarchain-studio.github.io/echo-activity-ext/bc-activity-beta.js"
 				}
 			]
 		},
