@@ -348,17 +348,18 @@
 			"name": "服装拓展",
 			"description": "Expansion on clothing options",
 			"author": "Echo",
-			"repository": "https://github.com/emdsa2/-mod",
+			"repository": "https://github.com/SugarChain-Studio/echo-clothing-ext",
 			"tags": ["expansion"],
+			"website": "https://github.com/emdsa2/-mod/wiki",
 			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://emdsa2.github.io/-mod/mod.js"
+					"source": "https://sugarchain-studio.github.io/echo-clothing-ext/bc-cloth.js"
 				},
 				{
 					"distribution": "beta",
-					"source": "https://emdsa2.github.io/-mod/mod-beta.js"
+					"source": "https://sugarchain-studio.github.io/echo-clothing-ext/bc-cloth-beta.js"
 				}
 			]
 		},
@@ -367,17 +368,18 @@
 			"name": "动作拓展",
 			"description": "Expansion on activity options",
 			"author": "Echo",
-			"repository": "https://github.com/emdsa2/-mod",
+			"repository": "https://github.com/SugarChain-Studio/echo-activity-ext",
 			"tags": ["expansion"],
+			"website": "https://github.com/emdsa2/-mod/wiki",
 			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://emdsa2.github.io/-mod/mod2.js"
+					"source": "https://sugarchain-studio.github.io/echo-activity-ext/bc-activity.js"
 				},
 				{
 					"distribution": "beta",
-					"source": "https://emdsa2.github.io/-mod/mod2-beta.js"
+					"source": "https://sugarchain-studio.github.io/echo-activity-ext/bc-activity-beta.js"
 				}
 			]
 		},
@@ -416,6 +418,41 @@
 				{
 					"distribution": "beta",
 					"source": "https://lunarkitsunify.github.io/MoonCEBC/MoonCEBCBeta.js"
+				}
+			]
+		},
+			{
+			"id": "BCR",
+			"name": "BC Reply",
+			"description": "Adding a reply feature to the chat for direct responses to messages",
+			"author": "Suki",
+			"repository": "https://github.com/SukiaDemon/reply-extension/tree/gh-pages",
+			"tags": ["enhancements","expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://sukiademon.github.io/reply-extension/bcr.js"
+				}
+			]
+		},
+		{
+			"id": "MPA",
+			"name": "Maya's Petplay Additions (MPA)",
+			"description": "Adds more petplay themed content",
+			"author": "MayaTheFoxy",
+			"repository": "https://github.com/MayaTheFoxy/MPA",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/MayaTheFoxy/MPA/wiki",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://mayathefoxy.github.io/MPA/stableBundle.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://mayathefoxy.github.io/MPA/devBundle.js"
 				}
 			]
 		}
