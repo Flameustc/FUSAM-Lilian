@@ -90,52 +90,48 @@ async function load(settings) {
 			window.FUSAM.addons[id].status = "error"
 			continue
 		}
-		console.debug(`Loading addon ${id} from ${distribution}`)
-		try {
-			const onload = () => {
-				window.FUSAM.addons[id].status = "loaded"
-			}
-			const onerror = () => {
+		console.debug(`Loading addon ${id} from ${distribution}`);
+		(async () => {
+			try {
+				const URL = version.source + (addon.noCacheBusting ? '' : `?v=${Date.now()}`);
+				switch (addon.type) {
+					case "eval":
+						await evalAddon(URL, version.source)
+						window.FUSAM.addons[id].status = "loaded"
+					break
+					case "module":
+						await import(URL)
+						window.FUSAM.addons[id].status = "loaded"
+					break
+					case "script":
+						await scriptAddon(URL, "text/javascript")
+						window.FUSAM.addons[id].status = "loaded"
+					break
+				}
+			} catch (e) {
+				console.error(`Failed to load addon ${id}`, e)
 				window.FUSAM.addons[id].status = "error"
-				setLastError(`Failed to load addon ${id}`)
+				setLastError(`Failed to load addon ${id}: ${e}`)
 			}
-			const URL = version.source + (addon.noCacheBusting ? '' : `?v=${Date.now()}`);
-			switch (addon.type) {
-				case "eval":
-					await evalAddon(URL, version.source)
-					window.FUSAM.addons[id].status = "loaded"
-					break
-				case "module":
-					await import(URL)
-					window.FUSAM.addons[id].status = "loaded"
-					break
-				case "script":
-					scriptAddon(URL, "text/javascript", onload, onerror)
-					break
-			}
-		} catch (e) {
-			console.error(`Failed to load addon ${id}`, e)
-			window.FUSAM.addons[id].status = "error"
-			setLastError(`Failed to load addon ${id}: ${e}`)
-			continue
-		}
+		})()
 	}
 }
 
 /**
  * @param {string} url URL of the script
  * @param {'module' | 'text/javascript'} type Type of the script
- * @param {() => void} [onload] Callback when the script is loaded
- * @param {() => void} [onerror] Callback when the script fails to load
+ * @return {Promise<Event>} [onload] Callback when the script is loaded
  */
-function scriptAddon(url, type, onload, onerror) {
-	const script = document.createElement("script")
-	script.type = type
-	script.crossOrigin = "anonymous"
-	script.src = url
-	script.onload = onload
-	script.onerror = onerror
-	document.head.appendChild(script)
+function scriptAddon(url, type) {
+	return new Promise((resolve, reject) => {
+		const script = document.createElement("script")
+		script.type = type
+		script.crossOrigin = "anonymous"
+		script.src = url
+		script.onload = (ev) => resolve(ev)
+		script.onerror = (err) => reject(err)
+		document.head.appendChild(script)
+	})
 }
 
 async function evalAddon(url, source) {

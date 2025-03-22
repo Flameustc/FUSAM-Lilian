@@ -20,17 +20,7 @@
 pages:
   stage: deploy
   script:
-    - mkdir public
-    - bash -c "sed -i 's#1.0.0#$CI_COMMIT_SHORT_SHA#' vendor/bcmodsdk.js"
-    - bash -c "sed -i 's#LOCAL_FUSAM#$CI_COMMIT_SHORT_SHA#' debug.js"
-    - bash -c "sed -i 's#http://localhost:3001#https://sidiousious.gitlab.io/bc-addon-loader#' config.js"
-    - bash -c "for f in *.js; do sed -i 's#\"./\\([^/]*.js\\)\"#\"./$CI_COMMIT_SHA.\\1\"#g' \$f; done"
-    - 'ls && ls static'
-    - bash -c "for f in *.js; do cp \$f \"$CI_COMMIT_SHA.\$f\"; done"
-    - 'ls && ls static'
-    - bash -c "cd static; for f in *; do cp \$f \"$CI_COMMIT_SHA.\$f\"; done"
-    - 'ls && ls static'
-    - cp -r *.js *.html static manifest.json vendor public/
+    - bash build.sh
   artifacts:
     paths:
       - public
