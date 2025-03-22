@@ -13,5 +13,8 @@
 	},
 	"dependencies": {
 		"client-zip": "^2.4.4"
+	},
+	"scripts": {
+		"serve": "npx http-server . -p 3001 --cors"
 	}
 }

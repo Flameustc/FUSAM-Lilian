@@ -26,6 +26,12 @@ You may optionally also provide:
 
 You need a [local HTTP server](https://gist.github.com/willurd/5720255) that serves your js file. Open the club and add `?fusam=http://localhost:<your_port>/<your_file>.js&fusamType=<module/script/eval>` replacing the `<placeholders>`, and you will be able to load your development addon as "Local Development by You" inside FUSAM.
 
+### Making changes to FUSAM
+
+You can also serve your dev version of FUSAM by doing the following:
+- run `npm run serve`
+- open http://localhost:3001/loader.user.js to load in ViolentMonkey/TamperMonker. Either replace the production version or add it as a duplicate (just disable the one you don't use).
+
 ### Contributing
 
 If you'd like to see improvements in the loader itself, you can create an issue or discuss in the Discord linked above.
