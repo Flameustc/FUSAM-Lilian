@@ -10,7 +10,7 @@ This provides you with a single interface to toggle addons developed by the comm
 
 For addon developers this means you do not have to include the modding SDK or have your own instructions for users to install your addon; simply point them here.
 
-To get your addon added, please contact Sidsel via [BC Scripting Community Discord](https://discord.gg/SHJMjEh9VH) or create a merge request for manifest.json. The following information is required:
+To get your addon added, either join the [BC Scripting Community Discord](https://discord.gg/SHJMjEh9VH) and ask there or create a merge request for manifest.json. The following information is required:
 - short name / ID, alphanumeric
 - long name
 - short description
