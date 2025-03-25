@@ -471,6 +471,26 @@
 					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/Responsive/main.js"
 				}
 			]
+		},
+				{
+			"id": "CRABS",
+			"name": "Crazy Roster Addon By Sin (CRABS)",
+			"description": "Adds a room roster you can summon with /roster or /players that includes several interactive tools and assists you with managing a room",
+			"author": "Sin",
+			"repository": "https://github.com/sin-1337/CRABS",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/sin-1337/CRABS",
+			"versions": [
+				{
+					"distribution": "Stable",
+					"source": "https://sin-1337.github.io/CRABS/Stable/bundle.js"
+				},
+				{
+					"distribution": "Beta",
+					"source": "https://sin-1337.github.io/CRABS/Beta/bundle.js"
+				}
+			]
 		}
 	]
 }
