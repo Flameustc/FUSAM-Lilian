@@ -1,4 +1,4 @@
-import { downloadZip } from "https://unpkg.com/client-zip@2.4.4/index.js"
+import { downloadZip } from "./vendor/client-zip.js"
 import { getLastError } from "./loader.js"
 import { bcModSdk } from "./vendor/bcmodsdk.js"
 
