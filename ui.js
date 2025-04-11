@@ -85,6 +85,92 @@ function debugReport(e) {
 	generateDebugReport(addon)
 }
 
+/**
+ * @this {HTMLInputElement}
+ * @param {InputEvent} e
+ */
+async function searchInput(e) {
+	const userQuery = this.value.toLocaleLowerCase().trim()
+	for (const entry of document.querySelectorAll("#fusam-addon-manager-body .fusam-addon-entry")) {
+		const entryName = entry.querySelector("h2")?.textContent.toLocaleLowerCase()
+		if (entryName != null) {
+			entry.classList.toggle("fusam-hide", userQuery !== "" && !entryName.includes(userQuery))
+		}
+	}
+}
+
+/**
+ * Propogate key presses of writable characters to the search input
+ * @this {HTMLElement}
+ * @param {KeyboardEvent} e
+ */
+function documentKeyDown(e) {
+	if (
+		e.ctrlKey
+		|| e.altKey
+		|| e.metaKey
+		|| !(document.activeElement === null || document.activeElement === document.body)
+	) {
+		return
+	}
+
+	checkKey: if (e.key.length === 1) {
+		break checkKey
+	} else if (e.key === "Backspace" && !e.shiftKey) {
+		break checkKey
+	} else {
+		return
+	}
+
+	e.preventDefault()
+	e.stopPropagation()
+
+	const searchInput = document.getElementById("fusam-search")
+	if (!(searchInput instanceof HTMLInputElement)) {
+		return
+	}
+
+	if (e.key === "Backspace") {
+		searchInput.value = searchInput.value.slice(-1)
+	} else {
+		searchInput.value += e.key
+	}
+	searchInput.focus()
+	searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length)
+	searchInput.dispatchEvent(new InputEvent("input"))
+}
+
+/**
+ * Propogate copy/paste actions to the search input
+ * @this {HTMLElement}
+ * @param {ClipboardEvent} e
+ */
+function documentPaste(e) {
+	if (
+		!(document.activeElement === null || document.activeElement === document.body)
+		|| globalThis.getSelection()?.type === "Range"
+	) {
+		return
+	}
+
+	e.preventDefault()
+	e.stopPropagation()
+
+	const content = e.clipboardData?.getData("text")
+	if (!content) {
+		return
+	}
+
+	const searchInput = document.getElementById("fusam-search")
+	if (!(searchInput instanceof HTMLInputElement)) {
+		return
+	}
+
+	searchInput.value = content
+	searchInput.focus()
+	searchInput.dispatchEvent(new InputEvent("input"))
+}
+
 async function drawAddonManager() {
 	const manifest = await getManifest()
 
@@ -94,13 +180,17 @@ async function drawAddonManager() {
 		})
 	)
 
-	render(`#${addonManagerId}`, draw(), { debugReport })
+	render(`#${addonManagerId}`, draw(), { debugReport, searchInput })
 
 	function draw() {
 		return `
 			<div id="fusam-addon-manager-header">
 				${drawHideButton()}
 				<h1>Addon Manager</h1>
+				<input type="search" placeholder="Filter addons" id="fusam-search" oninput="searchInput()" list="fusam-search-list" id="fusam-search"></input>
+				<datalist id="fusam-search-list">
+					${s.manifest.addons.map(entry => entry.name).sort().map(value => `<option value="${value}"></option>`).join("")}
+				</datalist>
 				<button onclick="debugReport()" class="button">Debug</button>
 			</div>
 			<div id="fusam-addon-manager-body">
@@ -120,7 +210,7 @@ async function drawAddonManager() {
 				}
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
-					.join("&bullet; &bullet; &bullet;")}
+					.join("<div class='fusam-spacer' aria-hidden='true'>&bullet; &bullet; &bullet;</div>")}
 			</div>
 		`
 	}
@@ -197,6 +287,9 @@ async function drawAddonManager() {
 }
 
 function registerEventListeners() {
+	document.addEventListener("keydown", documentKeyDown)
+	document.addEventListener("paste", documentPaste)
+
 	document.querySelectorAll(".fusam-addon-entry-version-device select").forEach(
 		/**
 		 * @param {HTMLSelectElement} select
@@ -236,6 +329,8 @@ function registerEventListeners() {
 
 function hideAddonManager() {
 	document.getElementById(addonManagerId).remove()
+	document.removeEventListener("keydown", documentKeyDown);
+	document.removeEventListener("paste", documentPaste);
 	if (playerSettingsLoaded()) {
 		ServerAccountUpdate.QueueData({
 			OnlineSettings: Player.OnlineSettings,
