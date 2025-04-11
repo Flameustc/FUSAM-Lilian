@@ -195,6 +195,13 @@ async function drawAddonManager() {
 			</div>
 			<div id="fusam-addon-manager-body">
 				<p>
+					Welcome to the one stop shop for addon installation in BC!
+				</p>
+				<p>
+					Pick and choose which specific addons you would like to enable (do <i>not</i> enable them all!),
+					be it either for your BC account or for your browser device as a whole.
+				</p>
+				<p>
 					A note on security: while addons that are found to be malicious
 					will be removed from the Addon Manager, it is still possible for
 					some to slip through the cracks.
