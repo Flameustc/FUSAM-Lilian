@@ -40,13 +40,15 @@ const addonManagerId = "fusam-addon-manager-container"
 const addonManagerCloseButtonId = "fusam-addon-manager-close"
 
 function showButton(args, next) {
-	const button = document.createElement("button")
-	button.id = showButtonId
-	button.classList.add("button", "fusam")
-	button.innerText = "Addon Manager"
-	button.onclick = showAddonManager
-	button.style.position = "absolute"
-	document.body.appendChild(button)
+	if (!document.getElementById(showButtonId)) {
+		const button = document.createElement("button")
+		button.id = showButtonId
+		button.classList.add("button", "fusam")
+		button.innerText = "Addon Manager"
+		button.onclick = showAddonManager
+		button.style.position = "absolute"
+		document.body.appendChild(button)
+	}
 	return next(args)
 }
 
