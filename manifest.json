@@ -421,21 +421,6 @@
 				}
 			]
 		},
-			{
-			"id": "BCR",
-			"name": "BC Reply",
-			"description": "Adding a reply feature to the chat for direct responses to messages",
-			"author": "Suki",
-			"repository": "https://github.com/SukiaDemon/reply-extension/tree/gh-pages",
-			"tags": ["enhancements","expansion"],
-			"type": "script",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://sukiademon.github.io/reply-extension/bcr.js"
-				}
-			]
-		},
 		{
 			"id": "MPA",
 			"name": "Maya's Petplay Additions (MPA)",
