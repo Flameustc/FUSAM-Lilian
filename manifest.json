@@ -457,7 +457,7 @@
 				}
 			]
 		},
-				{
+		{
 			"id": "CRABS",
 			"name": "Crazy Roster Addon By Sin (CRABS)",
 			"description": "Adds a room roster you can summon with /roster or /players that includes several interactive tools and assists you with managing a room",
@@ -474,6 +474,21 @@
 				{
 					"distribution": "Beta",
 					"source": "https://sin-1337.github.io/CRABS/Beta/bundle.js"
+				}
+			]
+		},
+		{
+			"id": "LC",
+			"name": "Littlish Club",
+			"description": "ABDL addon for mommy & baby relationship games. Adds diapers, babiesh outfits library, rules and such stuff.",
+			"author": "Zoi",
+			"repository": "https://github.com/FurryZoi/Littlish-Club",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://furryzoi.github.io/Littlish-Club/bundle.js"
 				}
 			]
 		}
