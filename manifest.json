@@ -74,6 +74,29 @@
 			]
 		},
 		{
+			"id": "ABCL",
+			"name": "ABCL",
+			"description": "An ABDL addon that enhances the baby experience along with other related things. Littlish Club compatible.",
+			"author": "Zoe",
+			"repository": "https://github.com/zoe-64/ABCL/",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://zoe-64.github.io/ABCL/versions/latest/abcl.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://zoe-64.github.io/ABCL/versions/beta/abcl.js"
+				},
+				{
+					"distribution": "unstable",
+					"source": "https://zoe-64.github.io/ABCL/versions/unstable/abcl.js"
+				}
+			]
+		},
+		{
 			"id": "BRBD",
 			"name": "BCX Reset Button Disabler",
 			"description": "A very simple addon that disables the Module and Reset Buttons from BCX. That means you can have a new layer of helplessness.",
