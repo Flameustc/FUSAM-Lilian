@@ -514,6 +514,22 @@
 					"source": "https://furryzoi.github.io/Littlish-Club/bundle.js"
 				}
 			]
+		},
+		{
+			"id": "emoji",
+			"name": "emoji",
+			"description": "add emoji picker, send emoji to the chat. Lovly~",
+			"author": "Ayako Qt",
+			"repository": "https://github.com/Ayako-Qt/Emojis/tree/pages",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/Ayako-Qt/Emojis/tree/pages",
+			"versions": [
+				{
+					"distribution": "dev",
+					"source": "https://ayako-qt.github.io/Emojis/js/emojiPicker.js"
+				}
+			]
 		}
 	]
 }
