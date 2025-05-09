@@ -530,6 +530,21 @@
 					"source": "https://ayako-qt.github.io/Emojis/js/emojiPicker.js"
 				}
 			]
+		},
+		{
+			"id": "BCOM",
+			"name": "BC Outfit Manager",
+			"description": "An addon for managing outfits with included restraints, saving them to local storage with exporting and importing functionality. Supports BCX outfit codes.",
+			"author": "Utsumi",
+			"repository": "https://github.com/Utsumi24/BCOM/",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://utsumi24.github.io/BCOM/bcom.js"
+				}
+			]
 		}
 	]
 }
