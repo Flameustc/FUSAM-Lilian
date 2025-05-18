@@ -76,7 +76,7 @@ function save() {
 }
 
 ;(async function () {
-	await waitFor(() => !!Player?.OnlineSettings)
+	await waitFor(() => typeof Player !== "undefined" && !!Player?.OnlineSettings)
 	settings = get()
 	loaded = true
 	console.debug("Loaded account settings", settings)
