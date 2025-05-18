@@ -21,17 +21,26 @@
 	top: 0;
 	right: 50%;
 	transform: translateX(50%);
+	width: fit-content;
+	font-size: 2vmin;
 }
 
 .fusam.button,
-.fusam .button {
+.fusam .button,
+#fusam-search {
 	padding: 0.5em 1em;
 	border-radius: 0;
 	border: 2px solid black;
 	background-color: white;
 	color: black;
-	/* font-weight: bold; */
-	font-size: 2vmin;
+	font-size: 1.5em;
+	width: 6em;
+	height: min-content;
+	justify-self: end;
+}
+
+#fusam-search {
+	width: 18em;
 }
 
 .fusam.button:hover,
@@ -85,10 +94,19 @@
 
 #fusam-addon-manager-header {
 	width: 100%;
-	display: flex;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 4fr 4fr 3fr 1fr;
+	justify-items: center;
 	align-items: center;
-	justify-content: space-between;
-	flex-direction: row;
+}
+
+#fusam-addon-manager-header > *:first-child {
+	justify-self: start;
+}
+
+#fusam-addon-manager-header > *:last-child {
+	justify-self: end;
 }
 
 #fusam-addon-manager-body {
@@ -109,6 +127,18 @@
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr auto;
+}
+
+.fusam-hide {
+	display: none;
+}
+
+.fusam-spacer {
+	user-select: none;
+}
+
+.fusam-hide + .fusam-spacer {
+	display: none;
 }
 
 .fusam-addon-entry:nth-child(odd) {

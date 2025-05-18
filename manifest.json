@@ -93,6 +93,29 @@
 			]
 		},
 		{
+			"id": "ABCL",
+			"name": "ABCL",
+			"description": "An ABDL addon that enhances the baby experience along with other related things. Littlish Club compatible.",
+			"author": "Zoe",
+			"repository": "https://github.com/zoe-64/ABCL/",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://zoe-64.github.io/ABCL/versions/latest/abcl.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://zoe-64.github.io/ABCL/versions/beta/abcl.js"
+				},
+				{
+					"distribution": "unstable",
+					"source": "https://zoe-64.github.io/ABCL/versions/unstable/abcl.js"
+				}
+			]
+		},
+		{
 			"id": "BRBD",
 			"name": "BCX Reset Button Disabler",
 			"description": "A very simple addon that disables the Module and Reset Buttons from BCX. That means you can have a new layer of helplessness.",
@@ -159,6 +182,25 @@
 				{
 					"distribution": "beta",
 					"source": "https://agicitag.github.io/BCTweaks/beta/extension/bct.js"
+				}
+			]
+		},
+		{
+			"id": "ciamod",
+			"name": "CIA (Community Information Addon)",
+			"description": "This set of scripts adds several chat commands to BC. The commands work in conjunction with a central database of players managed by members of the community of the Slave Helpline room and the BCCA",
+			"author": "JD & Ramona",
+			"repository": "https://gitgud.io/cia/cia-bc",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://bondage-dreams.com/cia.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://bondage-dreams.com/ciadev.js"
 				}
 			]
 		},
@@ -314,7 +356,7 @@
 			"name": "DOGS (Devious Obligate Great Stuff)",
 			"description": "Adds devious stuff, which will increase your helplessness.... or dominance",
 			"author": "Zoi",
-			"repository": "https://github.com/FurryZoi/Devious-Obligate-Great-Stuff.git",
+			"repository": "https://github.com/FurryZoi/Devious-Obligate-Great-Stuff",
 			"tags": ["enhancements", "expansion"],
 			"type": "script",
 			"versions": [
@@ -421,21 +463,6 @@
 				}
 			]
 		},
-			{
-			"id": "BCR",
-			"name": "BC Reply",
-			"description": "Adding a reply feature to the chat for direct responses to messages",
-			"author": "Suki",
-			"repository": "https://github.com/SukiaDemon/reply-extension/tree/gh-pages",
-			"tags": ["enhancements","expansion"],
-			"type": "script",
-			"versions": [
-				{
-					"distribution": "stable",
-					"source": "https://sukiademon.github.io/reply-extension/bcr.js"
-				}
-			]
-		},
 		{
 			"id": "MPA",
 			"name": "Maya's Petplay Additions (MPA)",
@@ -453,6 +480,88 @@
 				{
 					"distribution": "beta",
 					"source": "https://mayathefoxy.github.io/MPA/devBundle.js"
+				}
+			]
+		},
+		{
+			"id": "ResponsiveLegacy",
+			"name": "Responsive(Legacy)",
+			"description": "Easily managed conditions for automatic feedback in online chat.",
+			"author": "SaotomeToyStore",
+			"repository": "https://github.com/dynilath/BCResponsive",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://dynilath.gitlab.io/SaotomeToyStore/en/Plugins/Responsive.html",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://dynilath.gitlab.io/SaotomeToyStoreVendor/Responsive/main.js"
+				}
+			]
+		},
+		{
+			"id": "CRABS",
+			"name": "Crazy Roster Addon By Sin (CRABS)",
+			"description": "Adds a room roster you can summon with /roster or /players that includes several interactive tools and assists you with managing a room",
+			"author": "Sin",
+			"repository": "https://github.com/sin-1337/CRABS",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/sin-1337/CRABS",
+			"versions": [
+				{
+					"distribution": "Stable",
+					"source": "https://sin-1337.github.io/CRABS/Stable/bundle.js"
+				},
+				{
+					"distribution": "Beta",
+					"source": "https://sin-1337.github.io/CRABS/Beta/bundle.js"
+				}
+			]
+		},
+		{
+			"id": "LC",
+			"name": "Littlish Club",
+			"description": "ABDL addon for mommy & baby relationship games. Adds diapers, babiesh outfits library, rules and such stuff.",
+			"author": "Zoi",
+			"repository": "https://github.com/FurryZoi/Littlish-Club",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://furryzoi.github.io/Littlish-Club/bundle.js"
+				}
+			]
+		},
+		{
+			"id": "emoji",
+			"name": "emoji",
+			"description": "add emoji picker, send emoji to the chat. Lovly~",
+			"author": "Ayako Qt",
+			"repository": "https://github.com/Ayako-Qt/Emojis/tree/pages",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/Ayako-Qt/Emojis/tree/pages",
+			"versions": [
+				{
+					"distribution": "dev",
+					"source": "https://ayako-qt.github.io/Emojis/js/emojiPicker.js"
+				}
+			]
+		},
+		{
+			"id": "BCOM",
+			"name": "BC Outfit Manager",
+			"description": "An addon for managing outfits with included restraints, saving them to local storage with exporting and importing functionality. Supports BCX outfit codes.",
+			"author": "Utsumi",
+			"repository": "https://github.com/Utsumi24/BCOM/",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://utsumi24.github.io/BCOM/bcom.js"
 				}
 			]
 		}
