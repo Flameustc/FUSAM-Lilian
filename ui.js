@@ -299,6 +299,13 @@ function registerEventListeners() {
 	document.addEventListener("keydown", documentKeyDown)
 	document.addEventListener("paste", documentPaste)
 
+	/** @type {HTMLSelectElement[]} */
+	const allSelects = Array.from(document.querySelectorAll(".fusam-addon-entry-buttons select"));
+	const maxWidth = allSelects.reduce((maxWidth, el) => Math.max(maxWidth, el.clientWidth), 0);
+	if (maxWidth !== 0) {
+		allSelects.forEach(e => e.style.width = `${maxWidth}px`);
+	}
+
 	document.querySelectorAll(".fusam-addon-entry-version-device select").forEach(
 		/**
 		 * @param {HTMLSelectElement} select
