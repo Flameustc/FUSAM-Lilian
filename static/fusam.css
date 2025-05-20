@@ -63,6 +63,12 @@
 	font-size: 1.5em;
 }
 
+.fusam select {
+	box-sizing: border-box;
+	max-width: 12em;
+	text-overflow: ellipsis;
+}
+
 .fusam select:disabled {
 	opacity: 0.2;
 	cursor: not-allowed;
