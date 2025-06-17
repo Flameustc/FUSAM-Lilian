@@ -34,6 +34,8 @@ import { BaseURL } from "./config.js"
  * @property {string} name - Full name of the addon
  * @property {string} description - Short description of the addon
  * @property {string} author - Name of the addon author
+ * @property {string} [icon] - URL of the addon icon
+ * @property {string} [discord] - Invite to addons Discord
  * @property {string} [repository] - URL of the addon repository
  * @property {Tag[]} tags - Tags of the addon
  * @property {'eval' | 'module' | 'script'} type - Type of the addon

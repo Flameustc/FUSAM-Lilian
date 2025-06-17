@@ -24,6 +24,7 @@
 		},
 		{
 			"id": "BCX",
+			"icon": "https://jomshir98.github.io/bondage-club-extended/resources/BCX_large.png",
 			"name": "Bondage Club Extended (BCX)",
 			"description": "Adds rules, curses, and more to enhance D/s play alongside a handful of quality of life improvements",
 			"author": "Jomshir98 & Claudia",
@@ -44,6 +45,7 @@
 		},
 		{
 			"id": "Themed",
+			"icon": "https://github.com/dDeepLb/Themed-BC/raw/main/public/icons/mod.png",
 			"name": "Themed",
 			"description": "Adds custom themes to BC along with other features",
 			"author": "dDeepLb",
@@ -59,6 +61,7 @@
 		},
 		{
 			"id": "ADCS",
+			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/favicon.ico",
 			"name": "Advanced Drone Control System (ADCS)",
 			"description": "Expansion of Drone gameplay",
 			"author": "SaotomeToyStore",
@@ -75,10 +78,12 @@
 		},
 		{
 			"id": "ABCL",
+			"icon": "https://zoe-64.github.io/ABCL/src/assets/icon.png",
 			"name": "ABCL",
-			"description": "An ABDL addon that enhances the baby experience along with other related things. Littlish Club compatible.",
+			"description": "An ABDL addon that adds mechanics towards human body functions like bladder and bowels. Also makes the experience more immersive and interactive. Littlish Club compatible.",
 			"author": "Zoe",
 			"repository": "https://github.com/zoe-64/ABCL/",
+			"discord": "https://discord.gg/Sq9akTD6kF",
 			"tags": ["enhancements", "expansion"],
 			"type": "script",
 			"versions": [
@@ -103,7 +108,7 @@
 			"author": "Ciber",
 			"tags": [],
 			"type": "eval",
-			"website": "https://github.com/ciberweaboo/brbd",
+			"repository": "https://github.com/ciberweaboo/brbd",
 			"versions": [
 				{
 					"distribution": "stable",
@@ -168,6 +173,7 @@
 		},
 		{
 			"id": "ciamod",
+			"icon": "https://gitgud.io/cia/cia-bc/-/raw/master/CIA_logo.png?raw=true",
 			"name": "CIA (Community Information Addon)",
 			"description": "This set of scripts adds several chat commands to BC. The commands work in conjunction with a central database of players managed by members of the community of the Slave Helpline room and the BCCA",
 			"author": "JD & Ramona",
@@ -190,7 +196,8 @@
 			"name": "Eli's Bondage Club Helper (EBCH)",
 			"description": "Ungarble, custom notifications, altering other player's poses",
 			"author": "Elicia",
-			"repository": "https://e2466.gitlab.io/ebch/master/EBCH.js",
+			"repository": "https://gitlab.com/e2466/ebch",
+			"website": "https://e2466.gitlab.io/ebch",
 			"tags": ["enhancements", "automation"],
 			"type": "eval",
 			"versions": [
@@ -252,6 +259,7 @@
 		},
 		{
 			"id": "Responsive",
+			"icon": "https://user-images.githubusercontent.com/71733861/254577970-83fb14ab-79af-46b4-9490-ea8c85dc4097.png",
 			"name": "Responsive",
 			"description": "Automatically sends messages when the user reaches a certain state (slapped, orgasm, etc).",
 			"author": "SaotomeToyStore, dDeepLb",
@@ -283,6 +291,7 @@
 		},
 		{
 			"id": "NotifyPlus",
+			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/favicon.ico",
 			"name": "NotifyPlus",
 			"description": "Improve the Name Mentioned notification in the original BC. Use keywords for mentioning names according to different roles.",
 			"author": "SaotomeToyStore",
@@ -299,12 +308,13 @@
 		},
 		{
 			"id": "TTS",
+			"icon": "https://gitlab.com/KatKammand/tts/-/raw/main/src/resources/ttslogo.png",
 			"name": "TTS and Morse",
 			"description": "Text-to-speech reading for chat messages, and some buttplug.io + morse functionalities.",
 			"author": "KatKammand",
 			"tags": ["expansion"],
 			"type": "module",
-			"website": "https://gitlab.com/KatKammand/tts",
+			"repository": "https://gitlab.com/KatKammand/tts",
 			"versions": [
 				{
 					"distribution": "stable",
@@ -324,7 +334,6 @@
 			"repository": "https://github.com/ciberweaboo/cats",
 			"tags": ["enhancements", "expansion"],
 			"type": "eval",
-			"website": "https://github.com/ciberweaboo/cats",
 			"versions": [
 				{
 					"distribution": "stable",
@@ -334,6 +343,7 @@
 		},
 		{
 			"id": "DOGS",
+			"icon": "https://github.com/FurryZoi/Devious-Obligate-Great-Stuff/raw/main/src/images/slavery.png",
 			"name": "DOGS (Devious Obligate Great Stuff)",
 			"description": "Adds devious stuff, which will increase your helplessness.... or dominance",
 			"author": "Zoi",
@@ -349,6 +359,7 @@
 		},
 		{
 			"id": "MBCFS",
+			"icon": "https://gitgud.io/maples-bc-plugins/fetish-share/-/raw/main/src/assets/icon.png",
 			"name": "Maple's BC FetishShare",
 			"description": "Displays user Fetish and Arousal preferences in Bios, and calculates compatibility between players.",
 			"author": "maple",
@@ -446,6 +457,7 @@
 		},
 		{
 			"id": "MPA",
+			"icon":"https://mayathefoxy.github.io/MPA/paw64.png",
 			"name": "Maya's Petplay Additions (MPA)",
 			"description": "Adds more petplay themed content",
 			"author": "MayaTheFoxy",
@@ -466,6 +478,7 @@
 		},
 		{
 			"id": "ResponsiveLegacy",
+			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/favicon.ico",
 			"name": "Responsive(Legacy)",
 			"description": "Easily managed conditions for automatic feedback in online chat.",
 			"author": "SaotomeToyStore",
@@ -482,13 +495,13 @@
 		},
 		{
 			"id": "CRABS",
+			"icon": "https://sin-1337.github.io/CRABS/images/CRABS_Logo.png",
 			"name": "Crazy Roster Addon By Sin (CRABS)",
 			"description": "Adds a room roster you can summon with /roster or /players that includes several interactive tools and assists you with managing a room",
 			"author": "Sin",
 			"repository": "https://github.com/sin-1337/CRABS",
 			"tags": ["expansion"],
 			"type": "script",
-			"website": "https://github.com/sin-1337/CRABS",
 			"versions": [
 				{
 					"distribution": "Stable",
@@ -502,6 +515,7 @@
 		},
 		{
 			"id": "LC",
+			"icon": "https://raw.githubusercontent.com/FurryZoi/Littlish-Club/main/src/images/milk-bottle.png",
 			"name": "Littlish Club",
 			"description": "ABDL addon for mommy & baby relationship games. Adds diapers, babiesh outfits library, rules and such stuff.",
 			"author": "Zoi",
@@ -523,7 +537,6 @@
 			"repository": "https://github.com/Ayako-Qt/Emojis/tree/pages",
 			"tags": ["expansion"],
 			"type": "script",
-			"website": "https://github.com/Ayako-Qt/Emojis/tree/pages",
 			"versions": [
 				{
 					"distribution": "dev",
