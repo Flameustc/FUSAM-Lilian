@@ -61,7 +61,7 @@
 		},
 		{
 			"id": "ADCS",
-			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/favicon.ico",
+			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/logo.png",
 			"name": "Advanced Drone Control System (ADCS)",
 			"description": "Expansion of Drone gameplay",
 			"author": "SaotomeToyStore",
