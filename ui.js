@@ -259,7 +259,7 @@ async function drawAddonManager() {
 				</section>
 				<section class="addon-interactions">
 					<div class="addon-left-interactions" role="group">
-						<div class="fusam-addon-version-select">
+						<div class="fusam-addon-entry-version-device">
 							<label for="${entry.id}-device">Device</label>
 							<select id="${entry.id}-device" data-addon="${entry.id}">
 							<option value="none" selected>None</option>
@@ -268,7 +268,7 @@ async function drawAddonManager() {
 								)}
 							</select>
 						</div>
-						<div class="fusam-addon-version-select">
+						<div class="fusam-addon-entry-version-account">
 							<label for="${entry.id}-account">Account</label>
 							<select id="${entry.id}-account" data-addon="${entry.id}" ${!playerSettingsLoaded() ? "disabled" : ""}>
 							<option value="none" selected>None</option>		

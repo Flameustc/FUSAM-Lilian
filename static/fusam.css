@@ -197,7 +197,7 @@
 	display: grid;
 	grid-template-columns: 10.5em auto;
   	grid-template-rows: 7em 3.5em;
-	& .fusam-addon-version-select {
+	& .fusam-addon-entry-version-device, & .fusam-addon-entry-version-account {
 		background-color:var(--fusam-element);
 		height: auto;
     	margin-top: 0.5em;	
