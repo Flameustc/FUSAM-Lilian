@@ -243,6 +243,7 @@
 		background-color: var(--fusam-element);
 		grid-column: 2/2;
 		grid-row: 1/2;
+		padding: 2px;
 
 		& .addon-name {
 			margin: 0;
