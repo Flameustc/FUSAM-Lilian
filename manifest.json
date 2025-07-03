@@ -438,12 +438,15 @@
 		},
 		{
 			"id": "MoonCEBC",
-			"name": "Moon Cards Editor BC",
-			"description": "Adds the ability to view and edit your cards decks from online room",
+			"icon": "https://lunarkitsunify.github.io/MoonCEBC/src/Images/AddonIcon.png",
+			"name": "Moon Cards Editor",
+			"description": "Deck editor in online rooms — manage your cards without leaving the game.",
 			"author": "Lunar Kitsunify",
 			"repository": "https://github.com/LunarKitsunify/MoonCEBC",
+			"discord": "https://discord.gg/ZByQXVHm4u",
 			"tags": ["enhancements","expansion"],
 			"type": "module",
+			"website": "https://clubcardmonitoring.onrender.com/",
 			"versions": [
 				{
 					"distribution": "stable",
