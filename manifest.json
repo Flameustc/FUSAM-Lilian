@@ -561,6 +561,21 @@
 					"source": "https://utsumi24.github.io/BCOM/bcom.js"
 				}
 			]
+		},
+		{
+			"id": "LianChat",
+			"name": "涟信 LianChat",
+			"description": "A more modern interface for private messaging with friends, custom avatars and signatures, and the ability to view lobby rooms from anywhere.",
+			"author": "XinLian",
+			"repository": "https://github.com/XinLian132243/BCMod/",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://xinlian132243.github.io/BCMod/BC_LianChat.user.js"
+				}
+			]
 		}
 	]
 }
