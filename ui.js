@@ -405,6 +405,14 @@ export function hookUI() {
 	SDK.hookFunction("PreferenceExit", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("DisclaimerLoad", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 
+  SDK.hookFunction("PreferenceRun", HOOK_PRIORITY.ADD_BEHAVIOR, (args, next) => {
+    next(args)
+    if (typeof PreferenceSubscreen === "object") {
+      if (PreferenceSubscreen.name !== "Main") hideButton(null, () => void 0);
+      else showButton(null, () => void 0)
+    }
+  })
+
 	if (CurrentScreen === "Preference" || CurrentScreen === "Login") {
 		showButton(null, () => void 0)
 	}
