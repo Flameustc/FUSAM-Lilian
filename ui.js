@@ -49,12 +49,12 @@ function showButton(args, next) {
 		button.style.position = "absolute"
 		document.body.appendChild(button)
 	}
-	return next(args)
+	return next ? next(args) : undefined
 }
 
 function hideButton(args, next) {
 	document.getElementById(showButtonId)?.remove()
-	return next(args)
+	return next ? next(args) : undefined;
 }
 
 async function showAddonManager() {
@@ -404,17 +404,21 @@ export function hookUI() {
 	SDK.hookFunction("LoginResponse", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("PreferenceExit", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("DisclaimerLoad", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
-
-  SDK.hookFunction("PreferenceRun", HOOK_PRIORITY.ADD_BEHAVIOR, (args, next) => {
-    next(args)
-    if (typeof PreferenceSubscreen === "object") {
-      if (PreferenceSubscreen.name !== "Main") hideButton(null, () => void 0);
-      else showButton(null, () => void 0)
-    }
-  })
+	
+	SDK.hookFunction("PreferenceRun", HOOK_PRIORITY.ADD_BEHAVIOR, (args, next) => {
+		const ret = next(args)
+		if (typeof PreferenceSubscreen === "object") {
+			if (PreferenceSubscreen.name !== "Main") {
+				hideButton();
+			} else {
+				showButton()
+			}
+		}
+		return ret;
+	})
 
 	if (CurrentScreen === "Preference" || CurrentScreen === "Login") {
-		showButton(null, () => void 0)
+		showButton()
 	}
 }
 
