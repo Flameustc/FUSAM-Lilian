@@ -291,7 +291,7 @@
 		},
 		{
 			"id": "NotifyPlus",
-			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/favicon.ico",
+			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/logo.png",
 			"name": "NotifyPlus",
 			"description": "Improve the Name Mentioned notification in the original BC. Use keywords for mentioning names according to different roles.",
 			"author": "SaotomeToyStore",
@@ -481,7 +481,7 @@
 		},
 		{
 			"id": "ResponsiveLegacy",
-			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/favicon.ico",
+			"icon": "https://dynilath.gitlab.io/SaotomeToyStore/logo.png",
 			"name": "Responsive(Legacy)",
 			"description": "Easily managed conditions for automatic feedback in online chat.",
 			"author": "SaotomeToyStore",
