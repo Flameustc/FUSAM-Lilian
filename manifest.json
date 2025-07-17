@@ -210,10 +210,11 @@
 		{
 			"id": "LSCG",
 			"name": "Little Sera's Club Games (LSCG)",
-			"description": "Adds large gamified systems for hypnotism and breathplay",
+			"icon": "https://github.com/littlesera/LSCG/blob/main/icon.png?raw=true",
+			"description": "Adds custom activities, large gamified systems for hypnotism, breathplay, magic, and much more",
 			"author": "Little Sera",
 			"repository": "https://github.com/littlesera/LSCG",
-			"tags": ["expansion"],
+			"tags": ["expansion", "enhancements"],
 			"type": "script",
 			"website": "https://github.com/littlesera/LSCG/wiki",
 			"versions": [
