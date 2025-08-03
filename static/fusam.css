@@ -15,7 +15,33 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
+@media (prefers-color-scheme: dark) {
+	:root {
+		--fusam-text: var(--tmd-text, #aaa);
+		/* no such thing in themed */
+		--fusam-text-placeholder: var(--tmd-accent, #797979);
+		--fusam-main: var(--tmd-main, #0f0f0ff2);
+		--fusam-inset-element: var(--tmd-main, #222);
+		--fusam-element: var(--tmd-element, #353535);
+		--fusam-border: var(--tmd-accent, #6c6c6c);
+		--icon-filter: invert(1);
+	}
+}
+@media (prefers-color-scheme: light) {
+	:root {
+		--fusam-text: var(--tmd-text, #000000);
+		/* no such thing in themed */
+		--fusam-text-placeholder: var(--tmd-accent, #808080);
+		--fusam-main: var(--tmd-main, #e0e0e0f2);
+		--fusam-inset-element: var(--tmd-main, #e6e6e6);
+		--fusam-element: var(--tmd-element, #ffffff);
+		--fusam-border: var(--tmd-accent, #a0a0a0);
+		--icon-filter: none;
+	}
+}
+:root {
+	--padding: 1.15em;
+}
 #fusam-show-button {
 	position: absolute;
 	top: 0;
@@ -26,21 +52,16 @@
 }
 
 .fusam.button,
-.fusam .button,
-#fusam-search {
+.fusam .button {
 	padding: 0.5em 1em;
 	border-radius: 0;
 	border: 2px solid black;
-	background-color: white;
-	color: black;
+	background-color: var(--fusam-element);
+	color: var(--fusam-text);
 	font-size: 1.5em;
 	width: 6em;
 	height: min-content;
 	justify-self: end;
-}
-
-#fusam-search {
-	width: 18em;
 }
 
 .fusam.button:hover,
@@ -52,17 +73,6 @@
 	background-color: #00ffff;
 }
 
-.fusam select,
-.fusam option {
-	min-width: 6em;
-	padding: 0.5em 1em;
-	border-radius: 0;
-	border: 2px solid black;
-	background-color: white;
-	color: black;
-	font-size: 1.5em;
-}
-
 .fusam select:disabled {
 	opacity: 0.2;
 	cursor: not-allowed;
@@ -70,18 +80,30 @@
 .fusam select:disabled:hover {
 	background-color: white;
 }
+.fusam-icon-button {
+	aspect-ratio: 1;
+	padding: 0.2em;
+  	border: 1px solid var(--fusam-border);
+	background-color: var(--fusam-inset-element);
+	cursor:pointer;
+	& > img {
+		width: 2.3em;
+ 		height: 2.3em;
+		pointer-events: none;
+		filter: var(--icon-filter);
+	}
+}
 
 #fusam-addon-manager-container {
 	position: absolute;
-	height: 92vh;
-	width: 96%;
-	background-color: rgba(0, 0, 0, 0.9);
-	backdrop-filter: blur(20px);
+	height: 100%;
+	width: 100%;
+	background-color: var(--fusam-main); 
 	display: flex;
 	flex-direction: column;
-	padding: 2%;
-	color: white;
+	color: var(--fusam-text);
 	font-family: "Roboto", sans-serif;
+	backdrop-filter: blur(5px);
 }
 
 #fusam-addon-manager-container a {
@@ -93,12 +115,35 @@
 }
 
 #fusam-addon-manager-header {
-	width: 100%;
-	display: grid;
-	grid-auto-flow: column;
-	grid-template-columns: 4fr 4fr 3fr 1fr;
-	justify-items: center;
+	display: flex;
 	align-items: center;
+	background:var(--fusam-element);
+	justify-content: space-between;
+	padding: 1em;
+	& .fusam-title {
+		margin: 0;
+		text-align: center;
+		white-space: nowrap;
+	}
+	& > * {
+		flex: 1;
+	}
+	& .fusam-search-box {
+		& > #fusam-search {
+			width: 100%;
+			background-color: var(--fusam-inset-element);
+			height: 100%;
+			border: none;
+      		border-bottom: 1px solid var(--fusam-border);
+      		padding: 1em;
+			&::placeholder {
+				color: var(--fusam-text-placeholder);
+			}
+		}
+	}
+	& .fusam-header-buttons {
+		text-align: right;
+	}
 }
 
 #fusam-addon-manager-header > *:first-child {
@@ -115,6 +160,18 @@
 	flex-direction: column;
 	align-items: center;
 	overflow-y: auto;
+	& > .fusam-intro {
+		background:var(--fusam-element);
+		padding:1em;	
+		margin: 1em;
+		& p {
+			margin: 0;
+		}
+		& h3 {
+			margin: 0;
+			text-align: center;
+		}
+	}
 }
 
 #fusam-addon-manager-body > p {
@@ -123,10 +180,133 @@
 	margin-bottom: 0.5em;
 }
 
-.fusam-addon-entry {
+#fusam-addons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	margin: 2em;
+} 
+
+.fusam-addon-container {
+	flex: 1;
+	min-width:43em;
+}
+
+.fusam-addon {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr auto;
+	grid-template-columns: 10.5em auto;
+  	grid-template-rows: 7em 3.5em;
+	& .fusam-addon-entry-version-device, & .fusam-addon-entry-version-account {
+		background-color:var(--fusam-element);
+		height: auto;
+    	margin-top: 0.5em;	
+		position: relative;
+		& > label {
+			position: absolute;
+			background-color: var(--fusam-element);
+			padding: 0.1em;
+			font-size: 0.7em;
+			font-weight: bold;
+			left: 0.5em;
+		}
+		& select {
+			cursor:pointer;
+			margin: 0.5em;
+			background-color: var(--fusam-inset-element);
+			border:none;
+			height: 2.2em;
+			font-weight: bold;
+		}
+		& select:disabled {
+			cursor: not-allowed !important;
+		}
+	}
+	& .addon-icon {
+		background-color: var(--fusam-element);
+		aspect-ratio: 1/1;
+		grid-column: span 1;
+		grid-row: span 2;
+		height: 100%;
+		& img {
+			margin: 5%;
+			width: 90%;
+			height: 90%;
+			object-fit: contain;
+			pointer-events: none;
+		}
+		[src~="icon-fallback"] {
+			filter: var(--icon-filter);
+		} 
+	}
+	& .addon-content {
+		background-color: var(--fusam-element);
+		grid-column: 2/2;
+		grid-row: 1/2;
+		padding: 2px;
+
+		& .addon-name {
+			margin: 0;
+		}
+		& .addon-description {
+			margin: 0;
+			height: 4em;
+			overflow-y:auto;
+		}
+		& .addon-authors {
+			font-style: italic;
+			font-size: 0.8em;
+			opacity: 0.8;
+		}
+	}
+	& .addon-interactions {
+		grid-column: 2/2;
+		grid-row: 2/2;
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
+		gap:0.5em;
+		& .addon-left-interactions {
+			display: flex;
+			flex-direction: row;
+		  	gap: 0.5em;
+      		margin-left: 0.5em;
+			& select {
+				cursor:pointer;
+				color: var(--fusam-text);
+				margin:0.6em;
+				font-size: 1em;
+				background-color: var(--fusam-inset-element);
+				border:none;
+				height: 1.9em;
+				font-weight: bold;
+				text-transform: capitalize;
+				& option {
+					font-weight: normal;
+				}
+			}
+		}
+		& .addon-right-interactions {
+			display: flex;
+			flex-direction: row;
+			gap: 0.5em;
+			& > div {
+				padding: 0.5em;
+				margin-top: 0.5em;
+				background-color: var(--fusam-element);
+			}
+			& a {
+				height: 100%;
+				display: inline-block;
+			}
+			& img {
+				width: 2em;
+        		height: 2em;
+				filter: var(--icon-filter);
+				pointer-events: none;
+			}
+		}
+	}
 }
 
 .fusam-hide {
@@ -141,40 +321,16 @@
 	display: none;
 }
 
-.fusam-addon-entry:nth-child(odd) {
-	color: #8fe5ff;
-}
-
-.fusam-addon-entry h2 {
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
-.fusam-addon-entry-author {
-	font-style: italic;
-	font-size: 0.8em;
-	opacity: 0.8;
-	margin-left: 0.5em;
-}
-
-.fusam-addon-entry-description {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.fusam-addon-entry-buttons {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-}
-
-.fusam-addon-entry-buttons > * {
-	margin-right: 1em;
-}
-
 .fusam .warn {
 	color: yellow;
 }
 .fusam .warn:before {
 	content: "⚠ ";
+}
+
+.fusam-attribution {
+	background: var(--fusam-element);
+	color: var(--fusam-text);
+	width: calc(100% - 20px);
+	padding: 10px;
 }

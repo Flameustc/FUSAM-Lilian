@@ -49,12 +49,12 @@ function showButton(args, next) {
 		button.style.position = "absolute"
 		document.body.appendChild(button)
 	}
-	return next(args)
+	return next ? next(args) : undefined
 }
 
 function hideButton(args, next) {
 	document.getElementById(showButtonId)?.remove()
-	return next(args)
+	return next ? next(args) : undefined;
 }
 
 async function showAddonManager() {
@@ -73,8 +73,8 @@ async function showAddonManager() {
 	registerEventListeners()
 }
 
-function drawHideButton() {
-	return `<button id="${addonManagerCloseButtonId}" class="button">SAVE</button>`
+function drawExitButton() {
+	return `<button id="${addonManagerCloseButtonId}" class="fusam-icon-button"><img src="${BaseURL}static/assets/exit.svg"></button>`
 }
 
 /**
@@ -93,7 +93,7 @@ function debugReport(e) {
  */
 async function searchInput(e) {
 	const userQuery = this.value.toLocaleLowerCase().trim()
-	for (const entry of document.querySelectorAll("#fusam-addon-manager-body .fusam-addon-entry")) {
+	for (const entry of document.querySelectorAll("#fusam-addons .fusam-addon-container")) {
 		const entryName = entry.querySelector("h2")?.textContent.toLocaleLowerCase()
 		if (entryName != null) {
 			entry.classList.toggle("fusam-hide", userQuery !== "" && !entryName.includes(userQuery))
@@ -187,27 +187,33 @@ async function drawAddonManager() {
 	function draw() {
 		return `
 			<div id="fusam-addon-manager-header">
-				${drawHideButton()}
-				<h1>Addon Manager</h1>
-				<input type="search" placeholder="Filter addons" id="fusam-search" oninput="searchInput()" list="fusam-search-list" id="fusam-search"></input>
-				<datalist id="fusam-search-list">
+				<div class="fusam-search-box">
+					<input type="search" placeholder="Filter addons" id="fusam-search" oninput="searchInput()" list="fusam-search-list"></input>
+					<datalist id="fusam-search-list">
 					${s.manifest.addons.map(entry => entry.name).sort().map(value => `<option value="${value}"></option>`).join("")}
-				</datalist>
-				<button onclick="debugReport()" class="button">Debug</button>
+					</datalist>
+				</div>
+				<h1 class="fusam-title">Addon Manager</h1>
+				<div class="fusam-header-buttons">
+					<button onclick="debugReport()" class="fusam-icon-button"><img src="${BaseURL}static/assets/debug.svg"></button>
+					${drawExitButton()}
+				</div>
 			</div>
 			<div id="fusam-addon-manager-body">
-				<p>
-					Welcome to the one stop shop for addon installation in BC!
-				</p>
-				<p>
-					Pick and choose which specific addons you would like to enable (do <i>not</i> enable them all!),
-					be it either for your BC account or for your browser device as a whole.
-				</p>
-				<p>
-					A note on security: while addons that are found to be malicious
-					will be removed from the Addon Manager, it is still possible for
-					some to slip through the cracks.
-				</p>
+			<div class="fusam-intro">	
+					<h3>
+						Welcome to the one stop shop for addon installation in BC!
+					</h3>
+					<p>
+						Pick and choose which specific addons you would like to enable (do <i>not</i> enable them all!),
+						be it either for your BC account or for your browser device as a whole.
+					</p>
+					<p>
+						A note on security: while addons that are found to be malicious
+						will be removed from the Addon Manager, it is still possible for
+						some to slip through the cracks.
+					</p>
+				</div>
 				${
 					GameVersion.toLowerCase().includes("beta")
 						? `<p class="warn">
@@ -217,9 +223,14 @@ async function drawAddonManager() {
 						</p>`
 						: ""
 				}
+				<div id="fusam-addons">
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
-					.join("<div class='fusam-spacer' aria-hidden='true'>&bullet; &bullet; &bullet;</div>")}
+					.join("")}
+				</div>
+				<div class="fusam-attribution">
+					${drawAttribution()}
+				</div>
 			</div>
 		`
 	}
@@ -231,53 +242,66 @@ async function drawAddonManager() {
 		const local = localDistribution(entry.id)
 		const online = onlineDistribution(entry.id)
 		const debuggable = canDebug(entry.id)
+		const useIcons = true;
 
 		return `
-			<div class="fusam-addon-entry">
-				<div>
-					<h2>${entry.name}</h2>
-					<span class="fusam-addon-entry-author">by ${entry.author}</span>
-					<div class="fusam-addon-entry-description">
-						<span>${entry.description}</span>
+		<div class="fusam-addon-container"> 
+			<article class="fusam-addon">
+				<section class="addon-icon">
+					<img src="${entry.icon ||  BaseURL + "static/assets/icon-fallback.svg"}" alt="${entry.name} icon">
+				</section>
+				<section class="addon-content">
+					<h2 class="addon-name">${entry.name}</h2>
+					<p class="addon-description">${entry.description}</p>
+					<div class="addon-authors">
+						by ${entry.author}
+					</div>
+				</section>
+				<section class="addon-interactions">
+					<div class="addon-left-interactions" role="group">
+						<div class="fusam-addon-entry-version-device">
+							<label for="${entry.id}-device">Device</label>
+							<select id="${entry.id}-device" data-addon="${entry.id}">
+							<option value="none" selected>None</option>
+								${entry.versions.map((version) =>
+									drawVersionOption(version, local === version.distribution)
+								)}
+							</select>
+						</div>
+						<div class="fusam-addon-entry-version-account">
+							<label for="${entry.id}-account">Account</label>
+							<select id="${entry.id}-account" data-addon="${entry.id}" ${!playerSettingsLoaded() ? "disabled" : ""}>
+							<option value="none" selected>None</option>		
+								${entry.versions.map((version) =>
+									drawVersionOption(version, online === version.distribution)
+								)}
+							</select>
+						</div>	
+					</div>
+					<div class="addon-right-interactions" role="group">
+						${
+							entry.discord
+								? `<div><a rel="external" target="_blank" href="${entry.discord}">${useIcons ? `<img src="${BaseURL}static/assets/discord.svg" alt="discord invite">` : 'discord'}</a></div>`
+								: ""
+						}
 						${
 							entry.website
-								? `&bullet; <a rel="external" target="_blank" href="${entry.website}">website</a>`
+								? `<div><a rel="external" target="_blank" href="${entry.website}">${useIcons ? `<img src="${BaseURL}static/assets/website.svg" alt="website link">` : 'website'}</a></div>`
 								: ""
 						}
 						${
 							entry.repository
-								? `&bullet; <a rel="external" target="_blank" href="${entry.repository}">repository</a>`
+								? `<div><a rel="external" target="_blank" href="${entry.repository}"> ${useIcons ? `<img src="${BaseURL}static/assets/repository.svg" alt="repository link">` : 'repository'}</a></div>`
 								: ""
 						}
 						${
 							debuggable
-								? `&bullet; <a href="#" onclick="debugReport()" data-addon="${entry.id}">download debug report</a>`
+								? `<div><a href="#" onclick="debugReport()" data-addon="${entry.id}">${useIcons ? `<img src="${BaseURL}static/assets/debug.svg" alt="download debug report">` : 'download debug report'}</a></div>`
 								: ""
 						}
 					</div>
-				</div>
-				<div class="fusam-addon-entry-buttons">
-					<div class="fusam-addon-entry-version-device">
-						<h3>Device</h3>
-						<select id="${entry.id}-device" data-addon="${entry.id}">
-							<option value="none">None</option>
-							${entry.versions.map((version) =>
-								drawVersionOption(version, local === version.distribution)
-							)}
-						</select>
-					</div>
-					<div class="fusam-addon-entry-version-account">
-						<h3>Account</h3>
-						<select id="${entry.id}-account" data-addon="${entry.id}" ${
-			!playerSettingsLoaded() ? "disabled" : ""
-		}>
-							<option value="none">None</option>
-							${entry.versions.map((version) =>
-								drawVersionOption(version, online === version.distribution)
-							)}
-						</select>
-					</div>
-				</div>
+				</section>
+			</article>
 			</div>
 		`
 	}
@@ -294,10 +318,26 @@ async function drawAddonManager() {
 		`
 	}
 }
-
+function drawAttribution() {
+	// use · between attributions
+	return `
+            <small>
+                Git Logo by Jason Long is licensed under the
+                <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution 3.0 Unported License</a>.
+            </small>
+			 
+	`
+}
 function registerEventListeners() {
 	document.addEventListener("keydown", documentKeyDown)
 	document.addEventListener("paste", documentPaste)
+
+	/** @type {HTMLSelectElement[]} */
+	const allSelects = Array.from(document.querySelectorAll(".fusam-addon-entry-buttons select"));
+	const maxWidth = allSelects.reduce((maxWidth, el) => Math.max(maxWidth, el.clientWidth), 0);
+	if (maxWidth !== 0) {
+		allSelects.forEach(e => e.style.width = `${maxWidth}px`);
+	}
 
 	document.querySelectorAll(".fusam-addon-entry-version-device select").forEach(
 		/**
@@ -364,9 +404,21 @@ export function hookUI() {
 	SDK.hookFunction("LoginResponse", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("PreferenceExit", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
 	SDK.hookFunction("DisclaimerLoad", HOOK_PRIORITY.ADD_BEHAVIOR, hideButton)
+	
+	SDK.hookFunction("PreferenceRun", HOOK_PRIORITY.ADD_BEHAVIOR, (args, next) => {
+		const ret = next(args)
+		if (typeof PreferenceSubscreen === "object") {
+			if (PreferenceSubscreen.name !== "Main") {
+				hideButton();
+			} else {
+				showButton()
+			}
+		}
+		return ret;
+	})
 
 	if (CurrentScreen === "Preference" || CurrentScreen === "Login") {
-		showButton(null, () => void 0)
+		showButton()
 	}
 }
 
@@ -532,3 +584,4 @@ export function showAsyncModal(opts) {
 		})
 	})
 }
+

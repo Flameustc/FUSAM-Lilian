@@ -17,6 +17,7 @@
  */
 
 import { registerDebugMethod, registerFUSAMDebugMethod } from "./debug.js"
+import { waitFor } from "./delay.js"
 import { loadAddons } from "./loader.js"
 import { updateManifest } from "./manifest.js"
 import { hookUI, showAsyncModal, showModal } from "./ui.js"
@@ -32,6 +33,7 @@ window.FUSAM = {
 	},
 }
 
+await waitFor(() => typeof Player !== "undefined" && !!Player)
 hookUI()
 await updateManifest()
 loadAddons()

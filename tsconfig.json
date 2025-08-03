@@ -5,6 +5,7 @@
 		"**/*.js",
 		"**/*.ts"
 	],
+	"exclude": ["public/"],
 	"compilerOptions": {
 		"module": "ES2022",
 		"allowJs": true,
