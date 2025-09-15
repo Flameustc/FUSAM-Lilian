@@ -339,4 +339,14 @@
 	color: var(--fusam-text);
 	width: calc(100% - 20px);
 	padding: 10px;
+
+	dl {
+		margin-top: unset;
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
+
+	dt::after {
+		content: ": ";
+	}
 }

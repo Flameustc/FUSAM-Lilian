@@ -206,7 +206,7 @@ async function drawAddonManager() {
 					</h3>
 					<p>
 						Pick and choose which specific addons you would like to enable (do <em>not</em> enable them all!),
-						be it either for your BC account or for your browser device as a whole.
+						be it either for your BC <a href="#fusam-glossary-account">account</a> or <a href="#fusam-glossary-browser">browser</a>.
 					</p>
 					<p>
 						A note on security: while addons that are found to be malicious
@@ -229,6 +229,13 @@ async function drawAddonManager() {
 					.join("")}
 				</menu>
 				<footer class="fusam-attribution">
+					<b id="fusam-glossary-label">Glossary:</b>
+					<dl aria-labelledby="fusam-glossary-label">
+						<dt id="fusam-glossary-account">Account</dt>
+						<dd>FUSAM configuration is stored in your BC account and persists across different browsers and devices.</dd>
+						<dt id="fusam-glossary-browser">Browser</dt>
+						<dd>FUSAM configuration is stored locally and is <em>exclusive</em> to your current combination of web browser, device and BC server (US, EU, Asia, <i>etc.</i>).</dd>
+					</dl>
 					${drawAttribution()}
 				</footer>
 			</div>
@@ -260,7 +267,7 @@ async function drawAddonManager() {
 				<section class="addon-interactions">
 					<div class="addon-left-interactions" role="group">
 						<div class="fusam-addon-entry-version-device">
-							<label for="${entry.id}-device">Device</label>
+							<label for="${entry.id}-device">Browser</label>
 							<select id="${entry.id}-device" data-addon="${entry.id}">
 							<option value="none" selected>None</option>
 								${entry.versions.map((version) =>
