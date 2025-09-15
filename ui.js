@@ -186,7 +186,7 @@ async function drawAddonManager() {
 
 	function draw() {
 		return `
-			<div id="fusam-addon-manager-header">
+			<header id="fusam-addon-manager-header">
 				<div class="fusam-search-box">
 					<input type="search" placeholder="Filter addons" id="fusam-search" oninput="searchInput()" list="fusam-search-list"></input>
 					<datalist id="fusam-search-list">
@@ -194,18 +194,18 @@ async function drawAddonManager() {
 					</datalist>
 				</div>
 				<h1 class="fusam-title">Addon Manager</h1>
-				<div class="fusam-header-buttons">
+				<div class="fusam-header-buttons" role="group">
 					<button onclick="debugReport()" class="fusam-icon-button"><img src="${BaseURL}static/assets/debug.svg"></button>
 					${drawExitButton()}
 				</div>
-			</div>
+			</header>
 			<div id="fusam-addon-manager-body">
 			<div class="fusam-intro">	
 					<h3>
 						Welcome to the one stop shop for addon installation in BC!
 					</h3>
 					<p>
-						Pick and choose which specific addons you would like to enable (do <i>not</i> enable them all!),
+						Pick and choose which specific addons you would like to enable (do <em>not</em> enable them all!),
 						be it either for your BC account or for your browser device as a whole.
 					</p>
 					<p>
@@ -223,14 +223,14 @@ async function drawAddonManager() {
 						</p>`
 						: ""
 				}
-				<div id="fusam-addons">
+				<menu id="fusam-addons">
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
 					.join("")}
-				</div>
-				<div class="fusam-attribution">
+				</menu>
+				<footer class="fusam-attribution">
 					${drawAttribution()}
-				</div>
+				</footer>
 			</div>
 		`
 	}
@@ -245,13 +245,13 @@ async function drawAddonManager() {
 		const useIcons = true;
 
 		return `
-		<div class="fusam-addon-container"> 
-			<article class="fusam-addon">
+		<li class="fusam-addon-container"> 
+			<article class="fusam-addon" aria-labelledby="${entry.id}-name">
 				<section class="addon-icon">
 					<img src="${entry.icon ||  BaseURL + "static/assets/icon-fallback.svg"}" alt="${entry.name} icon">
 				</section>
 				<section class="addon-content">
-					<h2 class="addon-name">${entry.name}</h2>
+					<h2 class="addon-name" id="${entry.id}-name">${entry.name}</h2>
 					<p class="addon-description">${entry.description}</p>
 					<div class="addon-authors">
 						by ${entry.author}
@@ -302,7 +302,7 @@ async function drawAddonManager() {
 					</div>
 				</section>
 			</article>
-			</div>
+			</li>
 		`
 	}
 
