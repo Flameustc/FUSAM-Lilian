@@ -104,6 +104,7 @@
 	color: var(--fusam-text);
 	font-family: "Roboto", sans-serif;
 	backdrop-filter: blur(5px);
+	user-select: none;
 }
 
 #fusam-addon-manager-container a {
@@ -247,16 +248,19 @@
 
 		& .addon-name {
 			margin: 0;
+			user-select: all;
 		}
 		& .addon-description {
 			margin: 0;
 			height: 4em;
 			overflow-y:auto;
+			user-select: text;
 		}
 		& .addon-authors {
 			font-style: italic;
 			font-size: 0.8em;
 			opacity: 0.8;
+			user-select: text;
 		}
 	}
 	& .addon-interactions {
