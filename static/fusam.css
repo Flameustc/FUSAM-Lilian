@@ -98,7 +98,7 @@
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background-color: var(--fusam-main); 
+	background-color: var(--fusam-main);
 	display: flex;
 	flex-direction: column;
 	color: var(--fusam-text);
@@ -131,6 +131,7 @@
 	}
 	& .fusam-search-box {
 		& > #fusam-search {
+			color: var(--fusam-text);
 			width: 100%;
 			background-color: var(--fusam-inset-element);
 			height: 100%;
@@ -163,7 +164,7 @@
 	overflow-y: auto;
 	& > .fusam-intro {
 		background:var(--fusam-element);
-		padding:1em;	
+		padding:1em;
 		margin: 1em;
 		& p {
 			margin: 0;
@@ -187,7 +188,7 @@
 	gap: 2em;
 	margin: 2em;
 	padding: unset;
-} 
+}
 
 .fusam-addon-container {
 	flex: 1;
@@ -203,7 +204,7 @@
 	& .fusam-addon-entry-version-device, & .fusam-addon-entry-version-account {
 		background-color:var(--fusam-element);
 		height: auto;
-    	margin-top: 0.5em;	
+    	margin-top: 0.5em;
 		position: relative;
 		& > label {
 			position: absolute;
@@ -240,7 +241,7 @@
 		}
 		[src~="icon-fallback"] {
 			filter: var(--icon-filter);
-		} 
+		}
 	}
 	& .addon-content {
 		background-color: var(--fusam-element);
