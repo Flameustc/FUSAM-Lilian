@@ -186,7 +186,7 @@ async function drawAddonManager() {
 
 	function draw() {
 		return `
-			<div id="fusam-addon-manager-header">
+			<header id="fusam-addon-manager-header">
 				<div class="fusam-search-box">
 					<input type="search" placeholder="Filter addons" id="fusam-search" oninput="searchInput()" list="fusam-search-list"></input>
 					<datalist id="fusam-search-list">
@@ -194,19 +194,19 @@ async function drawAddonManager() {
 					</datalist>
 				</div>
 				<h1 class="fusam-title">Addon Manager</h1>
-				<div class="fusam-header-buttons">
+				<div class="fusam-header-buttons" role="group">
 					<button onclick="debugReport()" class="fusam-icon-button"><img src="${BaseURL}static/assets/debug.svg"></button>
 					${drawExitButton()}
 				</div>
-			</div>
+			</header>
 			<div id="fusam-addon-manager-body">
 			<div class="fusam-intro">	
 					<h3>
 						Welcome to the one stop shop for addon installation in BC!
 					</h3>
 					<p>
-						Pick and choose which specific addons you would like to enable (do <i>not</i> enable them all!),
-						be it either for your BC account or for your browser device as a whole.
+						Pick and choose which specific addons you would like to enable (do <em>not</em> enable them all!),
+						be it either for your BC <a href="#fusam-glossary-account">account</a> or <a href="#fusam-glossary-browser">browser</a>.
 					</p>
 					<p>
 						A note on security: while addons that are found to be malicious
@@ -223,14 +223,21 @@ async function drawAddonManager() {
 						</p>`
 						: ""
 				}
-				<div id="fusam-addons">
+				<menu id="fusam-addons">
 				${s.manifest.addons
 					.map((entry) => drawEntry(entry))
 					.join("")}
-				</div>
-				<div class="fusam-attribution">
+				</menu>
+				<footer class="fusam-attribution">
+					<b id="fusam-glossary-label">Glossary:</b>
+					<dl aria-labelledby="fusam-glossary-label">
+						<dt id="fusam-glossary-account">Account</dt>
+						<dd>FUSAM configuration is stored in your BC account and persists across different browsers and devices.</dd>
+						<dt id="fusam-glossary-browser">Browser</dt>
+						<dd>FUSAM configuration is stored locally and is <em>exclusive</em> to your current combination of web browser, device and BC server (US, EU, Asia, <i>etc.</i>).</dd>
+					</dl>
 					${drawAttribution()}
-				</div>
+				</footer>
 			</div>
 		`
 	}
@@ -245,13 +252,13 @@ async function drawAddonManager() {
 		const useIcons = true;
 
 		return `
-		<div class="fusam-addon-container"> 
-			<article class="fusam-addon">
+		<li class="fusam-addon-container"> 
+			<article class="fusam-addon" aria-labelledby="${entry.id}-name">
 				<section class="addon-icon">
 					<img src="${entry.icon ||  BaseURL + "static/assets/icon-fallback.svg"}" alt="${entry.name} icon">
 				</section>
 				<section class="addon-content">
-					<h2 class="addon-name">${entry.name}</h2>
+					<h2 class="addon-name" id="${entry.id}-name">${entry.name}</h2>
 					<p class="addon-description">${entry.description}</p>
 					<div class="addon-authors">
 						by ${entry.author}
@@ -260,7 +267,7 @@ async function drawAddonManager() {
 				<section class="addon-interactions">
 					<div class="addon-left-interactions" role="group">
 						<div class="fusam-addon-entry-version-device">
-							<label for="${entry.id}-device">Device</label>
+							<label for="${entry.id}-device">Browser</label>
 							<select id="${entry.id}-device" data-addon="${entry.id}">
 							<option value="none" selected>None</option>
 								${entry.versions.map((version) =>
@@ -302,7 +309,7 @@ async function drawAddonManager() {
 					</div>
 				</section>
 			</article>
-			</div>
+			</li>
 		`
 	}
 
