@@ -193,7 +193,7 @@
 .fusam-addon-container {
 	flex: 1;
 	min-width:43em;
-	list-style: none
+	list-style: none;
 }
 
 .fusam-addon {
