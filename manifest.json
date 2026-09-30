@@ -361,8 +361,24 @@
 		{
 			"id": "MBCFS",
 			"icon": "https://gitgud.io/maples-bc-plugins/fetish-share/-/raw/main/src/assets/icon.png",
-			"name": "Maple's BC FetishShare",
-			"description": "Displays user Fetish and Arousal preferences in Bios, and calculates compatibility between players.",
+			"name": {
+				"en": "BC Fetish Share",
+				"de": "BC Fetisch-Austausch",
+				"fr": "BC Partage de fétiches",
+				"ru": "Бондаж Клуб: обмен фетишами",
+				"ua": "Бондаж Клуб: обмін фетишами",
+				"cn": "束缚俱乐部爱好分享",
+				"tw": "束縛俱樂部愛好分享"
+			},
+			"description": {
+				"en": "Shows how well your fetishes and activities match other players, with match badges in chat rooms and a list of the people you've met.",
+				"de": "Zeigt, wie gut deine Fetische und Aktivitäten zu denen anderer passen, mit Abzeichen für Übereinstimmungen in Chaträumen und einer Liste der Leute, die du getroffen hast.",
+				"fr": "Montre à quel point tes fétiches et activités correspondent à ceux des autres, avec des badges d'affinité dans les salons de discussion et une liste des personnes que tu as croisées.",
+				"ru": "Показывает, насколько твои фетиши и действия совпадают с чужими, со значками совместимости в чат-комнатах и списком людей, которых ты встречаешь.",
+				"ua": "Показує, наскільки твої фетиші й дії збігаються з чужими, зі значками сумісності в чат-кімнатах і списком людей, яких ти зустрічаєш.",
+				"cn": "显示你与其他玩家的爱好和动作匹配程度，聊天室里有匹配徽章，还会列出你遇见过的人。",
+				"tw": "顯示你與其他玩家的愛好和動作匹配程度，聊天室裡有匹配徽章，還會列出你遇見過的人。"
+			},
 			"author": "maple",
 			"tags": ["enhancements"],
 			"type": "script",
