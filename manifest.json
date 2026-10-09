@@ -786,22 +786,21 @@
 				}
 			]
 		},
-		{
+				{
 			"id": "FBM",
-			"icon": "https://raw.githubusercontent.com/Freya-BC/Freyas-Better-Maps/main/assets/freyas-better-maps-logo.jpg",
+			"icon": "https://freya-bc.github.io/Freyas-Better-Maps/assets/freyas-better-maps-logo.jpg",
 			"name": "Freyas Better Maps",
 			"description": "Bondage Club map helpers: typing bubbles, copy and paste, build tools, templates, map library, hearing-range whisper, SuperZoom.",
 			"author": "Freya",
 			"repository": "https://github.com/Freya-BC/Freyas-Better-Maps",
-			"website": "",
 			"tags": ["enhancements"],
 			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/Freya-BC/Freyas-Better-Maps/main/loader.js"
+					"source": "https://freya-bc.github.io/Freyas-Better-Maps/loader.js"
 				}
 			]
-		}
+		}	
 	]
 }
