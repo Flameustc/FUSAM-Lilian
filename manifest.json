@@ -786,7 +786,7 @@
 				}
 			]
 		},
-				{
+		{
 			"id": "FBM",
 			"icon": "https://freya-bc.github.io/Freyas-Better-Maps/assets/freyas-better-maps-logo.jpg",
 			"name": "Freyas Better Maps",
@@ -801,6 +801,6 @@
 					"source": "https://freya-bc.github.io/Freyas-Better-Maps/loader.js"
 				}
 			]
-		}	
+		}
 	]
 }
