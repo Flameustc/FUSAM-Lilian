@@ -801,6 +801,22 @@
 					"source": "https://freya-bc.github.io/Freyas-Better-Maps/loader.js"
 				}
 			]
+		},
+		{
+			"id": "SlimeBeep",
+			"icon": "https://proudkiller0015.github.io/slimebeep/icon-128.png",
+			"name": "SlimeBeep",
+			"description": "A cute beep messenger: chat with each friend, see who's online and where, beep many friends at once (WaveBeep), group chats with other SlimeBeep users, profile pictures and a night mode. Uses its own server on Cloudflare (Workers + Durable Objects, code in the repo's relay/ folder) to store group chats (members, last 200 messages, pictures) and beeps left for offline friends (kept up to 14 days).",
+			"author": "SlimeQueenSamantha",
+			"repository": "https://github.com/Proudkiller0015/slimebeep",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "beta",
+					"source": "https://proudkiller0015.github.io/slimebeep/slimebeep.js"
+				}
+			]
 		}
 	]
 }
