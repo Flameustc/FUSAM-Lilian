@@ -785,6 +785,22 @@
 					"source": "https://thesecretcoder-bc.gitlab.io/secretprison/secretprison.js"
 				}
 			]
+		},
+		{
+			"id": "SlimeBeep",
+			"icon": "https://proudkiller0015.github.io/slimebeep/icon-128.png",
+			"name": "SlimeBeep",
+			"description": "A bubble gum beep messenger: a chat with each friend, who's online and in which room, group beeps, group chats of up to 40 SlimeBeep users, profile pictures and a night mode.",
+			"author": "Proudkiller0015",
+			"repository": "https://github.com/Proudkiller0015/slimebeep",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://proudkiller0015.github.io/slimebeep/slimebeep.js"
+				}
+			]
 		}
 	]
 }
