@@ -790,7 +790,7 @@
 			"id": "SlimeBeep",
 			"icon": "https://proudkiller0015.github.io/slimebeep/icon-128.png",
 			"name": "SlimeBeep",
-			"description": "A bubble gum beep messenger: a chat with each friend, who's online and in which room, group beeps, group chats of up to 40 SlimeBeep users, profile pictures and a night mode.",
+			"description": "A cute beep messenger: chat with each friend, see who's online and where, beep many friends at once (WaveBeep), group chats with other SlimeBeep users, profile pictures and a night mode.",
 			"author": "SlimeQueenSamantha",
 			"repository": "https://github.com/Proudkiller0015/slimebeep",
 			"tags": ["enhancements", "expansion"],
