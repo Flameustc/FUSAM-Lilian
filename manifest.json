@@ -813,7 +813,7 @@
 			"type": "script",
 			"versions": [
 				{
-					"distribution": "stable",
+					"distribution": "beta",
 					"source": "https://proudkiller0015.github.io/slimebeep/slimebeep.js"
 				}
 			]
