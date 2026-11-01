@@ -817,6 +817,27 @@
 					"source": "https://proudkiller0015.github.io/slimebeep/slimebeep.js"
 				}
 			]
+		},
+		{
+			"id": "GGC",
+			"icon": "https://galia-bc.github.io/galia.github.io/club-gaming/images/galias_logo.png",
+			"name": "Galia's Gambling Club (GGC)",
+			"description": "Multiplayer games, a bank, player trades, and animated chat-room effects.",
+			"author": "Galia",
+			"repository": "https://github.com/galia-bc/galia.github.io",
+			"website": "https://galia-bc.github.io/galia.github.io/",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://galia-bc.github.io/galia.github.io/club-gaming/stable/club-gaming.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://galia-bc.github.io/galia.github.io/club-gaming/beta/club-gaming.js"
+				}
+			]
 		}
 	]
 }
