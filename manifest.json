@@ -789,7 +789,7 @@
 		{
 			"id": "FBM",
 			"icon": "https://freya-bc.github.io/Freyas-Better-Maps/assets/freyas-better-maps-logo.jpg",
-			"name": "Freyas Better Maps",
+			"name": "Freya’s Better Maps",
 			"description": "Bondage Club map helpers: typing bubbles, copy and paste, build tools, templates, map library, hearing-range whisper, SuperZoom.",
 			"author": "Freya",
 			"repository": "https://github.com/Freya-BC/Freyas-Better-Maps",
@@ -799,6 +799,23 @@
 				{
 					"distribution": "stable",
 					"source": "https://freya-bc.github.io/Freyas-Better-Maps/loader.js"
+				}
+			]
+		},
+		{
+			"id": "Seidr",
+			"icon": "https://freya-bc.github.io/Freyas-Seidr/assets/freyas-seidr-logo.png",
+			"name": "Freya’s Seidr",
+			"description": "Simple Plugin for Pulling Left/Right and Cuddle for Cuddle piles. Additional new Actions. A Room Manager and other helpful utility tools",
+			"author": "Freya",
+			"repository": "https://github.com/Freya-BC/Freyas-Seidr",
+			"website": "https://freya-bc.github.io/Freyas-Seidr/",
+			"tags": ["enhancements"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://freya-bc.github.io/Freyas-Seidr/loader.js"
 				}
 			]
 		},
