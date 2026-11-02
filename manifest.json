@@ -855,6 +855,27 @@
 					"source": "https://galia-bc.github.io/galia.github.io/club-gaming/beta/club-gaming.js"
 				}
 			]
+		},
+		{
+			"id": "ECHS",
+			"icon": "https://dwfreegethub.github.io/HypnosisAddon/icon.png",
+			"name": "Erotic Chat Hypnosis Suite (ECHS)",
+			"description": "Interactive hypnosis between players—featuring inductions, spoken suggestions, custom triggers, crafted drinks, and more. Designed to be the most comprehensive hypnosis add-on for BC.",
+			"author": "DWfree",
+			"repository": "https://github.com/Dwfreegethub/HypnosisAddon",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/Dwfreegethub/HypnosisAddon/wiki",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://dwfreegethub.github.io/HypnosisAddon/HypnosisAddon.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://dwfreegethub.github.io/HypnosisAddon/dev/HypnosisAddon.js"
+				}
+			]
 		}
 	]
 }
