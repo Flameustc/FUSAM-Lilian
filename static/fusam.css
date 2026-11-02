@@ -17,30 +17,34 @@
  */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--fusam-text: var(--tmd-text, #aaa);
+		--fusam-text: #aaa;
 		/* no such thing in themed */
-		--fusam-text-placeholder: var(--tmd-accent, #797979);
-		--fusam-main: var(--tmd-main, #0f0f0ff2);
-		--fusam-inset-element: var(--tmd-main, #222);
-		--fusam-element: var(--tmd-element, #353535);
-		--fusam-border: var(--tmd-accent, #6c6c6c);
-		--icon-filter: invert(1);
+		--fusam-text-placeholder: #797979;
+		--fusam-main: #0f0f0ff2;
+		--fusam-inset-element: #222;
+		--fusam-element: #353535;
+		--fusam-border: #6c6c6c;
+		--fusam-icon-filter: invert(1);
 	}
 }
 @media (prefers-color-scheme: light) {
 	:root {
-		--fusam-text: var(--tmd-text, #000000);
+		--fusam-text: #000000;
 		/* no such thing in themed */
-		--fusam-text-placeholder: var(--tmd-accent, #808080);
-		--fusam-main: var(--tmd-main, #e0e0e0f2);
-		--fusam-inset-element: var(--tmd-main, #e6e6e6);
-		--fusam-element: var(--tmd-element, #ffffff);
-		--fusam-border: var(--tmd-accent, #a0a0a0);
-		--icon-filter: none;
+		--fusam-text-placeholder: #808080;
+		--fusam-main: #e0e0e0f2;
+		--fusam-inset-element: #e6e6e6;
+		--fusam-element: #ffffff;
+		--fusam-border: #a0a0a0;
+		--fusam-icon-filter: none;
 	}
 }
 :root {
-	--padding: 1.15em;
+	--fusam-padding: 1.15em;
+	--fusam-enabled-stable: #2c9cff;
+	--fusam-enabled-beta: #b76cff;
+	--fusam-enabled-dev: #ff9f43;
+	--fusam-enabled-lilian: #ff4d6d;
 }
 #fusam-show-button {
 	position: absolute;
@@ -81,17 +85,81 @@
 	background-color: white;
 }
 .fusam-icon-button {
+	width: 3.1em;
+	height: 3.1em;
 	aspect-ratio: 1;
+	box-sizing: border-box;
 	padding: 0.2em;
-  	border: 1px solid var(--fusam-border);
+	border: 1px solid var(--fusam-border);
 	background-color: var(--fusam-inset-element);
-	cursor:pointer;
+	cursor: pointer;
 	& > img {
 		width: 2.3em;
- 		height: 2.3em;
+		height: 2.3em;
 		pointer-events: none;
-		filter: var(--icon-filter);
+		filter: var(--fusam-icon-filter);
 	}
+}
+.fusam-text-button {
+	width: 3.1em;
+	height: 3.1em;
+	aspect-ratio: 1;
+	box-sizing: border-box;
+	padding: 0.2em;
+	border: 1px solid var(--fusam-border);
+	background: var(--fusam-inset-element);
+	color: var(--fusam-text);
+	font-weight: 700;
+	cursor: pointer;
+}
+.fusam-language-picker {
+	position: relative;
+	flex: none;
+}
+.fusam-flag {
+	font-family: "Twemoji Country Flags", "Arial", sans-serif;
+}
+#fusam-language-button {
+	color: var(--fusam-text);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+#fusam-language-button > .fusam-flag {
+	font-size: 1.35em;
+	line-height: 1;
+	pointer-events: none;
+}
+.fusam-language-menu {
+	position: absolute;
+	top: calc(100% + 0.35em);
+	right: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	min-width: 11em;
+	padding: 0.25em;
+	border: 1px solid var(--fusam-border);
+	background: var(--fusam-element);
+	box-shadow: 0 0.35em 0.8em rgba(0, 0, 0, 0.45);
+}
+.fusam-language-menu > button {
+	display: grid;
+	grid-template-columns: 2em 1fr;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.55em 0.7em;
+	border: 0;
+	background: transparent;
+	color: var(--fusam-text);
+	text-align: left;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.fusam-language-menu > button:hover,
+.fusam-language-menu > button:focus,
+.fusam-language-menu > .fusam-language-selected {
+	background: var(--fusam-inset-element);
 }
 
 #fusam-addon-manager-container {
@@ -118,7 +186,7 @@
 #fusam-addon-manager-header {
 	display: flex;
 	align-items: center;
-	background:var(--fusam-element);
+	background: var(--fusam-element);
 	justify-content: space-between;
 	padding: 1em;
 	& .fusam-title {
@@ -136,8 +204,8 @@
 			background-color: var(--fusam-inset-element);
 			height: 100%;
 			border: none;
-      		border-bottom: 1px solid var(--fusam-border);
-      		padding: 1em;
+			border-bottom: 1px solid var(--fusam-border);
+			padding: 1em;
 			&::placeholder {
 				color: var(--fusam-text-placeholder);
 			}
@@ -145,6 +213,57 @@
 	}
 	& .fusam-header-buttons {
 		text-align: right;
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.35em;
+	}
+}
+
+#fusam-emergency-row {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	flex-wrap: wrap;
+	padding: 0.55em 1em;
+	background: var(--fusam-element);
+	border-top: 1px solid var(--fusam-border);
+}
+#fusam-emergency-row > .fusam-emergency-toggle {
+	display: flex;
+	align-items: center;
+	gap: 0.45em;
+	white-space: nowrap;
+	cursor: pointer;
+	font-weight: 700;
+}
+#fusam-emergency-row > .fusam-emergency-help {
+	margin: 0;
+	flex: 1;
+	min-width: 16em;
+	font-size: 0.9em;
+}
+
+#fusam-addon-intro {
+	position: relative;
+	z-index: 2;
+	padding: 0.65em 1em;
+	background: var(--fusam-main);
+	box-shadow: 0 0.35em 0.65em rgba(0, 0, 0, 0.3);
+	& .fusam-addon-container {
+		max-width: 70em;
+		margin: 0 auto;
+	}
+	& .fusam-addon {
+		grid-template-columns: 10.5em minmax(0, 1fr);
+		grid-template-rows: minmax(7em, auto) auto;
+		column-gap: 0.5em;
+	}
+	& .addon-content {
+		min-height: 7em;
+	}
+	& .addon-description {
+		height: auto;
+		max-height: 5em;
 	}
 }
 
@@ -163,8 +282,8 @@
 	align-items: center;
 	overflow-y: auto;
 	& > .fusam-intro {
-		background:var(--fusam-element);
-		padding:1em;
+		background: var(--fusam-element);
+		padding: 1em;
 		margin: 1em;
 		& p {
 			margin: 0;
@@ -192,19 +311,153 @@
 
 .fusam-addon-container {
 	flex: 1;
-	min-width:43em;
+	min-width: 43em;
 	list-style: none;
+	box-sizing: border-box;
+}
+
+.fusam-addon-container.fusam-enabled {
+	box-shadow:
+		inset 0 0 0 2px var(--fusam-enabled-stable),
+		0 0 0.55em var(--fusam-enabled-stable);
+}
+.fusam-addon-container.fusam-distribution-beta {
+	box-shadow:
+		inset 0 0 0 2px var(--fusam-enabled-beta),
+		0 0 0.55em var(--fusam-enabled-beta);
+}
+.fusam-addon-container.fusam-distribution-dev {
+	box-shadow:
+		inset 0 0 0 2px var(--fusam-enabled-dev),
+		0 0 0.55em var(--fusam-enabled-dev);
+}
+.fusam-addon-container.fusam-distribution-Lilian {
+	box-shadow:
+		inset 0 0 0 2px var(--fusam-enabled-lilian),
+		0 0 0.55em var(--fusam-enabled-lilian);
+}
+.addon-icon-fallback {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	height: 90%;
+	margin: 5%;
+	padding: 0.5em;
+	box-sizing: border-box;
+	font-weight: 700;
+	font-size: calc(1em + 6pt);
+	text-align: center;
+	overflow-wrap: anywhere;
+}
+.addon-icon-fallback::before {
+	content: attr(data-addon);
+}
+.addon-name::before,
+.addon-description::before {
+	content: attr(data-fusam-text);
+}
+
+#fusam-addons[data-view="thumbnails"] {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 10em);
+	justify-content: center;
+	width: calc(100% - 4em);
+	gap: 1em;
+}
+#fusam-addons[data-view="thumbnails"] .fusam-addon-container {
+	width: 10em;
+	max-width: 10em;
+	min-width: 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+#fusam-addons[data-view="thumbnails"] .fusam-addon {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto auto;
+	width: 10em;
+	min-width: 0;
+	max-width: 10em;
+	overflow: hidden;
+}
+#fusam-addons[data-view="thumbnails"] .addon-icon {
+	grid-column: 1;
+	grid-row: 1;
+	width: 10em;
+	height: 10em;
+	aspect-ratio: auto;
+}
+#fusam-addons[data-view="thumbnails"] .addon-content {
+	grid-column: 1;
+	grid-row: 2;
+	padding: 0.5em;
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	text-align: center;
+}
+#fusam-addons[data-view="thumbnails"] .addon-content .addon-name {
+	font-size: 1.2em;
+	line-height: 1.15;
+	height: 5.25em;
+	min-height: 5.25em !important;
+	box-sizing: border-box;
+	overflow: hidden;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+	white-space: normal;
+	max-width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#fusam-addons[data-view="thumbnails"] .addon-details,
+#fusam-addons[data-view="thumbnails"] .addon-right-interactions {
+	display: none;
+}
+#fusam-addons[data-view="thumbnails"] .addon-interactions {
+	grid-column: 1;
+	grid-row: 3;
+	display: block;
+	width: 10em;
+	min-width: 0;
+	max-width: 10em;
+	overflow: hidden;
+}
+#fusam-addons[data-view="thumbnails"] .addon-left-interactions {
+	margin: 0;
+	gap: 1px;
+	width: 100%;
+	min-width: 0;
+}
+#fusam-addons[data-view="thumbnails"] .fusam-addon-entry-version-device,
+#fusam-addons[data-view="thumbnails"] .fusam-addon-entry-version-account {
+	flex: 1;
+	width: calc(50% - 0.5px);
+	max-width: calc(50% - 0.5px);
+	min-width: 0;
+	overflow: hidden;
+}
+#fusam-addons[data-view="thumbnails"] .addon-left-interactions select {
+	width: calc(100% - 0.5em);
+	margin: 0.9em 0.25em 0.25em;
+	font-size: 0.8em;
+	max-width: calc(100% - 0.5em);
+	box-sizing: border-box;
 }
 
 .fusam-addon {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 10.5em auto;
-  	grid-template-rows: 7em 3.5em;
-	& .fusam-addon-entry-version-device, & .fusam-addon-entry-version-account {
-		background-color:var(--fusam-element);
+	grid-template-rows: 7em 3.5em;
+	& .fusam-addon-entry-version-device,
+	& .fusam-addon-entry-version-account {
+		background-color: var(--fusam-element);
 		height: auto;
-    	margin-top: 0.5em;
+		margin-top: 0.5em;
 		position: relative;
 		& > label {
 			position: absolute;
@@ -215,10 +468,10 @@
 			left: 0.5em;
 		}
 		& select {
-			cursor:pointer;
+			cursor: pointer;
 			margin: 0.5em;
 			background-color: var(--fusam-inset-element);
-			border:none;
+			border: none;
 			height: 2.2em;
 			font-weight: bold;
 		}
@@ -240,7 +493,7 @@
 			pointer-events: none;
 		}
 		[src~="icon-fallback"] {
-			filter: var(--icon-filter);
+			filter: var(--fusam-icon-filter);
 		}
 	}
 	& .addon-content {
@@ -256,7 +509,7 @@
 		& .addon-description {
 			margin: 0;
 			height: 4em;
-			overflow-y:auto;
+			overflow-y: auto;
 			user-select: text;
 		}
 		& .addon-authors {
@@ -272,19 +525,19 @@
 		flex-direction: row;
 		display: flex;
 		justify-content: space-between;
-		gap:0.5em;
+		gap: 0.5em;
 		& .addon-left-interactions {
 			display: flex;
 			flex-direction: row;
-		  	gap: 0.5em;
-      		margin-left: 0.5em;
+			gap: 0.5em;
+			margin-left: 0.5em;
 			& select {
-				cursor:pointer;
+				cursor: pointer;
 				color: var(--fusam-text);
-				margin:0.6em;
+				margin: 0.6em;
 				font-size: 1em;
 				background-color: var(--fusam-inset-element);
-				border:none;
+				border: none;
 				height: 1.9em;
 				font-weight: bold;
 				text-transform: capitalize;
@@ -308,8 +561,8 @@
 			}
 			& img {
 				width: 2em;
-        		height: 2em;
-				filter: var(--icon-filter);
+				height: 2em;
+				filter: var(--fusam-icon-filter);
 				pointer-events: none;
 			}
 		}

@@ -17,6 +17,7 @@
  */
 
 import { waitFor } from "./delay.js"
+import { getAddon } from "./manifest.js"
 import { isSettingsV1 } from "./typeasserts.js"
 
 let loaded = false
@@ -29,55 +30,75 @@ export function playerSettingsLoaded() {
 	return loaded
 }
 
-export function get() {
-	if (!Player?.OnlineSettings?.FUSAMSettings) {
-		return {
-			enabledDistributions: {},
-		}
-	}
-	const s =
-		/** @type {import("./types/fusam.js").FUSAMSettings | Record<string, string>} */ (
-			JSON.parse(
-				LZString.decompressFromBase64(Player.OnlineSettings?.FUSAMSettings)
-			)
+export function getAccount() {
+	/** @type {import("./types/fusam.js").FUSAMSettings} */
+	let settings = { enabledDistributions: {} }
+
+	if (Player?.ExtensionSettings?.FUSAMSettings) {
+		settings = /** @type {import("./types/fusam.js").FUSAMSettings} */ (
+			JSON.parse(LZString.decompressFromBase64(Player.ExtensionSettings?.FUSAMSettings) ?? "{}")
 		)
+		loaded = true
+	} else if (Player?.OnlineSettings?.FUSAMSettings && !Player?.ExtensionSettings?.FUSAMSettings) {
+		settings = /** @type {import("./types/fusam.js").FUSAMSettings} */ (
+			JSON.parse(LZString.decompressFromBase64(Player.OnlineSettings?.FUSAMSettings) ?? "{}")
+		)
+		Player.ExtensionSettings.FUSAMSettings = Player.OnlineSettings.FUSAMSettings
+
+		saveAccount()
+
+		delete Player.OnlineSettings?.FUSAMSettings
+		ServerAccountUpdate.QueueData({
+			OnlineSettings: Player.OnlineSettings,
+		})
+		loaded = true
+	} else if (!Player?.ExtensionSettings?.FUSAMSettings) {
+		loaded = true
+	}
+
 	// Migration from initial version
-	if (isSettingsV1(s)) {
-		return s
+	if (isSettingsV1(settings)) {
+		return settings
 	}
+
 	return {
-		enabledDistributions: s || {},
+		enabledDistributions: settings ?? {},
 	}
 }
 
-function set(value) {
-	Player.OnlineSettings.FUSAMSettings = LZString.compressToBase64(
-		JSON.stringify(value)
-	)
-}
-
-export function enableMod(id, distribution) {
+/**
+ * @param {string} id
+ * @param {string} distribution
+ */
+export function enableAccountMod(id, distribution) {
+	const addon = getAddon(id)
+	if (!addon || addon.browserOnly) return
 	settings.enabledDistributions[id] = distribution
-	save()
 }
 
-export function disableMod(id) {
+/**
+ * @param {string} id
+ */
+export function disableAccountMod(id) {
 	delete settings.enabledDistributions[id]
-	save()
 }
 
-export function distribution(id) {
+/**
+ * @param {string} id
+ * @returns {string}
+ */
+export function accountDistribution(id) {
 	return settings.enabledDistributions[id]
 }
 
-function save() {
-	console.debug("Saving account settings", settings)
-	set(settings)
+export function saveAccount() {
+	console.debug("[FUSAM]: Saving account settings", settings)
+	Player.ExtensionSettings.FUSAMSettings = LZString.compressToBase64(JSON.stringify(settings))
+	ServerPlayerExtensionSettingsSync("FUSAMSettings")
 }
 
 ;(async function () {
-	await waitFor(() => typeof Player !== "undefined" && !!Player?.OnlineSettings)
-	settings = get()
-	loaded = true
-	console.debug("Loaded account settings", settings)
+	await waitFor(() => Player && ServerIsLoggedIn())
+	settings = getAccount()
+	console.debug("[FUSAM]: Loaded account settings", settings)
 })()

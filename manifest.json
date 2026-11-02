@@ -22,7 +22,7 @@
 			"description": "Smarter, extensible facial animation and posing engine, instant messaging, appearance layering and a collection of quality of life improvements - A fork of FBC 5.8",
 			"author": "Sidious & Stella",
 			"repository": "https://github.com/KittenApps/WCE",
-			"tags": ["cheats", "enhancements", "automation"],
+			"tags": ["cheats", "enhancements", "automation", "recommended"],
 			"type": "module",
 			"noCacheBusting": true,
 			"website": "https://wce-docs.vercel.app",
@@ -44,7 +44,7 @@
 			"description": "Adds rules, curses, and more to enhance D/s play alongside a handful of quality of life improvements",
 			"author": "Jomshir98 & Claudia",
 			"repository": "https://github.com/Jomshir98/bondage-club-extended",
-			"tags": ["enhancements", "expansion"],
+			"tags": ["enhancements", "expansion", "recommended"],
 			"type": "script",
 			"website": "https://jomshir98.github.io/bondage-club-extended/",
 			"versions": [
@@ -59,7 +59,7 @@
 				{
 					"distribution": "Lilian",
 					"source": "https://flameustc.github.io/BCX-Lilian/bcx.js"
-				}				
+				}
 			]
 		},
 		{
@@ -74,7 +74,7 @@
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://ddeeplb.github.io/Themed-BC/themed.js"
+					"source": "https://protokink.github.io/Themed/themed.js"
 				}
 			]
 		},
@@ -115,7 +115,7 @@
 					"source": "https://zoe-64.github.io/ABCL/versions/beta/abcl.js"
 				},
 				{
-					"distribution": "unstable",
+					"distribution": "dev",
 					"source": "https://zoe-64.github.io/ABCL/versions/unstable/abcl.js"
 				}
 			]
@@ -215,14 +215,14 @@
 			"name": "Eli's Bondage Club Helper (EBCH)",
 			"description": "Ungarble, custom notifications, altering other player's poses",
 			"author": "Elicia",
-			"repository": "https://gitlab.com/e2466/ebch",
-			"website": "https://e2466.gitlab.io/ebch",
+			"repository": "https://gitlab.com/zorgjbe/ebch",
+			"website": "https://zorgjbe.gitlab.io/ebch/",
 			"tags": ["enhancements", "automation"],
 			"type": "eval",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://e2466.gitlab.io/ebch/master/EBCH.js"
+					"source": "https://zorgjbe.gitlab.io/ebch/master/EBCH.js"
 				}
 			]
 		},
@@ -283,14 +283,14 @@
 			"name": "Responsive",
 			"description": "Automatically sends messages when the user reaches a certain state (slapped, orgasm, etc).",
 			"author": "SaotomeToyStore, dDeepLb",
-			"repository": "https://github.com/dDeepLb/BC-Responsive",
+			"repository": "https://github.com/ProtoKink/Responsive",
 			"tags": ["expansion"],
 			"type": "script",
-			"website": "https://github.com/dDeepLb/BC-Responsive/wiki",
+			"website": "https://github.com/ProtoKink/Responsive/wiki",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://ddeeplb.github.io/BC-Responsive/main.js"
+					"source": "https://protokink.github.io/Responsive/main.js"
 				}
 			]
 		},
@@ -300,7 +300,7 @@
 			"description": "A large collection of cheats, quality of life improvements, and a moaner script",
 			"author": "Nemesea",
 			"repository": "https://github.com/tetris245/ULTRAbc",
-			"tags": ["cheats", "enhancements", "automation"],
+			"tags": ["cheats", "enhancements", "automation", "browser-only"],
 			"type": "script",
 			"versions": [
 				{
@@ -351,13 +351,13 @@
 			"name": "CATS (Chat Auto Translator Script)",
 			"description": "Addon that auto-translates the chat to the language you want. 130+ Languages available. Commands: /ttoggle to toggle the translator on and off. And /tlang <lang_code>, to change the language used.",
 			"author": "Ciber, dDeepLb and KatKammand",
-			"repository": "https://github.com/ciberweaboo/cats",
+			"repository": "https://github.com/ProtoKink/CATS",
 			"tags": ["enhancements", "expansion"],
-			"type": "eval",
+			"type": "script",
 			"versions": [
 				{
 					"distribution": "stable",
-					"source": "https://raw.githubusercontent.com/ciberweaboo/cats/main/cats.user.js"
+					"source": "https://protokink.github.io/CATS/index.js"
 				}
 			]
 		},
@@ -380,30 +380,49 @@
 		{
 			"id": "MBCFS",
 			"icon": "https://gitgud.io/maples-bc-plugins/fetish-share/-/raw/main/src/assets/icon.png",
-			"name": "Maple's BC FetishShare",
-			"description": "Displays user Fetish and Arousal preferences in Bios, and calculates compatibility between players.",
+			"name": {
+				"en": "BC Fetish Share",
+				"de": "BC Fetisch-Austausch",
+				"fr": "BC Partage de fétiches",
+				"ru": "Бондаж Клуб: обмен фетишами",
+				"ua": "Бондаж Клуб: обмін фетишами",
+				"cn": "束缚俱乐部爱好分享",
+				"tw": "束縛俱樂部愛好分享"
+			},
+			"description": {
+				"en": "Shows how well your fetishes and activities match other players, with match badges in chat rooms and a list of the people you've met.",
+				"de": "Zeigt, wie gut deine Fetische und Aktivitäten zu denen anderer passen, mit Abzeichen für Übereinstimmungen in Chaträumen und einer Liste der Leute, die du getroffen hast.",
+				"fr": "Montre à quel point tes fétiches et activités correspondent à ceux des autres, avec des badges d'affinité dans les salons de discussion et une liste des personnes que tu as croisées.",
+				"ru": "Показывает, насколько твои фетиши и действия совпадают с чужими, со значками совместимости в чат-комнатах и списком людей, которых ты встречаешь.",
+				"ua": "Показує, наскільки твої фетиші й дії збігаються з чужими, зі значками сумісності в чат-кімнатах і списком людей, яких ти зустрічаєш.",
+				"cn": "显示你与其他玩家的爱好和动作匹配程度，聊天室里有匹配徽章，还会列出你遇见过的人。",
+				"tw": "顯示你與其他玩家的愛好和動作匹配程度，聊天室裡有匹配徽章，還會列出你遇見過的人。"
+			},
 			"author": "maple",
 			"tags": ["enhancements"],
 			"type": "script",
 			"website": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/plugins/fetish-share/",
 			"versions": [
-			  {
-				"distribution": "stable",
-				"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/stable/fetish-share/main.js"
-			  },
-			  {
-				"distribution": "dev",
-				"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/dev/fetish-share/main.js"
-			  }
+				{
+					"distribution": "stable",
+					"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/stable/fetish-share/main.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://maplesyrup.gitgud.site/maples-bc-plugin-library/raw-plugins/dev/fetish-share/main.js"
+				}
 			]
 		},
 		{
 			"id": "echocloth",
-			"name": "服装拓展",
-			"description": "Expansion on clothing options",
+			"name": {
+				"en": "Echo's Clothing Mod",
+				"cn": "服装拓展"
+			},
+			"description": "Adds more clothing options and custom slots in the wardrobe. Wait for the 🍔 on the login character's head to make sure it loaded fully!",
 			"author": "Echo",
 			"repository": "https://github.com/SugarChain-Studio/echo-clothing-ext",
-			"tags": ["expansion"],
+			"tags": ["expansion", "browser-only"],
 			"website": "https://github.com/emdsa2/-mod/wiki",
 			"type": "script",
 			"versions": [
@@ -419,11 +438,14 @@
 		},
 		{
 			"id": "echomove",
-			"name": "动作拓展",
+			"name": {
+				"en": "Echo's Activities Mod",
+				"cn": "动作拓展"
+			},
 			"description": "Expansion on activity options",
 			"author": "Echo",
 			"repository": "https://github.com/SugarChain-Studio/echo-activity-ext",
-			"tags": ["expansion"],
+			"tags": ["expansion", "browser-only"],
 			"website": "https://github.com/emdsa2/-mod/wiki",
 			"type": "script",
 			"versions": [
@@ -441,11 +463,11 @@
 			"id": "MoonCEBC",
 			"icon": "https://lunarkitsunify.github.io/MoonCEBC/src/Images/AddonIcon.png",
 			"name": "Moon Cards Editor",
-			"description": "Deck editor in online rooms — manage your cards without leaving the game.",
+			"description": "A quality-of-life upgrade for the Club Card game deck editor.",
 			"author": "Lunar Kitsunify",
 			"repository": "https://github.com/LunarKitsunify/MoonCEBC",
 			"discord": "https://discord.gg/ZByQXVHm4u",
-			"tags": ["enhancements","expansion"],
+			"tags": ["enhancements", "expansion"],
 			"type": "module",
 			"website": "https://clubcardmonitoring.onrender.com/",
 			"versions": [
@@ -461,7 +483,7 @@
 		},
 		{
 			"id": "MPA",
-			"icon":"https://mayathefoxy.github.io/MPA/paw64.png",
+			"icon": "https://mayathefoxy.github.io/MPA/paw64.png",
 			"name": "Maya's Petplay Additions (MPA)",
 			"description": "Adds more petplay themed content",
 			"author": "MayaTheFoxy",
@@ -500,19 +522,19 @@
 		{
 			"id": "CRABS",
 			"icon": "https://sin-1337.github.io/CRABS/images/CRABS_Logo.png",
-			"name": "Crazy Roster Addon By Sin (CRABS)",
-			"description": "Adds a room roster you can summon with /roster or /players that includes several interactive tools and assists you with managing a room",
+			"name": "CRABS (Crazy Roster Addon By Sin)",
+			"description": "Adds a dynamic, stowable room roster (via /roster or /crabs) designed to streamline your gameplay with live player sorting, advanced map tracking, global Whisper+, and interactive management tools.",
 			"author": "Sin",
 			"repository": "https://github.com/sin-1337/CRABS",
-			"tags": ["expansion"],
+			"tags": ["enhancements", "expansion"],
 			"type": "script",
 			"versions": [
 				{
-					"distribution": "Stable",
+					"distribution": "stable",
 					"source": "https://sin-1337.github.io/CRABS/Stable/bundle.js"
 				},
 				{
-					"distribution": "Beta",
+					"distribution": "beta",
 					"source": "https://sin-1337.github.io/CRABS/Beta/bundle.js"
 				}
 			]
@@ -566,7 +588,10 @@
 		{
 			"id": "LianChat",
 			"icon": "https://xinlian132243.github.io/BCMod/Assets/LianChatButton.png",
-			"name": "涟信 LianChat",
+			"name": {
+				"en": "LianChat",
+				"cn": "涟信"
+			},
 			"description": "A more modern interface for private messaging with friends, custom avatars and signatures, and the ability to view lobby rooms from anywhere.",
 			"author": "XinLian",
 			"repository": "https://github.com/XinLian132243/BCMod/",
@@ -576,6 +601,298 @@
 				{
 					"distribution": "stable",
 					"source": "https://xinlian132243.github.io/BCMod/BC_LianChat.user.js"
+				}
+			]
+		},
+		{
+			"id": "NFT",
+			"name": "NFT - Nest of Fluffy Treasures",
+			"description": "Save and load ItemHandheld / ItemMisc items with full appearance, crafter and property restore.",
+			"author": "Nicole, Felix, Tifa",
+			"repository": "https://gitlab.com/nicole-bc-group/NFT/",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://nft-dc4430.gitlab.io/NFT.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://nft-dc4430.gitlab.io/NFT-dev.js"
+				}
+			]
+		},
+		{
+			"id": "EmeryBC",
+			"name": "EmeryBC",
+			"description": "Outfits, restraint sets, action buttons, poses, scenes, friends tools, palettes, IM & QoL features for Bondage Club.",
+			"author": "Emery",
+			"repository": "https://github.com/NekoEmery/EmeryBC",
+			"tags": ["enhancements", "automation"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://nekoemery.github.io/EmeryBC/stable/bundle.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://nekoemery.github.io/EmeryBC/dev/bundle.js"
+				}
+			]
+		},
+		{
+			"id": "BCNeko",
+			"icon": "https://cdn.jsdelivr.net/gh/QAQMOON/meow-@main/assets/neko-icon.png",
+			"name": "Bondage Club Neko Chat Enhancer",
+			"description": "Catgirl chat enhancer with neko-style message conversion, chat decorations, kaomoji picker, quick roleplay actions, and color themes.",
+			"author": "QAQMOON",
+			"repository": "https://github.com/QAQMOON/meow-",
+			"tags": ["enhancements"],
+			"type": "eval",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://cdn.jsdelivr.net/gh/QAQMOON/meow-@main/dist/bondage-club-neko.runtime.full.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://cdn.jsdelivr.net/gh/QAQMOON/meow-@main/dist/bondage-club-neko.dev.runtime.js"
+				}
+			]
+		},
+		{
+			"id": "AFC",
+			"icon": "https://cdn.jsdelivr.net/gh/awdrrawd/BC-AFC@main/Images/AFC-ICON.png",
+			"name": {
+				"en": "Abundantia Florum ─Chromatica─",
+				"cn": "繁戀如花 ─繽紛─"
+			},
+			"description": "Extended lover framework featuring relationship progression, shared private rooms, integrated Heart Lock systems.",
+			"author": "Likolisu",
+			"repository": "https://github.com/awdrrawd/BC-AFC",
+			"tags": ["expansion"],
+			"type": "module",
+			"versions": [
+				{
+					"distribution": "dev",
+					"source": "https://awdrrawd.github.io/BC-AFC/assets/main.js"
+				}
+			]
+		},
+		{
+			"id": "FCM",
+			"name": {
+				"en": "Friends and ChatRoom Manager",
+				"cn": "好友與房間管理"
+			},
+			"description": "Friends and chatroom enhancement toolkit with avatar display, relationship tracking, player search, and extended room utilities.",
+			"author": "Likolisu",
+			"repository": "https://github.com/awdrrawd/BC-FCM",
+			"tags": ["expansion"],
+			"type": "module",
+			"versions": [
+				{
+					"distribution": "dev",
+					"source": "https://awdrrawd.github.io/BC-FCM/assets/main.js"
+				}
+			]
+		},
+		{
+			"id": "HSC",
+			"icon": "https://cdn.jsdelivr.net/gh/awdrrawd/BC-HSC@main/Assets/Icon/HSC-iconB2.png",
+			"name": {
+				"en": "Hypnotic Slave Club",
+				"cn": "催眠奴隸俱樂部"
+			},
+			"description": "Provides a variety of hypnosis effects to enhance the immersion of the experience.",
+			"author": "Likolisu",
+			"repository": "https://github.com/awdrrawd/BC-HSC",
+			"tags": ["expansion"],
+			"type": "module",
+			"versions": [
+				{
+					"distribution": "dev",
+					"source": "https://awdrrawd.github.io/BC-HSC/assets/main.js"
+				}
+			]
+		},
+		{
+			"id": "KikiLink",
+			"icon": "https://cdn.jsdelivr.net/gh/Lilja000/KikiLink@82885c09d2be1cf22dd5423555557e96c1c1c7a3/design/branding/kikilink-emblem.webp",
+			"name": "KikiLink",
+			"description": "Social profiles, direct and group chat, presence, room tools, media, custom activities, reactions, and quality-of-life features.",
+			"author": "Kiki",
+			"repository": "https://github.com/Lilja000/KikiLink",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://cdn.jsdelivr.net/gh/Lilja000/KikiLink@main/dist/KikiLink.fusam.js"
+				}
+			]
+		},
+		{
+			"id": "EMLALOCK",
+			"name": "EmlaLock BC Integration",
+			"description": "Shows EmlaLock account and lock status badges",
+			"icon": "https://gitlab.com/emlalock/bc-userscript/-/raw/main/logo.svg",
+			"author": "EmlaLock",
+			"repository": "https://gitlab.com/emlalock/bc-userscript",
+			"website": "https://www.emlalock.com",
+			"discord": "https://discord.gg/9gwPqQxqfZ",
+			"tags": ["expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://www.emlalock.com/bc-emlalock.user.js"
+				}
+			]
+		},
+		{
+			"id": "AEE",
+			"icon": "https://cdn.jsdelivr.net/gh/awdrrawd/BC-AEE@main/public/AEE_icon.jpg",
+			"name": {
+				"cn": "外觀編輯拓展",
+				"en": "Appearance editing extension"
+			},
+			"description": "A clothing editor extension for the club, featuring a modern UI, a wide range of convenient tools, intuitive controls, highly customizable settings, as well as a completely revamped wardrobe system with expanded clothing capacity.",
+			"author": "Likolisu",
+			"repository": "https://github.com/awdrrawd/BC-AEE",
+			"tags": ["expansion"],
+			"type": "module",
+			"versions": [
+				{
+					"distribution": "beta",
+					"source": "https://awdrrawd.github.io/BC-AEE/assets/main.js"
+				}
+			]
+		},
+		{
+			"id": "BCPlus",
+			"icon": "https://seles84.github.io/bc-plus/icon.png",
+			"name": "BC+ (Bondage Club Plus)",
+			"description": "Rules, curses, punishments, contracts, auto-generated permissions, a virtual pet module and collar welding - runs standalone or alongside BCX",
+			"author": "Seles",
+			"repository": "https://github.com/Seles84/bc-plus",
+			"website": "https://seles84.github.io/bc-plus/",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://seles84.github.io/bc-plus/bcplus.js"
+				}
+			]
+		},
+		{
+			"id": "BCSecPris",
+			"icon": "https://thesecretcoder-bc.gitlab.io/secretprison/icon.png",
+			"name": "Secret Prison",
+			"description": "Long cell and asylum sentences set by whisper, with parole by beep, taunts, status checks and a settings screen. Requires BCX",
+			"author": "TheSecretCoder",
+			"repository": "https://gitlab.com/TheSecretCoder-BC/secretprison",
+			"website": "https://gitlab.com/TheSecretCoder-BC/secretprison/-/blob/main/KEYHOLDER.md",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://thesecretcoder-bc.gitlab.io/secretprison/secretprison.js"
+				}
+			]
+		},
+		{
+			"id": "FBM",
+			"icon": "https://freya-bc.github.io/Freyas-Better-Maps/assets/freyas-better-maps-logo.jpg",
+			"name": "Freya’s Better Maps",
+			"description": "Bondage Club map helpers: typing bubbles, copy and paste, build tools, templates, map library, hearing-range whisper, SuperZoom.",
+			"author": "Freya",
+			"repository": "https://github.com/Freya-BC/Freyas-Better-Maps",
+			"tags": ["enhancements"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://freya-bc.github.io/Freyas-Better-Maps/loader.js"
+				}
+			]
+		},
+		{
+			"id": "Seidr",
+			"icon": "https://freya-bc.github.io/Freyas-Seidr/assets/freyas-seidr-logo.png",
+			"name": "Freya’s Seidr",
+			"description": "Simple Plugin for Pulling Left/Right and Cuddle for Cuddle piles. Additional new Actions. A Room Manager and other helpful utility tools",
+			"author": "Freya",
+			"repository": "https://github.com/Freya-BC/Freyas-Seidr",
+			"website": "https://freya-bc.github.io/Freyas-Seidr/",
+			"tags": ["enhancements"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://freya-bc.github.io/Freyas-Seidr/loader.js"
+				}
+			]
+		},
+		{
+			"id": "SlimeBeep",
+			"icon": "https://proudkiller0015.github.io/slimebeep/icon-128.png",
+			"name": "SlimeBeep",
+			"description": "A cute beep messenger: chat with each friend, see who's online and where, beep many friends at once (WaveBeep), group chats with other SlimeBeep users, profile pictures and a night mode. Uses its own server on Cloudflare (Workers + Durable Objects, code in the repo's relay/ folder) to store group chats (members, last 200 messages, pictures) and beeps left for offline friends (kept up to 14 days).",
+			"author": "SlimeQueenSamantha",
+			"repository": "https://github.com/Proudkiller0015/slimebeep",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "beta",
+					"source": "https://proudkiller0015.github.io/slimebeep/slimebeep.js"
+				}
+			]
+		},
+		{
+			"id": "GGC",
+			"icon": "https://galia-bc.github.io/galia.github.io/club-gaming/images/galias_logo.png",
+			"name": "Galia's Gambling Club (GGC)",
+			"description": "Multiplayer games, a bank, player trades, and animated chat-room effects.",
+			"author": "Galia",
+			"repository": "https://github.com/galia-bc/galia.github.io",
+			"website": "https://galia-bc.github.io/galia.github.io/",
+			"tags": ["enhancements", "expansion"],
+			"type": "script",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://galia-bc.github.io/galia.github.io/club-gaming/stable/club-gaming.js"
+				},
+				{
+					"distribution": "beta",
+					"source": "https://galia-bc.github.io/galia.github.io/club-gaming/beta/club-gaming.js"
+				}
+			]
+		},
+		{
+			"id": "ECHS",
+			"icon": "https://dwfreegethub.github.io/HypnosisAddon/icon.png",
+			"name": "Erotic Chat Hypnosis Suite (ECHS)",
+			"description": "Interactive hypnosis between players—featuring inductions, spoken suggestions, custom triggers, crafted drinks, and more. Designed to be the most comprehensive hypnosis add-on for BC.",
+			"author": "DWfree",
+			"repository": "https://github.com/Dwfreegethub/HypnosisAddon",
+			"tags": ["expansion"],
+			"type": "script",
+			"website": "https://github.com/Dwfreegethub/HypnosisAddon/wiki",
+			"versions": [
+				{
+					"distribution": "stable",
+					"source": "https://dwfreegethub.github.io/HypnosisAddon/HypnosisAddon.js"
+				},
+				{
+					"distribution": "dev",
+					"source": "https://dwfreegethub.github.io/HypnosisAddon/dev/HypnosisAddon.js"
 				}
 			]
 		}
