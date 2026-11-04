@@ -1,8 +1,7 @@
-import { waitFor } from "./delay.js"
-import { get as getLocal } from "./localstore.js"
+import { sleep, waitFor } from "./delay.js"
+import { disableBrowserMod, enableBrowserMod, getBrowser, isEmergencyMode } from "./localstore.js"
 import { getAddon, getAddonVersion, updateManifest } from "./manifest.js"
-import { playerSettingsLoaded } from "./playerstore.js"
-import { get } from "./settings.js"
+import { disableAccountMod, getAccount, playerSettingsLoaded, saveAccount } from "./playerstore.js"
 import { showAsyncModal } from "./ui.js"
 
 let skipLoading = false
@@ -10,12 +9,11 @@ let firstLoad = true
 
 const lastSessionStatusKey = "fusam.lastSessionStatus"
 const lastErrorKey = "fusam.lastError"
-const lastSessionHadError =
-	localStorage?.getItem?.(lastSessionStatusKey) === "error" || false
+const lastSessionHadError = localStorage?.getItem?.(lastSessionStatusKey) === "error" || false
 setLastSessionStatus("ok")
 
 window.addEventListener("error", (event) => {
-	console.error("Uncaught error", event)
+	console.error("[FUSAM]: Uncaught error", event)
 	setLastError(
 		JSON.stringify({
 			message: event.message,
@@ -25,10 +23,24 @@ window.addEventListener("error", (event) => {
 	)
 })
 
+/**
+ *
+ * @returns {import("./types/fusam.js").FUSAMPublicAPI}
+ */
+export function getFUSAM() {
+	return /** @type {import("./types/fusam.js").FUSAMPublicAPI}} */ (window.FUSAM)
+}
+
+/**
+ * @param {string} status
+ */
 function setLastSessionStatus(status) {
 	localStorage?.setItem?.(lastSessionStatusKey, status)
 }
 
+/**
+ * @param {string} error
+ */
 function setLastError(error) {
 	localStorage?.setItem?.(lastErrorKey, error)
 	setLastSessionStatus("error")
@@ -38,15 +50,39 @@ export function getLastError() {
 	return localStorage?.getItem?.(lastErrorKey)
 }
 
+/**
+ * @param {import("./types/fusam.js").FUSAMAddonState['status']} status
+ */
+function getLoadedAddonsByStatus(status) {
+	return Object.entries(getFUSAM().addons)
+		.filter(([_, state]) => state.status === status)
+		.map(([id]) => id)
+}
+
+/**
+ * @param {import("./types/fusam.js").FUSAMSettings} settings
+ */
+function addonFixup(settings) {
+	if (settings.enabledDistributions["ABCL"] === "unstable") {
+		settings.enabledDistributions["ABCL"] = "dev"
+	}
+	if (settings.enabledDistributions["CRABS"]) {
+		settings.enabledDistributions["CRABS"] = settings.enabledDistributions["CRABS"].toLowerCase()
+	}
+}
+
 export async function loadAddons() {
 	if (skipLoading) return
+	if (isEmergencyMode()) {
+		console.warn("[FUSAM]: Emergency mode enabled, skipping addon loading")
+		return
+	}
 	if (lastSessionHadError && firstLoad) {
 		firstLoad = false
 		const lastError = localStorage?.getItem?.(lastErrorKey)
-		console.warn("The previous session had an error", lastError)
+		console.warn("[FUSAM]: The previous session had an error", lastError)
 		const [answer] = await showAsyncModal({
-			prompt:
-				"The previous session had an error. Do you want to skip loading addons?",
+			prompt: "The previous session had an error. Do you want to skip loading addons?",
 			buttons: {
 				submit: "Yes",
 				cancel: "No",
@@ -60,57 +96,90 @@ export async function loadAddons() {
 	firstLoad = false
 	await updateManifest()
 
-	// Skip loading device addons if the player is already logged in
-	if (!playerSettingsLoaded()) {
-		const addons = getLocal()
-		await load(addons.enabledDistributions)
-	}
+	// Load device addons immediately, then wait for a login to happen
+	const browserSettings = getBrowser()
+	addonFixup(browserSettings)
+	await load(browserSettings.enabledDistributions)
 
 	await waitFor(() => playerSettingsLoaded())
-	const addons = get()
-	await load(addons.enabledDistributions)
+	const accountSettings = getAccount()
+	addonFixup(accountSettings)
+	await load(accountSettings.enabledDistributions, true)
+
+	const missingAddonsIDs = getLoadedAddonsByStatus("missing")
+	let shouldSave = false
+	let shouldReload = false
+	if (missingAddonsIDs.length) {
+		showAsyncModal({
+			prompt: `The following addons from your configuration couldn't be found in the manifest, they'll be removed:\n${missingAddonsIDs.join(", ")}`,
+			buttons: { submit: "OK" },
+		})
+		for (const id of missingAddonsIDs) {
+			disableAccountMod(id)
+			disableBrowserMod(id)
+			shouldSave = true
+		}
+	}
+	const browserOnlyAddonsIDs = getLoadedAddonsByStatus("browser-only")
+	if (browserOnlyAddonsIDs.length) {
+		const res = await showAsyncModal({
+			prompt: `The following addons are loaded by your account, but they're marked to only be compatible with a Browser-level load. They'll be moved to the proper level, but you'll have to refresh to fix the issue:\n${browserOnlyAddonsIDs.join(", ")}`,
+			buttons: { submit: "Fix and Refresh", ignore: "Ignore" },
+		})
+		if (res[0] === "submit") {
+			for (const id of browserOnlyAddonsIDs) {
+				const val = accountSettings.enabledDistributions[id]
+				disableAccountMod(id)
+				enableBrowserMod(id, val)
+			}
+			shouldReload = true
+		}
+	}
+	if (shouldSave || shouldReload) {
+		saveAccount()
+		if (shouldReload) {
+			await sleep(4000) // Give some time for the update message to round-trip
+			// @ts-expect-error
+			window.location = window.location
+		}
+	}
 }
 
 /**
  * @param {Record<string, string>} settings
+ * @param {boolean} [accountLoad=false]
  */
-async function load(settings) {
+async function load(settings, accountLoad = false) {
+	const FUSAM = getFUSAM()
 	for (const [id, distribution] of Object.entries(settings)) {
-		if (id in window.FUSAM.addons) continue
+		if (id in FUSAM.addons) continue
 
-		window.FUSAM.addons[id] = {
+		FUSAM.addons[id] = {
 			distribution,
 			status: "loading",
 		}
 
 		const addon = getAddon(id)
+		if (!addon) continue
 		const version = getAddonVersion(id, distribution)
 		if (!version) {
-			console.warn(`Addon ${id} or its distribution ${distribution} not found`)
-			window.FUSAM.addons[id].status = "error"
+			console.warn(`[FUSAM]: Addon ${id} or its distribution ${distribution} not found`)
+			FUSAM.addons[id].status = "missing"
 			continue
 		}
-		console.debug(`Loading addon ${id} from ${distribution}`);
-		(async () => {
+		if (addon.browserOnly && accountLoad) {
+			console.warn(`[FUSAM]: Browser-only addon ${id} found in account list`)
+			FUSAM.addons[id].status = "browser-only"
+			continue
+		}
+		console.debug(`[FUSAM]: Loading addon ${id} from ${distribution}`)
+		;(async () => {
 			try {
-				const URL = version.source + (addon.noCacheBusting ? '' : `?v=${Date.now()}`);
-				switch (addon.type) {
-					case "eval":
-						await evalAddon(URL, version.source)
-						window.FUSAM.addons[id].status = "loaded"
-					break
-					case "module":
-						await import(URL)
-						window.FUSAM.addons[id].status = "loaded"
-					break
-					case "script":
-						await scriptAddon(URL, "text/javascript")
-						window.FUSAM.addons[id].status = "loaded"
-					break
-				}
+				addon.load(version)
+				FUSAM.addons[id].status ??= "loaded"
 			} catch (e) {
-				console.error(`Failed to load addon ${id}`, e)
-				window.FUSAM.addons[id].status = "error"
+				console.error(`[FUSAM]: Failed to load addon ${id}`, e)
+				FUSAM.addons[id].status = "error"
 				setLastError(`Failed to load addon ${id}: ${e}`)
 			}
 		})()
@@ -122,7 +191,7 @@ async function load(settings) {
  * @param {'module' | 'text/javascript'} type Type of the script
  * @return {Promise<Event>} [onload] Callback when the script is loaded
  */
-function scriptAddon(url, type) {
+export function scriptAddon(url, type) {
 	return new Promise((resolve, reject) => {
 		const script = document.createElement("script")
 		script.type = type
@@ -134,14 +203,13 @@ function scriptAddon(url, type) {
 	})
 }
 
-async function evalAddon(url, source) {
-	await fetch(url)
-		.then((resp) => resp.text())
-		.then((resp) => {
-			resp = resp.replace(
-				/sourceMappingURL=.*?.map/u,
-				`sourceMappingURL=${source}.map`
-			)
-			eval?.(resp)
-		})
+/**
+ * @param {string} url
+ * @param {string} source
+ */
+export async function evalAddon(url, source) {
+	const resp = await fetch(url)
+	let data = await resp.text()
+	data = data.replace(/sourceMappingURL=.*?.map/u, `sourceMappingURL=${source}.map`)
+	eval?.(data)
 }

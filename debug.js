@@ -1,5 +1,6 @@
 import { downloadZip } from "./vendor/client-zip.js"
-import { getLastError } from "./loader.js"
+import { getLastError, getFUSAM } from "./loader.js"
+import { isEmergencyMode } from "./localstore.js"
 import { bcModSdk } from "./vendor/bcmodsdk.js"
 
 /**
@@ -22,11 +23,11 @@ export async function generateDebugReport(addon) {
 	const now = Date.now()
 	if (addon) {
 		if (debugMethods.has(addon)) {
-			const debugBlob = await debugMethods.get(addon)()
+			const debugBlob = (await debugMethods.get(addon)?.()) ?? ""
 			saveBlobAsFile(new Blob([debugBlob]), filename(addon, now))
 			return
 		}
-		console.warn(`Addon ${addon} not found`)
+		console.warn(`[FUSAM]: Addon ${addon} not found`)
 		return
 	}
 
@@ -68,12 +69,11 @@ export function registerFUSAMDebugMethod() {
 	registerDebugMethod("FUSAM", () => {
 		let d = `Version: LOCAL_FUSAM\n`
 		d += `Browser: ${navigator.userAgent}\n`
-		d += `Local storage: ${
-			isLocalStorageAvailable() ? "available" : "unavailable"
-		}\n`
+		d += `Local storage: ${isLocalStorageAvailable() ? "available" : "unavailable"}\n`
 		d += `Domain used: ${window.location.host}\n`
 		d += `Last error: ${getLastError()}\n`
-		d += `FUSAM-enabled addons:\n - ${Object.entries(window.FUSAM.addons)
+		d += `Emergency mode: ${isEmergencyMode() ? "enabled" : "disabled"}\n`
+		d += `FUSAM-enabled addons:\n - ${Object.entries(getFUSAM().addons)
 			.map(([addon, ver]) => `${addon}:${JSON.stringify(ver)}`)
 			.join("\n - ")}\n`
 		d += `SDK-enabled addons:\n - ${bcModSdk

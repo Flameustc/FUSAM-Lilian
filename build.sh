@@ -12,14 +12,15 @@ fi
 echo $OSTYPE
 
 mkdir -p public
-cp -r *.js *.html static manifest.json vendor public/
+cp -r *.js *.html static translations manifest.json vendor public/
 cd public
 $SED -i -e "s#1.0.0#$shortSHA#" vendor/bcmodsdk.js
 $SED -i -e "s#LOCAL_FUSAM#$shortSHA#" debug.js
-$SED -i -e "s#http://localhost:3001#https://sidiousious.gitlab.io/bc-addon-loader#" config.js
-$SED -i -e "s#http://localhost:3001#https://sidiousious.gitlab.io/bc-addon-loader#" loader.user.js
+$SED -i -e "s#http://localhost:3001#https://flameustc.github.io/FUSAM-Lilian#" config.js
+$SED -i -e "s#http://localhost:3001#https://flameustc.github.io/FUSAM-Lilian#" loader.user.js
 for f in *.js; do
-    $SED -i -e "s#\"./\\([^/]*.js\\)\"#\"./$SHA.\\1\"#g" $f
+    $SED -i -e "s#\"./\\([^/]*.js\\)\"#\"./$SHA.\\1\"#g" \
+            -e "s#\"./$SHA\\.fusam\\.js\"#\"./fusam.js\"#g" $f
 done
 ls -R
 for f in *.js; do

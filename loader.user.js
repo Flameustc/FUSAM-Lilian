@@ -1,15 +1,17 @@
 // ==UserScript==
-// @name Fantastic Ultimate Solution to Addon Management Loader
-// @namespace https://www.bondageprojects.com/
-// @version 1.0.5
-// @description A loader for the FUSAM
+// @name Fantastic Ultimate Solution to Addon Management Loader (Lilian)
+// @namespace https://flameustc.github.io/FUSAM-Lilian/
+// @version 1.0.7
+// @description A loader for the Lilian fork of FUSAM
 // @author Sidious
-// @downloadURL https://sidiousious.gitlab.io/bc-addon-loader/loader.user.js
+// @updateURL https://flameustc.github.io/FUSAM-Lilian/loader.user.js
+// @downloadURL https://flameustc.github.io/FUSAM-Lilian/loader.user.js
 // @match https://*.bondageprojects.elementfx.com/R*/*
 // @match https://*.bondage-europe.com/R*/*
+// @match https://*.bondageeurope.com/R*/*
 // @match https://*.bondageprojects.com/R*/*
 // @match https://*.bondage-asia.com/club/R*
-// @match http://localhost:*/*
+// @include /^http://localhost:[^/]*?/.*?$/
 // @icon data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant none
 // @run-at document-end
@@ -37,8 +39,4 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import(
-	`https://flameustc.github.io/FUSAM-Lilian/fusam.js?v=${(
-		Date.now() / 10000
-	).toFixed(0)}`
-)
+import(`https://flameustc.github.io/FUSAM-Lilian/fusam.js?v=${(Date.now() / 10000).toFixed(0)}`)

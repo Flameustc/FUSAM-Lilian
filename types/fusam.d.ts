@@ -24,24 +24,19 @@ declare global {
 	}
 }
 
-type FUSAMPublicAPI = {
+export type FUSAMPublicAPI = {
 	present: true
 	addons: Record<string, FUSAMAddonState>
-	registerDebugMethod: (
-		name: string,
-		method: () => string | Promise<string>
-	) => void
+	registerDebugMethod: (name: string, method: () => string | Promise<string>) => void
 	modals: {
 		open: (options: ModalOptions) => void
-		openAsync: (
-			options: Omit<ModalOptions, "callback">
-		) => Promise<[string, string | null]>
+		openAsync: (options: Omit<ModalOptions, "callback">) => Promise<[string, string | null]>
 	}
 }
 
-type FUSAMAddonState = {
+export type FUSAMAddonState = {
 	distribution: string
-	status: "loading" | "loaded" | "error"
+	status: "loading" | "loaded" | "error" | "missing" | "browser-only"
 }
 
 export type FUSAMSettings = {

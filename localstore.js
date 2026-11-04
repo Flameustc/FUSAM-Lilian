@@ -20,11 +20,13 @@ import { isSettingsV1 } from "./typeasserts.js"
 
 const storageKey = "fusam.settings"
 
-export function get() {
-	const s =
-		/** @type {import("./types/fusam.js").FUSAMSettings | Record<string, string>} */ (
-			JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {}
-		)
+/**
+ * @returns {import("./types/fusam.js").FUSAMSettings}
+ */
+export function getBrowser() {
+	const s = /** @type {import("./types/fusam.js").FUSAMSettings | Record<string, string>} */ (
+		JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {}
+	)
 	// Migration from initial version
 	if (isSettingsV1(s)) {
 		return s
@@ -34,27 +36,53 @@ export function get() {
 	}
 }
 
-function set(value) {
+/**
+ * @param {import("./types/fusam.js").FUSAMSettings} value
+ */
+function setBrowser(value) {
 	window.localStorage.setItem(storageKey, JSON.stringify(value))
 }
 
-const settings = get()
+const settings = getBrowser()
+console.debug("[FUSAM]: Loaded device settings", settings)
 
-export function enableMod(id, distribution) {
+/**
+ * @param {string} id
+ * @param {string} distribution
+ */
+export function enableBrowserMod(id, distribution) {
 	settings.enabledDistributions[id] = distribution
-	save()
+	saveBrowser()
 }
 
-export function disableMod(id) {
+/**
+ * @param {string} id
+ */
+export function disableBrowserMod(id) {
 	delete settings.enabledDistributions[id]
-	save()
+	saveBrowser()
 }
 
-export function distribution(id) {
+/**
+ * @param {string} id
+ */
+export function browserDistribution(id) {
 	return settings.enabledDistributions[id]
 }
 
-function save() {
-	console.debug("Saving local settings", settings)
-	set(settings)
+function saveBrowser() {
+	console.debug("[FUSAM]: Saving browser settings", settings)
+	setBrowser(settings)
+}
+
+const emergencyModeKey = "fusam.emergencyMode"
+
+export function isEmergencyMode() {
+	return window.localStorage.getItem(emergencyModeKey) === "true"
+}
+
+/** @param {boolean} enabled */
+export function setEmergencyMode(enabled) {
+	if (enabled) window.localStorage.setItem(emergencyModeKey, "true")
+	else window.localStorage.removeItem(emergencyModeKey)
 }
